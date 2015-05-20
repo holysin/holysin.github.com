@@ -7,27 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。
 项目需求：1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。2.cell中圆角和阴影共存。
-请看效果图
-项目实现自定义uicollectionview的布局，实现瀑布流1.在prepareLayout函数中初始化变量，比如cell的间距
-123">
+请看效果图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="uicollectionview 用法小结">
 <meta property="og:url" content="http://yoursite.com/2015/05/20/uicollectionview-用法小结/index.html">
 <meta property="og:site_name" content="holysin's blog">
 <meta property="og:description" content="最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。
 项目需求：1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。2.cell中圆角和阴影共存。
-请看效果图
-项目实现自定义uicollectionview的布局，实现瀑布流1.在prepareLayout函数中初始化变量，比如cell的间距
-123">
+请看效果图">
 <meta property="og:image" content="http://yoursite.com/images/uicollectionview/uicollectionview.gif">
-<meta property="og:updated_time" content="2015-05-20T23:19:33.000Z">
+<meta property="og:updated_time" content="2015-05-20T23:57:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="uicollectionview 用法小结">
 <meta name="twitter:description" content="最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。
 项目需求：1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。2.cell中圆角和阴影共存。
-请看效果图
-项目实现自定义uicollectionview的布局，实现瀑布流1.在prepareLayout函数中初始化变量，比如cell的间距
-123">
+请看效果图">
   
     <link rel="alternative" href="/atom.xml" title="holysin&#39;s blog" type="application/atom+xml">
   
@@ -98,6 +92,7 @@
         <p>最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。</p>
 <h2 id="项目需求：">项目需求：</h2><p>1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。<br>2.cell中圆角和阴影共存。</p>
 <p>请看效果图<br><img src="/images/uicollectionview/uicollectionview.gif" alt="瀑布流效果图"></p>
+<a id="more"></a>
 <h2 id="项目实现">项目实现</h2><h3 id="自定义uicollectionview的布局，实现瀑布流">自定义uicollectionview的布局，实现瀑布流</h3><p>1.在prepareLayout函数中初始化变量，比如cell的间距</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  初始化layout后自动调动，可以在该方法中初始化一些自定义的变量参数</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)prepareLayout &#123;</span><br><span class="line">    [<span class="keyword">super</span> prepareLayout];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 初始化参数</span></span><br><span class="line">    _cellCount = [<span class="keyword">self</span><span class="variable">.collectionView</span> numberOfItemsInSection:<span class="number">0</span>]; <span class="comment">// cell个数，直接从collectionView中获得</span></span><br><span class="line">    _insert = <span class="number">5</span>; <span class="comment">// 设置间距</span></span><br><span class="line">    _itemWidth = SCREEN_WIDTH / <span class="number">2</span> - <span class="number">2</span> * _insert; <span class="comment">// cell宽度</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>2.重写collectionViewContentSize函数返回collectionview的大小<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  设置UICollectionView的内容大小，道理与UIScrollView的contentSize类似</span><br><span class="line"> *</span><br><span class="line"> *  @return 返回设置的UICollectionView的内容大小</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">CGSize</span>)collectionViewContentSize &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">CGSizeMake</span>(SCREEN_WIDTH, MAX(_leftY, _rightY));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -117,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/05/20/uicollectionview-用法小结/" data-id="ci9xe5zbh000rdyujh1nnaal1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/05/20/uicollectionview-用法小结/" data-id="ci9xeufj2000rs5ujz88mlmkk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
