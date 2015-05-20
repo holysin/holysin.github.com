@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>uicollectionview 用法小结 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。
+项目需求：1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。2.cell中圆角和阴影共存。
+请看效果图
+项目实现自定义uicollectionview的布局，实现瀑布流1.在prepareLayout函数中初始化变量，比如cell的间距
+123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uicollectionview 用法小结">
+<meta property="og:url" content="http://yoursite.com/2015/05/20/uicollectionview-用法小结/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。
+项目需求：1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。2.cell中圆角和阴影共存。
+请看效果图
+项目实现自定义uicollectionview的布局，实现瀑布流1.在prepareLayout函数中初始化变量，比如cell的间距
+123">
+<meta property="og:image" content="http://yoursite.com/images/uicollectionview/uicollectionview.gif">
+<meta property="og:updated_time" content="2015-05-20T23:19:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="uicollectionview 用法小结">
+<meta name="twitter:description" content="最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。
+项目需求：1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。2.cell中圆角和阴影共存。
+请看效果图
+项目实现自定义uicollectionview的布局，实现瀑布流1.在prepareLayout函数中初始化变量，比如cell的间距
+123">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-uicollectionview-用法小结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/20/uicollectionview-用法小结/" class="article-date">
+  <time datetime="2015-05-20T14:37:53.000Z" itemprop="datePublished">2015-05-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      uicollectionview 用法小结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。</p>
+<h2 id="项目需求：">项目需求：</h2><p>1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。<br>2.cell中圆角和阴影共存。</p>
+<p>请看效果图<br><img src="/images/uicollectionview/uicollectionview.gif" alt="瀑布流效果图"></p>
+<h2 id="项目实现">项目实现</h2><h3 id="自定义uicollectionview的布局，实现瀑布流">自定义uicollectionview的布局，实现瀑布流</h3><p>1.在prepareLayout函数中初始化变量，比如cell的间距</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  初始化layout后自动调动，可以在该方法中初始化一些自定义的变量参数</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)prepareLayout &#123;</span><br><span class="line">    [<span class="keyword">super</span> prepareLayout];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 初始化参数</span></span><br><span class="line">    _cellCount = [<span class="keyword">self</span><span class="variable">.collectionView</span> numberOfItemsInSection:<span class="number">0</span>]; <span class="comment">// cell个数，直接从collectionView中获得</span></span><br><span class="line">    _insert = <span class="number">5</span>; <span class="comment">// 设置间距</span></span><br><span class="line">    _itemWidth = SCREEN_WIDTH / <span class="number">2</span> - <span class="number">2</span> * _insert; <span class="comment">// cell宽度</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.重写collectionViewContentSize函数返回collectionview的大小<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  设置UICollectionView的内容大小，道理与UIScrollView的contentSize类似</span><br><span class="line"> *</span><br><span class="line"> *  @return 返回设置的UICollectionView的内容大小</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">CGSize</span>)collectionViewContentSize &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">CGSizeMake</span>(SCREEN_WIDTH, MAX(_leftY, _rightY));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.确定每个cell的显示属性<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  初始Layout外观</span><br><span class="line"> *</span><br><span class="line"> *  @param rect 所有元素的布局属性</span><br><span class="line"> *</span><br><span class="line"> *  @return 所有元素的布局</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">NSArray</span> *)layoutAttributesForElementsInRect:(<span class="built_in">CGRect</span>)rect &#123;</span><br><span class="line">    _leftY = _insert; <span class="comment">// 左边起始Y轴</span></span><br><span class="line">    _rightY = _insert; <span class="comment">// 右边起始Y轴</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSMutableArray</span> *attributes = [[<span class="built_in">NSMutableArray</span> alloc] init];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">self</span><span class="variable">.cellCount</span>; i ++) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSIndexPath</span> *indexPath = [<span class="built_in">NSIndexPath</span> indexPathForRow:i inSection:<span class="number">0</span>];</span><br><span class="line">        [attributes addObject:[<span class="keyword">self</span> layoutAttributesForItemAtIndexPath:indexPath]];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> attributes;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  根据不同的indexPath，给出布局</span><br><span class="line"> *</span><br><span class="line"> *  @param indexPath</span><br><span class="line"> *</span><br><span class="line"> *  @return 布局</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UICollectionViewLayoutAttributes</span> *)layoutAttributesForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">    <span class="comment">// 获取代理中返回的每一个cell的大小</span></span><br><span class="line">    <span class="built_in">CGSize</span> itemSize = [<span class="keyword">self</span><span class="variable">.layoutDelegate</span> collectionView:<span class="keyword">self</span><span class="variable">.collectionView</span> collectionViewLayout:<span class="keyword">self</span> sizeOfItemAtIndexPath:indexPath];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 防止代理中给的size.width大于(或小于)layout中定义的width，所以等比例缩放size</span></span><br><span class="line">    <span class="built_in">CGFloat</span> itemHeight = itemSize<span class="variable">.height</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UICollectionViewLayoutAttributes</span> *attributes = [<span class="built_in">UICollectionViewLayoutAttributes</span> layoutAttributesForCellWithIndexPath:indexPath];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断当前的item应该在左侧还是右侧</span></span><br><span class="line">    <span class="built_in">BOOL</span> isLeft = _leftY &lt; _rightY;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (isLeft) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">CGFloat</span> x = _insert; <span class="comment">// x轴起始位置为0</span></span><br><span class="line">        attributes<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(x, _leftY, _itemWidth, itemHeight);</span><br><span class="line">        _leftY += itemHeight + <span class="number">2</span> * _insert; <span class="comment">// 设置新的Y起点</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!isLeft) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">CGFloat</span> x = _itemWidth + <span class="number">3</span> * _insert;</span><br><span class="line">        attributes<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(x, _rightY, _itemWidth, itemHeight);</span><br><span class="line">        _rightY += itemHeight + <span class="number">2</span> * _insert;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> attributes;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实现了这些函数，瀑布流就实现好了。其中的关键在于取到每个cell的大小，然后layoutAttributesForItemAtIndexPath这个函数会计算每个cell的frame，也就是cell的位置，来解决flowlayout同行cell居中对齐的问题。</p>
+<h3 id="用masonry自定义cell布局，并实现自动计算高度">用masonry自定义cell布局，并实现自动计算高度</h3><p>1.设置autolayout布局<br>cell布局高度之所以不一样，是因为有行数为0的label。自动计算cell的关键有3步，首先用masonry定义好布局，要求得高度，每个空间的上下约束必须完整，也就是说最上面控件的top，最下面控件的bottom，还有各个控件中间的间距都需要定义。请看代码。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setupUI</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGFloat</span> natureOffset = <span class="number">8.</span>f;	<span class="comment">//苹果建议的控件间距</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.dummyView</span> = [[<span class="built_in">UIView</span> alloc] init];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:<span class="keyword">self</span><span class="variable">.dummyView</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.dummyView</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.edges</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.contentView</span>);</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.layer</span><span class="variable">.cornerRadius</span> = cornerRadius;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.layer</span><span class="variable">.masksToBounds</span> = <span class="literal">YES</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *superView = <span class="keyword">self</span><span class="variable">.dummyView</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.pic</span> = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">    [superView addSubview:<span class="keyword">self</span><span class="variable">.pic</span>];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.contentView</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.width</span><span class="variable">.equalTo</span>(@((SCREEN_WIDTH - <span class="number">20</span>) / <span class="number">2.</span>f));</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.pic</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.top</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_top</span>);	<span class="comment">// 最上面控件的top</span></span><br><span class="line">        make<span class="variable">.left</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_left</span>);</span><br><span class="line">        make<span class="variable">.right</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_right</span>);</span><br><span class="line">        make<span class="variable">.height</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_width</span>)<span class="variable">.multipliedBy</span>(<span class="number">4.0</span> / <span class="number">3.0</span>);</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.pic</span><span class="variable">.userInteractionEnabled</span> = <span class="literal">YES</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> avatarOffset = <span class="number">8</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> avatarSize = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.avatar</span> = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.avatar</span><span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"touch_focus"</span>];</span><br><span class="line">    [superView addSubview:<span class="keyword">self</span><span class="variable">.avatar</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.avatar</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.left</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_left</span>)<span class="variable">.offset</span>(avatarOffset);</span><br><span class="line">        make<span class="variable">.top</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.pic</span><span class="variable">.mas_bottom</span>)<span class="variable">.offset</span>(avatarOffset);</span><br><span class="line">        make<span class="variable">.width</span><span class="variable">.equalTo</span>(@(avatarSize));</span><br><span class="line">        make<span class="variable">.height</span><span class="variable">.equalTo</span>(@(avatarSize));</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.name</span> = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">    [superView addSubview:<span class="keyword">self</span><span class="variable">.name</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.name</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.left</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.avatar</span><span class="variable">.mas_right</span>)<span class="variable">.offset</span>(natureOffset);</span><br><span class="line">        make<span class="variable">.right</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_right</span>)<span class="variable">.offset</span>(-natureOffset);</span><br><span class="line">        make<span class="variable">.centerY</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.avatar</span><span class="variable">.mas_centerY</span>);</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.name</span><span class="variable">.numberOfLines</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.name</span><span class="variable">.font</span> = [<span class="built_in">UIFont</span> boldSystemFontOfSize:<span class="number">14</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.name</span><span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> colorWithRed:<span class="number">66</span> / <span class="number">255.</span>f green:<span class="number">66</span> / <span class="number">255.</span>f blue:<span class="number">66</span> / <span class="number">255.</span>f alpha:<span class="number">1.0</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.signature</span> = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.signature</span><span class="variable">.numberOfLines</span> = <span class="number">0</span>;	<span class="comment">//多行label</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.signature</span><span class="variable">.lineBreakMode</span> = <span class="built_in">NSLineBreakByWordWrapping</span>;</span><br><span class="line">    [superView addSubview:<span class="keyword">self</span><span class="variable">.signature</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.signature</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.top</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.name</span><span class="variable">.mas_bottom</span>)<span class="variable">.offset</span>(avatarOffset);</span><br><span class="line">        make<span class="variable">.left</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.name</span><span class="variable">.mas_left</span>);</span><br><span class="line">        make<span class="variable">.right</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.name</span><span class="variable">.mas_right</span>);</span><br><span class="line">        make<span class="variable">.bottom</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_bottom</span>)<span class="variable">.offset</span>(-natureOffset);	<span class="comment">// 最下面控件的bottom</span></span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.signature</span><span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.signature</span><span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> colorWithRed:<span class="number">117</span> / <span class="number">255.</span>f green:<span class="number">117</span> / <span class="number">255.</span>f blue:<span class="number">117</span> / <span class="number">255.</span>f alpha:<span class="number">1.0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.重写intrinsicSize返回cell的大小<br>请看代码</p>
+<ul>
+<li>(CGSize)intrinsicContentSize<br>{<br>  CGFloat desiredHeight = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;<br>  CGSize size = CGSizeMake((SCREEN_WIDTH - 20) / 2.f, desiredHeight);<br>  return size;<br>}<br>只需要systemLayoutSizeFittingSize这个函数就可以得到cell的高度，就不用算frame了。</li>
+</ul>
+<p>到这里瀑布流布局就实现了，只需要很少的代码，是不是很赞。</p>
+<h3 id="添加dummyview来实现圆角和阴影共存">添加dummyview来实现圆角和阴影共存</h3><p>问题：为什么圆角和阴影不能共存。<br>答案：如果要设置圆角，必须设置layer的masktobounds = YES; 但是设置这个属性会导致阴影不能绘制。因为masktobounds的意思就是切掉layer外面的内容。stackoverflow上给出的解决办法是把圆角设置在cell的不用的view上，比如圆角设置在contentview的layer上，阴影设置在self的layer上。我试了不同的组合，都没有生效。所以决定在cell上加一个同样大小的dummyview，在dummyview上设置圆角。在self.layer上设置阴影。请看代码。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span><span class="variable">.dummyView</span> = [[<span class="built_in">UIView</span> alloc] init];	<span class="comment">//在dummyview上设置圆角</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:<span class="keyword">self</span><span class="variable">.dummyView</span>];</span><br><span class="line"><span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.dummyView</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make<span class="variable">.edges</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.contentView</span>);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.layer</span><span class="variable">.cornerRadius</span> = cornerRadius;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.layer</span><span class="variable">.masksToBounds</span> = <span class="literal">YES</span>;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)layoutSubviews</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> layoutSubviews];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.cornerRadius</span> = cornerRadius;	<span class="comment">//在self.layer上设置阴影</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.shadowColor</span> = [<span class="built_in">UIColor</span> darkGrayColor]<span class="variable">.CGColor</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.masksToBounds</span> = <span class="literal">NO</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.shadowOffset</span> = <span class="built_in">CGSizeMake</span>(<span class="number">1</span>, <span class="number">3.0</span>f);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.shadowRadius</span> = cornerRadius;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.shadowOpacity</span> = <span class="number">0.75</span>f;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.shadowPath</span> = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="keyword">self</span><span class="variable">.bounds</span> cornerRadius:cornerRadius]<span class="variable">.CGPath</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为什么要在layoutSubviews中设置阴影呢，因为在init的时候设置有的cell的阴影会跑偏，我试了下在layoutSubviews中设置阴影，发现可以。但具体为什么暂时不知道。</p>
+<h2 id="总结">总结</h2><p>以上就是在用collectionview的一点心得。<br>1.自定义collectionview的layout实现瀑布流<br>2.用masonry实现autolayout，并计算cell的高度<br>3.阴影和圆角并存</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/05/20/uicollectionview-用法小结/" data-id="ci9xe5zbh000rdyujh1nnaal1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/04/26/ios在获取用户的位置授权之后，做一些事情/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS在获取用户的位置授权之后，做一些事情</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/">English</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcd/">gcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/群辉/">群辉</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/English/" style="font-size: 16.67px;">English</a> <a href="/tags/Xcode/" style="font-size: 13.33px;">Xcode</a> <a href="/tags/gcd/" style="font-size: 10px;">gcd</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/杂/" style="font-size: 10px;">杂</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/群辉/" style="font-size: 10px;">群辉</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/05/20/uicollectionview-用法小结/">uicollectionview 用法小结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/26/ios在获取用户的位置授权之后，做一些事情/">iOS在获取用户的位置授权之后，做一些事情</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/25/reactivecocoa用法小记/">reactivecocoa用法小记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/25/autolayout下更新布局文件时采用动画/">autolayout下更新布局文件时采用动画</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/25/在autolayout下响应键盘事件/">在autolayout下响应键盘事件</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
