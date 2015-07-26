@@ -61,6 +61,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-iOS常见面试题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/26/iOS常见面试题/" class="article-date">
+  <time datetime="2015-07-26T15:53:13.000Z" itemprop="datePublished">2015-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/26/iOS常见面试题/">iOS常见面试题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在这里记录一下网上流行的iOS面试题，以后面试用。首先就是唐巧最近在微信里发布了一套面试题，在这里记录一下，以后找时间总结一下回答，当然是在弄懂的前提下。仅仅吧答案背下来，却不弄懂是没什么用的。</p>
+<h2 id="一个区分度很大的面试题">一个区分度很大的面试题</h2><hr>
+<p>考察一个面试者基础咋样，基本上问一个 @property 就够了：</p>
+<p>@property 后面可以有哪些修饰符？<br>什么情况使用 weak 关键字，相比 assign 有什么不同？<br>怎么用 copy 关键字？<br>这个写法会出什么问题： @property (copy) NSMutableArray *array;<br>如何让自己的类用 copy 修饰符？如何重写带 copy 关键字的 setter？<br>这一套问题区分度比较大，如果上面的问题都能回答正确，可以延伸问更深入点的：</p>
+<p>@property 的本质是什么？ivar、getter、setter 是如何生成并添加到这个类中的<br>@protocol 和 category 中如何使用 @property<br>runtime 如何实现 weak 属性<br>每个人擅长的领域不一样，我们一般会从简历上找自己写擅长的技术聊，假如自己并不是很熟，最好别写出来或扯出来，万一面试官刚好非常精通这里就露馅了。</p>
+<h2 id="Checklist">Checklist</h2><hr>
+<p>总结过些面试题，没坚持下去，后来把这些当 checklist，面试的时候实在没话聊的时候做个提醒，语言、框架、运行机制性质的：</p>
+<p>[※]@property中有哪些属性关键字？<br>[※]weak属性需要在dealloc中置nil么？<br>[※※]@synthesize和@dynamic分别有什么作用？<br>[※※※]ARC下，不显示指定任何属性关键字时，默认的关键字都有哪些？<br>[※※※]用@property声明的NSString（或NSArray，NSDictionary）经常使用copy关键字，为什么？如果改用strong关键字，可能造成什么问题？<br>[※※※]@synthesize合成实例变量的规则是什么？假如property名为foo，存在一个名为_foo的实例变量，那么还会自动合成新变量么？<br>[※※※※※]在有了自动合成属性实例变量之后，@synthesize还有哪些使用场景？</p>
+<p>[※※]objc中向一个nil对象发送消息将会发生什么？<br>[※※※]objc中向一个对象发送消息[obj foo]和objc_msgSend()函数之间有什么关系？<br>[※※※]什么时候会报unrecognized selector的异常？<br>[※※※※]一个objc对象如何进行内存布局？（考虑有父类的情况）<br>[※※※※]一个objc对象的isa的指针指向什么？有什么作用？<br>[※※※※]下面的代码输出什么？</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Son</span> : <span class="title">Father</span></span></span><br><span class="line">- (<span class="keyword">id</span>)init</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> class]));</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="built_in">NSStringFromClass</span>([<span class="keyword">super</span> class]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>[※※※※]runtime如何通过selector找到对应的IMP地址？（分别考虑类方法和实例方法）<br>[※※※※]使用runtime Associate方法关联的对象，需要在主对象dealloc的时候释放么？<br>[※※※※※]objc中的类方法和实例方法有什么本质区别和联系？<br>[※※※※※]_objc_msgForward函数是做什么的，直接调用它将会发生什么？<br>[※※※※※]runtime如何实现weak变量的自动置nil？<br>[※※※※※]能否向编译后得到的类中增加实例变量？能否向运行时创建的类中添加实例变量？为什么？</p>
+<p>[※※※]runloop和线程有什么关系？<br>[※※※]runloop的mode作用是什么？<br>[※※※※]以+ scheduledTimerWithTimeInterval…的方式触发的timer，在滑动页面上的列表时，timer会暂定回调，为什么？如何解决？<br>[※※※※※]猜想runloop内部是如何实现的？</p>
+<p>[※]objc使用什么机制管理对象内存？<br>[※※※※]ARC通过什么方式帮助开发者管理内存？<br>[※※※※]不手动指定autoreleasepool的前提下，一个autorealese对象在什么时刻释放？（比如在一个vc的viewDidLoad中创建）<br>[※※※※]BAD_ACCESS在什么情况下出现？<br>[※※※※※]苹果是如何实现autoreleasepool的？</p>
+<p>[※※]使用block时什么情况会发生引用循环，如何解决？<br>[※※]在block内如何修改block外部变量？<br>[※※※]使用系统的某些block api（如UIView的block版本写动画时），是否也考虑引用循环问题？</p>
+<p>[※※]GCD的队列（dispatch_queue_t）分哪两种类型？<br>[※※※※]如何用GCD同步若干个异步调用？（如根据若干个url异步加载多张图片，然后在都下载完成后合成一张整图）<br>[※※※※]dispatch_barrier_async的作用是什么？<br>[※※※※※]苹果为什么要废弃dispatch_get_current_queue？<br>[※※※※※]以下代码运行结果如何？</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"1"</span>);</span><br><span class="line">    <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"2"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"3"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>[※※]addObserver:forKeyPath:options:context:各个参数的作用分别是什么，observer中需要实现哪个方法才能获得KVO回调？<br>[※※※]如何手动触发一个value的KVO<br>[※※※]若一个类有实例变量NSString *_foo，调用setValue:forKey:时，可以以foo还是_foo作为key？<br>[※※※※]KVC的keyPath中的集合运算符如何使用？<br>[※※※※]KVC和KVO的keyPath一定是属性么？<br>[※※※※※]如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？<br>[※※※※※]apple用什么方式实现对一个对象的KVO？</p>
+<p>[※※]IBOutlet连出来的视图属性为什么可以被设置成weak?<br>[※※※※※]IB中User Defined Runtime Attributes如何使用？</p>
+<p>[※※※]如何调试BAD_ACCESS错误<br>[※※※]lldb（gdb）常用的调试命令？</p>
+<p>这些小题可以做为讨论的入口，根据面试者的回答再继续聊下去。其中一些题比较底层，是留给屌屌的面试者或者试探评级用的，一般情况并不是重点的考察内容。</p>
+<p>最后还有两段讲软实力的，也记在这里，希望以后面试能够有所借鉴。</p>
+<h2 id="业务能力">业务能力</h2><p>毕竟平常的工作内容不是 runtime、runloop，不怎么会用到底层的黑魔法，80% 的时间都是和搭建页面、写业务逻辑、网络请求打交道。<br>要求面试者能够熟练构建 UI，我会找一个面试者做过的页面让他分析下页面结构、约束或者 frame 布局的连法和计算方法；有时也会让面试者说说 UITableView 常用的几个 delegate 和 data source 代理方法，动态 Cell 高度计算什么的；接下来，在手机里随便找一个 App 的页面，让面试者当场说说如果是他写应该用哪些 UI 组件和布局方式等。问几个问题后就能大概了解业务能力了，我们这边重度使用 IB 和 AutoLayout，假如面试者依然使用代码码 UI 也到没关系，有“从良”意愿就很好~</p>
+<p>程序架构和一些设计模式如果面试者自己觉得还不错的话也会聊聊，但跪求别说 Singleton 了，用的越多对水平就越表示怀疑。对设计模式自信的我一般问一个问题，抽象工厂模式在 Cocoa SDK 中哪些类中体现？<br>架构上 MVC 还是 MVVM 还是 MVP 神马的到是可以聊聊各自的见解，反正也没有正确答案，只要别搞的太离谱就行，比如有的人说网络请求和数据库的操作最好放到 UIView 的子类里面干。</p>
+<p>网络请求、数据库等各家都有成熟的封装，基本知道咋用就行。除此之外，我们还会顺带的问下除了 iOS 开发外，还会什么其他编程语言、或者熟悉哪种脚本语言和 Terminal 操作等，甚至还问问是如何翻墙- -，相信这些技能都是很重要的。</p>
+<h1 id="#">#</h1><p>大家都是写程序的，没啥必要用奇怪的、很难的问题难为对方，更关键的还是性格，和 Team 的风格是不是和的来。一个心态良好的面试者需要有个平常心，不傲娇也不跪舔，表达要正常，经常遇到问一个问题后一两分钟一直处于沉思状态，一句话不说，交流像挤牙膏一样，很是憋屈；还有非常屌屌的，明明不懂仍然强行据理力争，镇得住面试官也罢，撞枪口上就别怪不客气了- - 。决定要不要一个人基本上聊 5 分钟就可以确定了，喜欢水到渠成的感觉，看对眼了挡都挡不住。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://devliu.com/2015/07/26/iOS常见面试题/" data-id="cickoavfb001g5xujgfa3pfmb" class="article-share-link">Share</a>
+      
+        <a href="http://devliu.com/2015/07/26/iOS常见面试题/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-git-技巧" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/07/26/git-技巧/" class="article-date">
@@ -92,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/07/26/git-技巧/" data-id="cicknygdl001gj6ujvuofnihp" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/07/26/git-技巧/" data-id="cickoavfc001i5xuj8bheq99g" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/07/26/git-技巧/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -138,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/07/26/V/" data-id="cicknyge3001sj6ujxrdrffku" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/07/26/V/" data-id="cickoavfm001u5xujpu88p9ol" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/07/26/V/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -185,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/05/20/uicollectionview-用法小结/" data-id="cicknygcz000rj6uj4f2u2qf0" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/05/20/uicollectionview-用法小结/" data-id="cickoaveq000r5xujiovley9f" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/05/20/uicollectionview-用法小结/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -227,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/" data-id="cicknygd6000zj6ujqn9b6aog" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/" data-id="cickoavez000z5xujddn0t4v0" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -271,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/25/reactivecocoa用法小记/" data-id="cicknygd2000vj6uj2v9erf91" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/04/25/reactivecocoa用法小记/" data-id="cickoaveu000v5xujgc07k8yr" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/04/25/reactivecocoa用法小记/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -314,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/25/autolayout下更新布局文件时采用动画/" data-id="cicknyge1001qj6uj56ikln3t" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/04/25/autolayout下更新布局文件时采用动画/" data-id="cickoavfk001s5xujrf89pbfi" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/04/25/autolayout下更新布局文件时采用动画/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -356,7 +421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/25/在autolayout下响应键盘事件/" data-id="cicknygcm000aj6uj2h3536de" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/04/25/在autolayout下响应键盘事件/" data-id="cickoaveb000a5xujosr3atbr" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/04/25/在autolayout下响应键盘事件/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -397,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/25/解释一下kvo和常用使用场景/" data-id="cicknygc80001j6ujqi2ewjlo" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/04/25/解释一下kvo和常用使用场景/" data-id="cickoavdx00015xujfjkzu7ea" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/04/25/解释一下kvo和常用使用场景/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -441,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/25/什么是多态，多态在oc里面是怎么实现的/" data-id="cicknygcu000kj6ujjcbvwck8" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/04/25/什么是多态，多态在oc里面是怎么实现的/" data-id="cickoavej000k5xuj2ylg13fx" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/04/25/什么是多态，多态在oc里面是怎么实现的/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -455,49 +520,9 @@
 
 
   
-    <article id="post-保持良好心态" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/08/06/保持良好心态/" class="article-date">
-  <time datetime="2014-08-05T16:16:23.000Z" itemprop="datePublished">2014-08-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/06/保持良好心态/">保持良好心态</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="保持良好心态">保持良好心态</h1><h2 id="1-早睡早起">1.早睡早起</h2><h2 id="2-保持室内和工作环境的整洁，有序">2.保持室内和工作环境的整洁，有序</h2><h2 id="3-讲究个人卫生">3.讲究个人卫生</h2><h2 id="4-挺胸抬头">4.挺胸抬头</h2><h2 id="5-每天早上给自己一个微笑">5.每天早上给自己一个微笑</h2><h2 id="6-不抱怨">6.不抱怨</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2014/08/06/保持良好心态/" data-id="cicknygcr000hj6uja3dgf3ot" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2014/08/06/保持良好心态/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -510,7 +535,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/">English</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcd/">gcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/群辉/">群辉</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/">English</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcd/">gcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/群辉/">群辉</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -528,7 +553,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -538,6 +563,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/07/26/iOS常见面试题/">iOS常见面试题</a>
+          </li>
         
           <li>
             <a href="/2015/07/26/git-技巧/">git 技巧</a>
@@ -553,10 +582,6 @@
         
           <li>
             <a href="/2015/04/26/ios在获取用户的位置授权之后，做一些事情/">iOS在获取用户的位置授权之后，做一些事情</a>
-          </li>
-        
-          <li>
-            <a href="/2015/04/25/reactivecocoa用法小记/">reactivecocoa用法小记</a>
           </li>
         
       </ul>
