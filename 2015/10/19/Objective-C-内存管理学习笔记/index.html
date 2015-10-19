@@ -28,7 +28,7 @@ GCD block 相关知识点
 
 本问主要总结了 prope">
 <meta property="og:image" content="http://devliu.com/images/objc_memory_management/objc_mm_1.png">
-<meta property="og:updated_time" content="2015-10-19T15:00:57.000Z">
+<meta property="og:updated_time" content="2015-10-19T15:02:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C 内存管理学习笔记">
 <meta name="twitter:description" content="我就叫Sunny怎么了发了一套iOS面试题，github上有同学给出了一份很好的答案，由于面试题中有很多问题具有相关性，所以我准备将这套面试题再总结一下。
@@ -121,7 +121,7 @@ GCD block 相关知识点
 <li><p>原子性 nonatomic, atomic</p>
 <p> 在默认情况下，由编译器合成的方法会通过锁定机制确保其原子性(atomicity)。如果属性具备<br> nonatomic 特质，则不使用同步锁。请注意，尽管没有名为“atomic”的特质(如果某属性不具备<br> nonatomic 特质，那它就是“原子的” ( atomic) )，但是仍然可以在属性特质中写明这一点，<br> 编译器不会报错。若是自己定义存取方法，那么就应该遵从与属性特质相符的原子性。</p>
 </li>
-<li><p>读写权限 readOnly, readwrite</p>
+<li><p>读写权限 readonly, readwrite</p>
 </li>
 <li><p>内存管理 assign, strong, weak, unsafe_unretained, copy</p>
 </li>
@@ -207,7 +207,7 @@ GCD block 相关知识点
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/" data-id="cify2kxv60021lnwtwb1naaem" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/" data-id="cify2mp1x0021m7wt9b8ewg0q" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/#disqus_thread" class="article-comment-link">Comments</a>
       
