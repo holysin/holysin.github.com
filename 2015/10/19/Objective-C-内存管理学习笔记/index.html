@@ -13,8 +13,8 @@ property定义property的本质是实例变量的 getter 和 setter 方法。即
 <meta property="og:site_name" content="holysin's blog">
 <meta property="og:description" content="sunnyxx发了一份iOS面试题，这份面试题前面的几个题都是关于内存管理的，github上也有同学给出了很好的答案，但是有很多答案都是重复的，遂整理如下。
 property定义property的本质是实例变量的 getter 和 setter 方法。即 \@property = ivar + getter + setter。属性定义之后，编译器会自动生成实例变量的 getter 和 setter">
-<meta property="og:image" content="http://devliu.com/!--￼20-->/images/objc_memory_management/objc_mm_1.png">
-<meta property="og:updated_time" content="2015-10-19T13:58:12.000Z">
+<meta property="og:image" content="http://devliu.com/images/objc_memory_management/objc_mm_1.png">
+<meta property="og:updated_time" content="2015-10-19T14:10:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C 内存管理学习笔记">
 <meta name="twitter:description" content="sunnyxx发了一份iOS面试题，这份面试题前面的几个题都是关于内存管理的，github上也有同学给出了很好的答案，但是有很多答案都是重复的，遂整理如下。
@@ -133,7 +133,7 @@ property定义property的本质是实例变量的 getter 和 setter 方法。即
 <p>那么在实现定义了 property 的 protocol 需要注意什么呢？我们还是用代码亲自试验一下。<br>首先定义 PersonProtocol</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@protocol</span> PersonProtocol &lt;NSObject&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">@property</span> (nonatomic, copy) NSString *name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
 <p>然后定义 Person 遵从 PersonProtocol<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> <span class="attribute">Person </span>: NSObject &lt;PersonProtocol&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure></p>
-<p>这时系统会提示警告：<br><img src="!--￼20--&gt;/images/objc_memory_management/objc_mm_1.png" alt="警告"><br>我们可以用 synthesize 合成变量来实现对应的 accessor。</p>
+<p>这时系统会提示警告：<br><img src="/images/objc_memory_management/objc_mm_1.png" alt="警告"><br>我们可以用 synthesize 合成变量来实现对应的 accessor。</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@implementation</span> Person</span><br><span class="line"></span><br><span class="line"><span class="variable">@synthesize</span> name = _name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
 <p>当然也可以手动实现 getter 和 setter 方法。这里就不在赘述。</p>
 <p>平时我们在 protocol 中大多定义一些动作型的方法。在 protocol 中定义 property 开阔了使用<br>protocol 的思路。不失为一种好的实践。</p>
@@ -179,7 +179,7 @@ property定义property的本质是实例变量的 getter 和 setter 方法。即
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/" data-id="cify0gwxb002148wth9u71nao" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/" data-id="cify0rvns00215nwto8i3571w" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/#disqus_thread" class="article-comment-link">Comments</a>
       
