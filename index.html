@@ -167,8 +167,7 @@
 <p>DeallocExecutor 的定义：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">typedef</span> <span class="tag">void</span>(^<span class="tag">voidBlock</span>)(<span class="tag">void</span>);</span><br><span class="line"></span><br><span class="line"><span class="at_rule">@<span class="keyword">interface</span> DeallocExecutor : NSObject </span>&#123;</span><br><span class="line">    <span class="tag">voidBlock</span> _<span class="tag">block</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">instancetype</span>)<span class="rule"><span class="attribute">initWithBlock</span>:<span class="value">(voidBlock)block</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="at_rule">@<span class="keyword">end</span></span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"DeallocExecutor.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">DeallocExecutor</span></span></span><br><span class="line"></span><br><span class="line">- (instancetype)initWithBlock:(voidBlock)block</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">        _block = [block <span class="keyword">copy</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    _block ? _block() : <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <p>给 NSObject 添加一个 category:</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@interface</span> NSObject (runAtDealloc)</span><br><span class="line"></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">runAtDealloc:</span>(voidBlock)block;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">runAtDealloc</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)runAtDealloc:(voidBlock)block</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (block) &#123;</span><br><span class="line">        DeallocExecutor *executor = [[DeallocExecutor alloc] initWithBlock:block];</span><br><span class="line">        objc_setAssociatedObject(<span class="keyword">self</span>, _cmd, executor, OBJC_ASSO<span class="built_in">CIATION_RETAIN</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">runAtDealloc</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)runAtDealloc:(voidBlock)block;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">runAtDealloc</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)runAtDealloc:(voidBlock)block</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (block) &#123;</span><br><span class="line">        DeallocExecutor *executor = [[DeallocExecutor alloc] initWithBlock:block];</span><br><span class="line">        objc_setAssociatedObject(<span class="keyword">self</span>, _cmd, executor, OBJC_ASSO<span class="built_in">CIATION_RETAIN</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <p>重写 property 的 setter 方法</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)setObject:(<span class="type">NSObject</span> *)<span class="class"><span class="keyword">object</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    objc_setAssociatedObject(self, <span class="string">"object"</span>, <span class="class"><span class="keyword">object</span>, <span class="title">OBJC_ASSOCIATION_ASSIGN</span>);</span></span><br><span class="line">    [<span class="class"><span class="keyword">object</span> <span class="title">runAtDealloc</span>:</span>^&#123;</span><br><span class="line">        _object = nil;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="http://stackoverflow.com/questions/22809848/objective-c-runtime-run-code-at-deallocation-of-any-object/31560217#31560217" target="_blank" rel="external">参考链接</a></p>
@@ -176,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/" data-id="cify0u0iq00216vwt51u1nrxa" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/" data-id="cify21buo0021ymujzhauw5cp" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -252,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/10/05/ReactiveCocoa/" data-id="cify0u0io00206vwtm1m4vyj0" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/10/05/ReactiveCocoa/" data-id="cify21bum0020ymujywcmjzfq" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/10/05/ReactiveCocoa/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -323,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/08/31/resume/" data-id="cify0u0hp000v6vwtjgpddtuf" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/08/31/resume/" data-id="cify21btp000vymujfmoezu33" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/08/31/resume/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -368,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/07/26/iOS常见面试题/" data-id="cify0u0i8001j6vwt0z1bf2uq" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/07/26/iOS常见面试题/" data-id="cify21bu8001jymujw0h2br9z" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/07/26/iOS常见面试题/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -413,7 +412,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/07/26/git-技巧/" data-id="cify0u0ib001l6vwtc2q6ycdr" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/07/26/git-技巧/" data-id="cify21bua001lymujrkv5td66" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/07/26/git-技巧/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -459,7 +458,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/07/26/V/" data-id="cify0u0il001x6vwtetlxixed" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/07/26/V/" data-id="cify21buj001xymujar0k35wd" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/07/26/V/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -506,7 +505,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/05/20/uicollectionview-用法小结/" data-id="cify0u0hl000r6vwto91q2mka" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/05/20/uicollectionview-用法小结/" data-id="cify21btl000rymuj01yjg3yz" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/05/20/uicollectionview-用法小结/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -548,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/" data-id="cify0u0hu00126vwtqlffrpx2" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/" data-id="cify21btt0012ymuj3qfld4fm" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -592,7 +591,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/25/reactivecocoa用法小记/" data-id="cify0u0hr000y6vwt790vgsfa" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/04/25/reactivecocoa用法小记/" data-id="cify21btr000yymuju6ffldrh" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/04/25/reactivecocoa用法小记/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -635,7 +634,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/25/autolayout下更新布局文件时采用动画/" data-id="cify0u0ij001v6vwtzj39n6wi" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/04/25/autolayout下更新布局文件时采用动画/" data-id="cify21buh001vymujk1deu3j1" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/04/25/autolayout下更新布局文件时采用动画/#disqus_thread" class="article-comment-link">Comments</a>
       
