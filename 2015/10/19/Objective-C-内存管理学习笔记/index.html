@@ -5,41 +5,32 @@
   
   <title>Objective-C 内存管理学习笔记 | holysin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="微博@我就叫Sunny怎么了发布了一套 iOS 面试题，GitHub 上有同学给出了一份很优秀的答案，由于面试题中有很多问题具有相关性，所以我准备将这套面试题再总结一下。
-这份面试题主要考察了四个方向的知识点：
+  <meta name="description" content="前言微博@我就叫Sunny怎么了发布了一套难度很大的iOS面试题，微博@iOS程序犭袁给出了一份优秀的答案，由于面试题中有很多问题具有相关性，所以我准备将这套面试题总结一下，其中不乏自己的理解，如有不当之处，还望指出。
+这份面试题主要涉及了四个方向的知识点：
 
 Objective-C 基本概念，其中包括 property，kvo，对象内存布局等
 runtime 相关知识点
-runloop 相关知识点
-GCD block 相关知识点
-
-本问主要总">
+runloop 相关知识">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C 内存管理学习笔记">
 <meta property="og:url" content="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/index.html">
 <meta property="og:site_name" content="holysin's blog">
-<meta property="og:description" content="微博@我就叫Sunny怎么了发布了一套 iOS 面试题，GitHub 上有同学给出了一份很优秀的答案，由于面试题中有很多问题具有相关性，所以我准备将这套面试题再总结一下。
-这份面试题主要考察了四个方向的知识点：
+<meta property="og:description" content="前言微博@我就叫Sunny怎么了发布了一套难度很大的iOS面试题，微博@iOS程序犭袁给出了一份优秀的答案，由于面试题中有很多问题具有相关性，所以我准备将这套面试题总结一下，其中不乏自己的理解，如有不当之处，还望指出。
+这份面试题主要涉及了四个方向的知识点：
 
 Objective-C 基本概念，其中包括 property，kvo，对象内存布局等
 runtime 相关知识点
-runloop 相关知识点
-GCD block 相关知识点
-
-本问主要总">
+runloop 相关知识">
 <meta property="og:image" content="http://devliu.com/images/objc_memory_management/objc_mm_1.png">
-<meta property="og:updated_time" content="2015-10-19T15:18:51.000Z">
+<meta property="og:updated_time" content="2015-10-20T13:57:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C 内存管理学习笔记">
-<meta name="twitter:description" content="微博@我就叫Sunny怎么了发布了一套 iOS 面试题，GitHub 上有同学给出了一份很优秀的答案，由于面试题中有很多问题具有相关性，所以我准备将这套面试题再总结一下。
-这份面试题主要考察了四个方向的知识点：
+<meta name="twitter:description" content="前言微博@我就叫Sunny怎么了发布了一套难度很大的iOS面试题，微博@iOS程序犭袁给出了一份优秀的答案，由于面试题中有很多问题具有相关性，所以我准备将这套面试题总结一下，其中不乏自己的理解，如有不当之处，还望指出。
+这份面试题主要涉及了四个方向的知识点：
 
 Objective-C 基本概念，其中包括 property，kvo，对象内存布局等
 runtime 相关知识点
-runloop 相关知识点
-GCD block 相关知识点
-
-本问主要总">
+runloop 相关知识">
   
     <link rel="alternative" href="/atom.xml" title="holysin&#39;s blog" type="application/atom+xml">
   
@@ -107,19 +98,20 @@ GCD block 相关知识点
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://weibo.com/u/1364395395" target="_blank" rel="external">微博@我就叫Sunny怎么了</a>发布了一套 <a href="http://blog.sunnyxx.com/2015/07/04/ios-interview/" target="_blank" rel="external">iOS 面试题</a>，GitHub 上有<a href="https://github.com/ChenYilong/iOSInterviewQuestions" target="_blank" rel="external">同学</a>给出了一份很优秀的<a href="https://github.com/ChenYilong/iOSInterviewQuestions" target="_blank" rel="external">答案</a>，由于面试题中有很多<br>问题具有相关性，所以我准备将这套面试题再总结一下。</p>
-<p>这份面试题主要考察了四个方向的知识点：</p>
+        <h1 id="前言">前言</h1><p><a href="http://weibo.com/u/1364395395" target="_blank" rel="external">微博@我就叫Sunny怎么了</a>发布了一套难度很大的<a href="http://blog.sunnyxx.com/2015/07/04/ios-interview/" target="_blank" rel="external">iOS面试题</a>，<a href="http://weibo.com/luohanchenyilong" target="_blank" rel="external">微博@iOS程序犭袁</a>给出了一份优秀的<a href="https://github.com/ChenYilong/iOSInterviewQuestions" target="_blank" rel="external">答案</a>，由于面试题中有很多问题具有相关性，所以我准备将这套面试题总结一下，其中不乏自己的理解，如有不当之处，还望指出。</p>
+<p>这份面试题主要涉及了四个方向的知识点：</p>
 <ol>
 <li>Objective-C 基本概念，其中包括 property，kvo，对象内存布局等</li>
 <li>runtime 相关知识点</li>
 <li>runloop 相关知识点</li>
-<li>GCD block 相关知识点</li>
+<li>GCD 和 block 相关知识点</li>
 </ol>
-<p>本问主要总结了 property 相关的知识点。<br><a id="more"></a></p>
-<h1 id="property">property</h1><h2 id="定义">定义</h2><p>property的本质是实例变量的 getter 和 setter 方法。即 \@property = ivar + getter + setter。<br>属性定义之后，编译器会自动生成实例变量的 getter 和 setter 方法。</p>
+<p>本问主要总结了 property 相关的知识点。内容涉及 property 语法，weak 关键字的意义及如何实现，在 category 和 protocol 中如何使用 property。<br><a id="more"></a></p>
+<hr>
+<h1 id="property_语法知识点">property 语法知识点</h1><h2 id="定义">定义</h2><p>property 的本质是实例变量的 getter 和 setter 方法。即 @property = ivar + getter + setter。getter、setter 又称为变量的存取方法，即 accessor。 属性定义之后，编译器会自动生成实例变量和对应的 accessor，并将两者进行绑定。</p>
 <h2 id="property_关键字">property 关键字</h2><h3 id="property_的关键字主要分为四类：">property 的关键字主要分为四类：</h3><ol>
 <li><p>原子性 nonatomic, atomic</p>
-<p> 在默认情况下，由编译器合成的方法会通过锁定机制确保其原子性(atomicity)。如果属性具备<br> nonatomic 特质，则不使用同步锁。请注意，尽管没有名为“atomic”的特质(如果某属性不具备<br> nonatomic 特质，那它就是“原子的” ( atomic) )，但是仍然可以在属性特质中写明这一点，<br> 编译器不会报错。若是自己定义存取方法，那么就应该遵从与属性特质相符的原子性。</p>
+<p> 在默认情况下，由编译器合成的方法会通过锁定机制确保其原子性(atomicity)。如果属性具备nonatomic 特质，则不使用同步<br> 锁。请注意，尽管没有名为“atomic”的特质(如果某属性不具备nonatomic 特质，那它就是“原子的” ( atomic) )，但是仍然<br> 可以在属性特质中写明这一点，编译器不会报错。若是自己定义存取方法，那么就应该遵从与属性特质相符的原子性。</p>
 </li>
 <li><p>读写权限 readonly, readwrite</p>
 </li>
@@ -131,7 +123,7 @@ GCD block 相关知识点
 </li>
 </ol>
 <p>property 各个关键字的作用会在下面详细讨论。</p>
-<h3 id="property_默认关键字">property 默认关键字</h3><p>在声明property时，如果不指定关键字，编译器会为property生成默认的关键字。</p>
+<h3 id="property_默认关键字">property 默认关键字</h3><p>在声明 property 时，如果不指定关键字，编译器会为 property 生成默认的关键字。</p>
 <ol>
 <li><p>对应基本数据类型，默认关键字为<br>atomic, assign, readwrite</p>
 </li>
@@ -145,7 +137,7 @@ GCD block 相关知识点
 <li><p><a href="http://rdcworld-iphone.blogspot.in/2012/12/variable-property-attributes-or.html" target="_blank" rel="external">Variable property attributes or Modifiers in iOS</a></p>
 </li>
 </ol>
-<h3 id="property_合成规则">property 合成规则</h3><p>我们用这样一个类来说明</p>
+<h2 id="property_合成规则">property 合成规则</h2><p>我们用这样一个类来说明</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> <span class="attribute">Person </span>: NSObject</span><br><span class="line"></span><br><span class="line"><span class="variable">@property</span> (nonatomic, copy) NSString *name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
 <h4 id="默认规则">默认规则</h4><p>setter<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (<span class="tag">void</span>)<span class="rule"><span class="attribute">setName</span>:<span class="value">(NSString *)name</span></span>;</span><br></pre></td></tr></table></figure></p>
 <p>getter<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (NSString *)<span class="property">name</span>;</span><br></pre></td></tr></table></figure></p>
@@ -158,24 +150,26 @@ GCD block 相关知识点
 <p>不要被这种情况蒙蔽，系统不会自动把 name property 和 name ivar 关联，需要手动关联<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@synthesize <span class="property">name</span> = <span class="property">name</span>;</span><br></pre></td></tr></table></figure></p>
 <p>或者<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">synthesize</span> name</span>;</span><br></pre></td></tr></table></figure></p>
 <p>根据以上情况我们可以总结出：编译器只会把 name 和 _name （自定义也可以） 进行自动关联，其<br>他情况都需要手动合成。</p>
-<h2 id="在_protocol_中使用_property">在 protocol 中使用 property</h2><p>笔者曾经在一次面试中被问到了这个知识点，当时就懵了，因为自己从来就没有这么用过。面试结束，仔细<br>想想，其实面试官就是想考察 property 的本质。property 的 本质就是实例变量的 accessor 方法。<br>所以在 protocol 中用 property，无非就是让实现该 protocol 的对象实现相应的 accessor 方法。<br>其实 iOS 内部就有在 protocol 中定义 property 的例子，比如 <strong>CAMediaTiming</strong> 。</p>
-<p>那么在实现定义了 property 的 protocol 需要注意什么呢？我们还是用代码亲自试验一下。<br>首先定义 PersonProtocol</p>
+<hr>
+<h1 id="property_在_protocol_和_category_的用法">property 在 protocol 和 category 的用法</h1><h2 id="在_protocol_中使用_property">在 protocol 中使用 property</h2><p>笔者曾经在一次面试中被问到了这个知识点，当时就懵了，因为自己从来就没有这么用过。面试结束，仔细想想，其实面试官就是想考察 property 的本质。property 的本质就是实例变量的 accessor 方法。所以在 protocol 中用 property，无非就是让实现该 protocol 的对象实现相应的 accessor 方法。其实 iOS 内部就有在 protocol 中定义 property 的例子，比如 <strong>CAMediaTiming</strong> 。</p>
+<p>那么在实现定义了 property 的 protocol 需要注意什么呢？我们还是用代码亲自试验一下。<br>首先定义 PersonProtocol，这个协议包含了一个名字为 name 的 property。</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@protocol</span> PersonProtocol &lt;NSObject&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">@property</span> (nonatomic, copy) NSString *name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
 <p>然后定义 Person 遵从 PersonProtocol<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> <span class="attribute">Person </span>: NSObject &lt;PersonProtocol&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure></p>
-<p>这时系统会提示警告：<br><img src="/images/objc_memory_management/objc_mm_1.png" alt="警告"><br>我们可以用 synthesize 合成变量来实现对应的 accessor。</p>
+<p>这时系统会提示警告：<br><img src="/images/objc_memory_management/objc_mm_1.png" alt="警告：编译器不会自动合成 protocol 中定义的 name property"><br>我们可以用 synthesize 合成变量来实现对应的 accessor。</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@implementation</span> Person</span><br><span class="line"></span><br><span class="line"><span class="variable">@synthesize</span> name = _name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
 <p>当然也可以手动实现 getter 和 setter 方法。这里就不在赘述。</p>
-<p>平时我们在 protocol 中大多定义一些动作型的方法。在 protocol 中定义 property 开阔了使用<br>protocol 的思路。不失为一种好的实践。</p>
-<h2 id="在_category_中使用_property">在 category 中使用 property</h2><p>category 本身是不能定义属性的。但 property 的本质是 accessor 方法，所以我们可以 associate<br>来实现。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> Person (name)</span><br><span class="line"></span><br><span class="line"><span class="variable">@property</span> (nonatomic, copy) NSString *name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure></p>
+<p>P.S. 平时我们在 protocol 中大多定义一些动作型的方法。其实这源于没有彻底理解 protocol 的概念。protocol 的本质就是定义一套规范让别人去遵守，代理模式只是 protocol 的一种常用场景。明白了这一点，在 protocol 中定义 property 自然就容易理解了。</p>
+<h2 id="在_category_中使用_property">在 category 中使用 property</h2><p>category 本身是不能定义属性的。但 property 的本质是实例变量的 accessor 方法，所以我们可以采用 associate 机制重写 property 的 accessor 方法来实现。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> Person (name)</span><br><span class="line"></span><br><span class="line"><span class="variable">@property</span> (nonatomic, copy) NSString *name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"Person+name.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> *nameKey = <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span> (<span class="title">name</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name</span><br><span class="line">&#123;</span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, &amp;nameKey, name, OBJC_ASSO<span class="built_in">CIATION_COPY_NONATOMIC</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)name</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, &amp;nameKey);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<p>用 associate 关联的对象不用自己手动释放。NSObject dealloc 的最后一步就是清理 associate<br>对象。详情可参考runtime的源码。</p>
-<h2 id="weak">weak</h2><h2 id="定义-1">定义</h2><p>weak 表示 property 不持有对象，且在对象 dealloc 的时候，把 weak 属性的值置为 nil。</p>
+<p>用 associate 关联的对象不用自己手动释放。NSObject dealloc 的最后一步就是清理 associate 对象。详情可参考 runtime 的源码。</p>
+<hr>
+<h1 id="weak_关键字相关知识点">weak 关键字相关知识点</h1><h2 id="定义-1">定义</h2><p>weak 表示 property 不持有对象，且在对象 dealloc 的时候，把 weak 属性的值置为 nil。</p>
 <h2 id="weak,_assign,_unsafe_unretained_的区别">weak, assign, unsafe_unretained 的区别</h2><ol>
 <li><p>weak 只能用于对象类型</p>
 </li>
-<li><p>assign 既能用于基本数据类型，也能用于对象数据类型。不持有对象。如果用于对象类型，<br>在对象 dealloc 之后，属性的值不变，有访问野指针的危险。</p>
+<li><p>assign 既能用于基本数据类型，也能用于对象数据类型。不持有对象。如果用于对象类型，在对象 dealloc 之后，属性的值不变，有访问野指针的危险。</p>
 </li>
-<li><p>在 Cocoa 和 Cocoa Touch 有很少一些类还不支持 weak，比如 NSTextView, NSFont 等。<br>对于这些类型如果想用 weak 类型，你需要用 unsafe_unretained 关键字。unsafe_unretained<br>和 weak 类型一样不会持有对象，<br>但是在对象 dealloc 之后，不会自动置为空。有访问野指针的危险。</p>
+<li><p>在 Cocoa 和 Cocoa Touch 有很少一些类还不支持 weak，比如 NSTextView, NSFont 等。对于这些类型如果想用 weak 类型，你需要用 unsafe_unretained 关键字。unsafe_unretained 和 weak 类型一样不会持有对象，但是在对象 dealloc 之后，不会自动置为空。有访问野指针的危险。</p>
 </li>
 </ol>
 <h2 id="用_runtime_如何实现_weak_属性">用 runtime 如何实现 weak 属性</h2><h2 id="clang_实现">clang 实现</h2><p><a href="http://clang.llvm.org/docs/AutomaticReferenceCounting.html#arc-runtime-objc-storeweak" target="_blank" rel="external">llvm 官网</a>列出了 runtime 中用来实现 weak 的函数，如下</p>
@@ -184,12 +178,12 @@ GCD block 相关知识点
 <li>value 是一个指针指向为 weak 属性赋值的对象，或者为null</li>
 <li>object 是 weak 属性的地址</li>
 </ul>
-<p>如果 value 是 null 或者 value 指向的对象开始 dealloc, object 会被赋值为 null 并且注销<br><strong>__</strong>weak 身份。否则 object 会注册为 <strong>__</strong>weak 对象，并把自己的值改成 value。</p>
+<p>如果 value 是 null 或者 value 指向的对象开始 dealloc, object 会被赋值为 null 并且注销 __weak 身份。否则 object 会注册为 __weak 对象，并把自己的值改成 value。</p>
 <p>根据 weak 的定义，用 objc_storeWeak 实现 weak 的伪代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在赋值之前把 obj1 的值改为 obj 的值，在 obj dealloc 之后，把obj1的值改为 0</span></span><br><span class="line">id obj1;</span><br><span class="line">obj1 = <span class="number">0</span>;</span><br><span class="line">objc_storeWeak(&amp;obj1, obj);</span><br><span class="line"><span class="comment">/* ... obj的引用计数变为0，被置nil ... */</span></span><br><span class="line">objc_storeWeak(&amp;obj1, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="自己模拟">自己模拟</h2><p>自己实现 weak 最关键的地方在于：对象 dealloc 时把 property 的值置为 nil。显然，继承<br>NSObject, 重写 dealloc 方法的解决方案不够优雅。我们考虑用 category 来实现。思路是：</p>
+<h2 id="自己模拟_weak_实现">自己模拟 weak 实现</h2><p>自己实现 weak 最关键的地方在于：对象 dealloc 时把 property 的值置为 nil。显然，继承NSObject, 重写 dealloc 方法的解决方案不够优雅。我们考虑用 category 来实现。思路是：</p>
 <ol>
-<li><p>用 associate 给 NSObject 关联一个对象 DeallocExecutor，该对象用 block 的方式记录<br>我们希望在 dealloc 中的行为。</p>
+<li><p>用 associate 给 NSObject 关联一个对象 DeallocExecutor，该对象用 block 的方式记录我们希望在 dealloc 中的行为。</p>
 </li>
 <li><p>associate 对象会在宿主对象 dealloc 时，自动 dealloc。</p>
 </li>
@@ -202,12 +196,14 @@ GCD block 相关知识点
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">runAtDealloc</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)runAtDealloc:(voidBlock)block;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">runAtDealloc</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)runAtDealloc:(voidBlock)block</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (block) &#123;</span><br><span class="line">        DeallocExecutor *executor = [[DeallocExecutor alloc] initWithBlock:block];</span><br><span class="line">        objc_setAssociatedObject(<span class="keyword">self</span>, _cmd, executor, OBJC_ASSO<span class="built_in">CIATION_RETAIN</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <p>重写 property 的 setter 方法</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)setObject:(<span class="type">NSObject</span> *)<span class="class"><span class="keyword">object</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    objc_setAssociatedObject(self, <span class="string">"object"</span>, <span class="class"><span class="keyword">object</span>, <span class="title">OBJC_ASSOCIATION_ASSIGN</span>);</span></span><br><span class="line">    [<span class="class"><span class="keyword">object</span> <span class="title">runAtDealloc</span>:</span>^&#123;</span><br><span class="line">        _object = nil;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://stackoverflow.com/questions/22809848/objective-c-runtime-run-code-at-deallocation-of-any-object/31560217#31560217" target="_blank" rel="external">参考链接</a></p>
+<p>对自己如何实现 weak 感兴趣的同学可以参考这篇帖子：<a href="http://stackoverflow.com/questions/22809848/objective-c-runtime-run-code-at-deallocation-of-any-object/31560217#31560217" target="_blank" rel="external">参考链接</a></p>
+<hr>
+<p>好了，以上就是本文的主要内容，希望大家喜欢。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/" data-id="cify37rbe0021pbwtf2nl9pes" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/" data-id="cify3bc1l0021pvwtf9ot9zcq" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/#disqus_thread" class="article-comment-link">Comments</a>
       
