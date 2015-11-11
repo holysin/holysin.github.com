@@ -108,11 +108,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Objective-C 内存管理学习笔记]]></title>
-    <link href="http://devliu.com/2015/10/19/Objective-C-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/</id>
+    <title><![CDATA[Objective-C 面试题集锦-内存管理篇]]></title>
+    <link href="http://devliu.com/2015/10/19/Objective-C-%E9%9D%A2%E8%AF%95%E9%A2%98-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%AF%87/"/>
+    <id>http://devliu.com/2015/10/19/Objective-C-面试题-内存管理篇/</id>
     <published>2015-10-19T06:22:46.000Z</published>
-    <updated>2015-10-20T13:57:45.000Z</updated>
+    <updated>2015-11-11T12:53:47.000Z</updated>
     <content type="html"><![CDATA[<h1 id="前言">前言</h1><p><a href="http://weibo.com/u/1364395395" target="_blank" rel="external">微博@我就叫Sunny怎么了</a>发布了一套难度很大的<a href="http://blog.sunnyxx.com/2015/07/04/ios-interview/" target="_blank" rel="external">iOS面试题</a>，<a href="http://weibo.com/luohanchenyilong" target="_blank" rel="external">微博@iOS程序犭袁</a>给出了一份优秀的<a href="https://github.com/ChenYilong/iOSInterviewQuestions" target="_blank" rel="external">答案</a>，由于面试题中有很多问题具有相关性，所以我准备将这套面试题总结一下，其中不乏自己的理解，如有不当之处，还望指出。</p>
 <p>这份面试题主要涉及了四个方向的知识点：</p>
 <ol>
@@ -228,7 +228,7 @@
     
     </summary>
     
-      <category term="Objective-C" scheme="http://devliu.com/tags/Objective-C/"/>
+      <category term="iOS" scheme="http://devliu.com/tags/iOS/"/>
     
   </entry>
   
