@@ -1,0 +1,1175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[holysin's blog]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://devliu.com/"/>
+  <updated>2015-11-11T11:25:57.000Z</updated>
+  <id>http://devliu.com/</id>
+  
+  <author>
+    <name><![CDATA[holysin]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[新 MacbookPro 装机记]]></title>
+    <link href="http://devliu.com/2015/11/11/%E6%96%B0-MacbookPro-%E8%A3%85%E6%9C%BA%E8%AE%B0/"/>
+    <id>http://devliu.com/2015/11/11/新-MacbookPro-装机记/</id>
+    <published>2015-11-11T07:10:53.000Z</published>
+    <updated>2015-11-11T11:25:57.000Z</updated>
+    <content type="html"><![CDATA[<p>公司新配的 Macbook Pro 13，在此记一下配置环境的过程。主要分为两个部分：</p>
+<ol>
+<li>开发环境搭建</li>
+<li>Mac 常用 App 安装</li>
+</ol>
+<a id="more"></a>
+<h1 id="开发环境搭建">开发环境搭建</h1><hr>
+<h2 id="常用_App">常用 App</h2><ul>
+<li>Xcode</li>
+<li>iTerm</li>
+<li>Reveal</li>
+<li>Charles</li>
+<li>Atom</li>
+<li>Quiver</li>
+<li>SourceTree</li>
+<li>Dash</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>cask install <span class="keyword">iterm2 </span><span class="keyword">reveal </span>atom sourcetree dash --appdir=/Applications</span><br></pre></td></tr></table></figure>
+<p>charles、quiver 用 AppStore 装</p>
+<hr>
+<h2 id="oh-my-zsh">oh-my-zsh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Xcode_插件">Xcode 插件</h2><h3 id="Alcatraz_插件管理器">Alcatraz 插件管理器</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/supermarin/Alcatraz/deploy/Scripts/install.<span class="keyword">sh</span> | <span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+<h3 id="插件">插件</h3><ul>
+<li>VVDocumenter-Xcode</li>
+<li>XVim</li>
+<li>XAlign</li>
+<li>RSImageOptimPlugin</li>
+<li>RTImageAssets</li>
+<li>KSImageNamed</li>
+</ul>
+<hr>
+<h2 id="CocoaPods">CocoaPods</h2><h3 id="更换_ruby_gems_源">更换 ruby gems 源</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem sources --<span class="built_in">add</span> http<span class="variable">s:</span>//<span class="keyword">ruby</span>.taobao.org/ --<span class="built_in">remove</span> http<span class="variable">s:</span>//rubygems.org/</span><br></pre></td></tr></table></figure>
+<h3 id="安装_cocoapods">安装 cocoapods</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="atom_插件">atom 插件</h2><ul>
+<li>autocomplete</li>
+<li>pretty-json</li>
+<li>atom-runner</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apm <span class="operator"><span class="keyword">install</span> autocomplete pretty-<span class="keyword">json</span> atom-runner</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="git">git</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>install git</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="brew">brew</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+<h3 id="homebrew-cask">homebrew-cask</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>update &amp;&amp; <span class="keyword">brew </span>upgrade <span class="keyword">brew-cask </span>&amp;&amp; <span class="keyword">brew </span>cleanup &amp;&amp; <span class="keyword">brew </span>cask cleanup</span><br><span class="line"><span class="keyword">brew </span>install caskroom/cask/<span class="keyword">brew-cask</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="node-js">node.js</h2><h3 id="安装_nvm">安装 nvm</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>install nvm</span><br></pre></td></tr></table></figure>
+<p>在 .zshrc 中配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=~/.nvm</span><br><span class="line"><span class="built_in">source</span> $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure></p>
+<p>使 .zshrc 生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> .zshrc</span><br></pre></td></tr></table></figure></p>
+<h3 id="用_nvm_安装_node-js">用 nvm 安装 node.js</h3><p>列出远端 node.js 版本<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm <span class="keyword">ls</span>-remote</span><br></pre></td></tr></table></figure></p>
+<p>安装指定版本<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install <span class="number">5.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure></p>
+<p>制定使用的版本<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use <span class="number">5.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure></p>
+<p>设为默认版本<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm alias <span class="keyword">default</span> <span class="number">5.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="Hexo">Hexo</h2><p>先安装 node.js<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> hexo-cli -<span class="keyword">g</span></span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="Mac_软件">Mac 软件</h1><hr>
+<ul>
+<li>Alfred</li>
+<li>Evernote</li>
+<li>Dropbox</li>
+<li>MonoDraw</li>
+<li>WeChat</li>
+<li>QQ</li>
+<li>Chrome</li>
+<li>Spectacle</li>
+<li>Pocket</li>
+<li>Reeder</li>
+<li>ReadKit</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask <span class="operator"><span class="keyword">install</span> evernote dropbox monodraw wechat qq google-chrome spectacle <span class="comment">--appdir=/Applications</span></span></span><br></pre></td></tr></table></figure>
+<p>Alfred 从官网下载<br>WeChat、Pocket、Reeder、readKit 用 AppStore 装</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>公司新配的 Macbook Pro 13，在此记一下配置环境的过程。主要分为两个部分：</p>
+<ol>
+<li>开发环境搭建</li>
+<li>Mac 常用 App 安装</li>
+</ol>]]>
+    
+    </summary>
+    
+      <category term="MacbookPro" scheme="http://devliu.com/tags/MacbookPro/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Objective-C 内存管理学习笔记]]></title>
+    <link href="http://devliu.com/2015/10/19/Objective-C-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/</id>
+    <published>2015-10-19T06:22:46.000Z</published>
+    <updated>2015-10-20T13:57:45.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="前言">前言</h1><p><a href="http://weibo.com/u/1364395395" target="_blank" rel="external">微博@我就叫Sunny怎么了</a>发布了一套难度很大的<a href="http://blog.sunnyxx.com/2015/07/04/ios-interview/" target="_blank" rel="external">iOS面试题</a>，<a href="http://weibo.com/luohanchenyilong" target="_blank" rel="external">微博@iOS程序犭袁</a>给出了一份优秀的<a href="https://github.com/ChenYilong/iOSInterviewQuestions" target="_blank" rel="external">答案</a>，由于面试题中有很多问题具有相关性，所以我准备将这套面试题总结一下，其中不乏自己的理解，如有不当之处，还望指出。</p>
+<p>这份面试题主要涉及了四个方向的知识点：</p>
+<ol>
+<li>Objective-C 基本概念，其中包括 property，kvo，对象内存布局等</li>
+<li>runtime 相关知识点</li>
+<li>runloop 相关知识点</li>
+<li>GCD 和 block 相关知识点</li>
+</ol>
+<p>本问主要总结了 property 相关的知识点。内容涉及 property 语法，weak 关键字的意义及如何实现，在 category 和 protocol 中如何使用 property。<br><a id="more"></a></p>
+<hr>
+<h1 id="property_语法知识点">property 语法知识点</h1><h2 id="定义">定义</h2><p>property 的本质是实例变量的 getter 和 setter 方法。即 @property = ivar + getter + setter。getter、setter 又称为变量的存取方法，即 accessor。 属性定义之后，编译器会自动生成实例变量和对应的 accessor，并将两者进行绑定。</p>
+<h2 id="property_关键字">property 关键字</h2><h3 id="property_的关键字主要分为四类：">property 的关键字主要分为四类：</h3><ol>
+<li><p>原子性 nonatomic, atomic</p>
+<p> 在默认情况下，由编译器合成的方法会通过锁定机制确保其原子性(atomicity)。如果属性具备nonatomic 特质，则不使用同步<br> 锁。请注意，尽管没有名为“atomic”的特质(如果某属性不具备nonatomic 特质，那它就是“原子的” ( atomic) )，但是仍然<br> 可以在属性特质中写明这一点，编译器不会报错。若是自己定义存取方法，那么就应该遵从与属性特质相符的原子性。</p>
+</li>
+<li><p>读写权限 readonly, readwrite</p>
+</li>
+<li><p>内存管理 assign, strong, weak, unsafe_unretained, copy</p>
+</li>
+<li><p>方法名 getter, setter</p>
+</li>
+<li><p>不常用的 nonnull, null_resettable, nullable</p>
+</li>
+</ol>
+<p>property 各个关键字的作用会在下面详细讨论。</p>
+<h3 id="property_默认关键字">property 默认关键字</h3><p>在声明 property 时，如果不指定关键字，编译器会为 property 生成默认的关键字。</p>
+<ol>
+<li><p>对应基本数据类型，默认关键字为<br>atomic, assign, readwrite</p>
+</li>
+<li><p>对应对象类型，默认关键字为<br>atomic, strong, readwrite</p>
+</li>
+</ol>
+<p>参考链接：</p>
+<ol>
+<li><p><a href="http://stackoverflow.com/questions/8927727/objective-c-arc-strong-vs-retain-and-weak-vs-assign/15541801#15541801" target="_blank" rel="external">Objective-C ARC: strong vs retain and weak vs assign</a></p>
+</li>
+<li><p><a href="http://rdcworld-iphone.blogspot.in/2012/12/variable-property-attributes-or.html" target="_blank" rel="external">Variable property attributes or Modifiers in iOS</a></p>
+</li>
+</ol>
+<h2 id="property_合成规则">property 合成规则</h2><p>我们用这样一个类来说明</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> <span class="attribute">Person </span>: NSObject</span><br><span class="line"></span><br><span class="line"><span class="variable">@property</span> (nonatomic, copy) NSString *name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="默认规则">默认规则</h4><p>setter<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (<span class="tag">void</span>)<span class="rule"><span class="attribute">setName</span>:<span class="value">(NSString *)name</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>getter<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (NSString *)<span class="property">name</span>;</span><br></pre></td></tr></table></figure></p>
+<p>自动生成的 ivar 是 _name。</p>
+<h4 id="特殊情况一">特殊情况一</h4><p>在 .m 中添加如下代码：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@implementation</span> Person</span><br><span class="line"></span><br><span class="line"><span class="variable">@synthesize</span> name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure></p>
+<p>setter 和 getter 不变，ivar 变为 name;</p>
+<h4 id="特殊情况二">特殊情况二</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *_name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>系统会自动把 name 和 _name 关联</p>
+<h4 id="特殊情况三">特殊情况三</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>不要被这种情况蒙蔽，系统不会自动把 name property 和 name ivar 关联，需要手动关联<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@synthesize <span class="property">name</span> = <span class="property">name</span>;</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">synthesize</span> name</span>;</span><br></pre></td></tr></table></figure></p>
+<p>根据以上情况我们可以总结出：编译器只会把 name 和 _name （自定义也可以） 进行自动关联，其<br>他情况都需要手动合成。</p>
+<hr>
+<h1 id="property_在_protocol_和_category_的用法">property 在 protocol 和 category 的用法</h1><h2 id="在_protocol_中使用_property">在 protocol 中使用 property</h2><p>笔者曾经在一次面试中被问到了这个知识点，当时就懵了，因为自己从来就没有这么用过。面试结束，仔细想想，其实面试官就是想考察 property 的本质。property 的本质就是实例变量的 accessor 方法。所以在 protocol 中用 property，无非就是让实现该 protocol 的对象实现相应的 accessor 方法。其实 iOS 内部就有在 protocol 中定义 property 的例子，比如 <strong>CAMediaTiming</strong> 。</p>
+<p>那么在实现定义了 property 的 protocol 需要注意什么呢？我们还是用代码亲自试验一下。<br>首先定义 PersonProtocol，这个协议包含了一个名字为 name 的 property。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@protocol</span> PersonProtocol &lt;NSObject&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">@property</span> (nonatomic, copy) NSString *name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
+<p>然后定义 Person 遵从 PersonProtocol<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> <span class="attribute">Person </span>: NSObject &lt;PersonProtocol&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure></p>
+<p>这时系统会提示警告：<br><img src="/images/objc_memory_management/objc_mm_1.png" alt="警告：编译器不会自动合成 protocol 中定义的 name property"><br>我们可以用 synthesize 合成变量来实现对应的 accessor。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@implementation</span> Person</span><br><span class="line"></span><br><span class="line"><span class="variable">@synthesize</span> name = _name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
+<p>当然也可以手动实现 getter 和 setter 方法。这里就不在赘述。</p>
+<p>P.S. 平时我们在 protocol 中大多定义一些动作型的方法。其实这源于没有彻底理解 protocol 的概念。protocol 的本质就是定义一套规范让别人去遵守，代理模式只是 protocol 的一种常用场景。明白了这一点，在 protocol 中定义 property 自然就容易理解了。</p>
+<h2 id="在_category_中使用_property">在 category 中使用 property</h2><p>category 本身是不能定义属性的。但 property 的本质是实例变量的 accessor 方法，所以我们可以采用 associate 机制重写 property 的 accessor 方法来实现。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> Person (name)</span><br><span class="line"></span><br><span class="line"><span class="variable">@property</span> (nonatomic, copy) NSString *name;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"Person+name.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> *nameKey = <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span> (<span class="title">name</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name</span><br><span class="line">&#123;</span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, &amp;nameKey, name, OBJC_ASSO<span class="built_in">CIATION_COPY_NONATOMIC</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)name</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, &amp;nameKey);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>用 associate 关联的对象不用自己手动释放。NSObject dealloc 的最后一步就是清理 associate 对象。详情可参考 runtime 的源码。</p>
+<hr>
+<h1 id="weak_关键字相关知识点">weak 关键字相关知识点</h1><h2 id="定义-1">定义</h2><p>weak 表示 property 不持有对象，且在对象 dealloc 的时候，把 weak 属性的值置为 nil。</p>
+<h2 id="weak,_assign,_unsafe_unretained_的区别">weak, assign, unsafe_unretained 的区别</h2><ol>
+<li><p>weak 只能用于对象类型</p>
+</li>
+<li><p>assign 既能用于基本数据类型，也能用于对象数据类型。不持有对象。如果用于对象类型，在对象 dealloc 之后，属性的值不变，有访问野指针的危险。</p>
+</li>
+<li><p>在 Cocoa 和 Cocoa Touch 有很少一些类还不支持 weak，比如 NSTextView, NSFont 等。对于这些类型如果想用 weak 类型，你需要用 unsafe_unretained 关键字。unsafe_unretained 和 weak 类型一样不会持有对象，但是在对象 dealloc 之后，不会自动置为空。有访问野指针的危险。</p>
+</li>
+</ol>
+<h2 id="用_runtime_如何实现_weak_属性">用 runtime 如何实现 weak 属性</h2><h2 id="clang_实现">clang 实现</h2><p><a href="http://clang.llvm.org/docs/AutomaticReferenceCounting.html#arc-runtime-objc-storeweak" target="_blank" rel="external">llvm 官网</a>列出了 runtime 中用来实现 weak 的函数，如下</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="property">id</span> objc_storeWeak(<span class="property">id</span>* object, <span class="property">id</span> value)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>value 是一个指针指向为 weak 属性赋值的对象，或者为null</li>
+<li>object 是 weak 属性的地址</li>
+</ul>
+<p>如果 value 是 null 或者 value 指向的对象开始 dealloc, object 会被赋值为 null 并且注销 __weak 身份。否则 object 会注册为 __weak 对象，并把自己的值改成 value。</p>
+<p>根据 weak 的定义，用 objc_storeWeak 实现 weak 的伪代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在赋值之前把 obj1 的值改为 obj 的值，在 obj dealloc 之后，把obj1的值改为 0</span></span><br><span class="line">id obj1;</span><br><span class="line">obj1 = <span class="number">0</span>;</span><br><span class="line">objc_storeWeak(&amp;obj1, obj);</span><br><span class="line"><span class="comment">/* ... obj的引用计数变为0，被置nil ... */</span></span><br><span class="line">objc_storeWeak(&amp;obj1, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="自己模拟_weak_实现">自己模拟 weak 实现</h2><p>自己实现 weak 最关键的地方在于：对象 dealloc 时把 property 的值置为 nil。显然，继承NSObject, 重写 dealloc 方法的解决方案不够优雅。我们考虑用 category 来实现。思路是：</p>
+<ol>
+<li><p>用 associate 给 NSObject 关联一个对象 DeallocExecutor，该对象用 block 的方式记录我们希望在 dealloc 中的行为。</p>
+</li>
+<li><p>associate 对象会在宿主对象 dealloc 时，自动 dealloc。</p>
+</li>
+<li><p>重写 property 的 setter 方法</p>
+</li>
+</ol>
+<p>DeallocExecutor 的定义：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">typedef</span> <span class="tag">void</span>(^<span class="tag">voidBlock</span>)(<span class="tag">void</span>);</span><br><span class="line"></span><br><span class="line"><span class="at_rule">@<span class="keyword">interface</span> DeallocExecutor : NSObject </span>&#123;</span><br><span class="line">    <span class="tag">voidBlock</span> _<span class="tag">block</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">instancetype</span>)<span class="rule"><span class="attribute">initWithBlock</span>:<span class="value">(voidBlock)block</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="at_rule">@<span class="keyword">end</span></span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"DeallocExecutor.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">DeallocExecutor</span></span></span><br><span class="line"></span><br><span class="line">- (instancetype)initWithBlock:(voidBlock)block</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">        _block = [block <span class="keyword">copy</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    _block ? _block() : <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>给 NSObject 添加一个 category:</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">runAtDealloc</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)runAtDealloc:(voidBlock)block;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">runAtDealloc</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)runAtDealloc:(voidBlock)block</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (block) &#123;</span><br><span class="line">        DeallocExecutor *executor = [[DeallocExecutor alloc] initWithBlock:block];</span><br><span class="line">        objc_setAssociatedObject(<span class="keyword">self</span>, _cmd, executor, OBJC_ASSO<span class="built_in">CIATION_RETAIN</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>重写 property 的 setter 方法</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)setObject:(<span class="type">NSObject</span> *)<span class="class"><span class="keyword">object</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    objc_setAssociatedObject(self, <span class="string">"object"</span>, <span class="class"><span class="keyword">object</span>, <span class="title">OBJC_ASSOCIATION_ASSIGN</span>);</span></span><br><span class="line">    [<span class="class"><span class="keyword">object</span> <span class="title">runAtDealloc</span>:</span>^&#123;</span><br><span class="line">        _object = nil;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对自己如何实现 weak 感兴趣的同学可以参考这篇帖子：<a href="http://stackoverflow.com/questions/22809848/objective-c-runtime-run-code-at-deallocation-of-any-object/31560217#31560217" target="_blank" rel="external">参考链接</a></p>
+<hr>
+<p>好了，以上就是本文的主要内容，希望大家喜欢。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="前言">前言</h1><p><a href="http://weibo.com/u/1364395395">微博@我就叫Sunny怎么了</a>发布了一套难度很大的<a href="http://blog.sunnyxx.com/2015/07/04/ios-interview/">iOS面试题</a>，<a href="http://weibo.com/luohanchenyilong">微博@iOS程序犭袁</a>给出了一份优秀的<a href="https://github.com/ChenYilong/iOSInterviewQuestions">答案</a>，由于面试题中有很多问题具有相关性，所以我准备将这套面试题总结一下，其中不乏自己的理解，如有不当之处，还望指出。</p>
+<p>这份面试题主要涉及了四个方向的知识点：</p>
+<ol>
+<li>Objective-C 基本概念，其中包括 property，kvo，对象内存布局等</li>
+<li>runtime 相关知识点</li>
+<li>runloop 相关知识点</li>
+<li>GCD 和 block 相关知识点</li>
+</ol>
+<p>本问主要总结了 property 相关的知识点。内容涉及 property 语法，weak 关键字的意义及如何实现，在 category 和 protocol 中如何使用 property。<br>]]>
+    
+    </summary>
+    
+      <category term="Objective-C" scheme="http://devliu.com/tags/Objective-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[ReactiveCocoa]]></title>
+    <link href="http://devliu.com/2015/10/05/ReactiveCocoa/"/>
+    <id>http://devliu.com/2015/10/05/ReactiveCocoa/</id>
+    <published>2015-10-05T10:20:38.000Z</published>
+    <updated>2015-10-12T03:32:14.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="Reactive_Philosophy">Reactive Philosophy</h1><h2 id="Imperative_programming">Imperative programming</h2><p>error-prone, relies too heavily on the infallibility of the programmer</p>
+<h2 id="Functional_Reactive_programming">Functional Reactive programming</h2><h3 id="Functions_don’t_have_side-effects">Functions don’t have side-effects</h3><h3 id="there’s_no_mutable_state">there’s no mutable state</h3><p>It’s a difficult way to program since the real world is mutable. Modeling things like user input becomes a nightmare.</p>
+<h2 id="Reactive_programming">Reactive programming</h2><p>the best way to describe reactive programming is to think of a spreadsheet. Imagine three cells, A, B, and C. A is defined as the sum of B and C. Whenever B or C changes, A reacts to update itself. That’s reactive programming: changes propagate throughout a system automatically.</p>
+<p>combination of functional and reactive paradigms.</p>
+<h3 id="Core_—_signal">Core — signal</h3><p>At the core of FRP is a signal. A signal simply sends values over time. It sends values until it either completes, or errors out, at which point it stops sending values forever. A signal either completes or errors out, but not both. Signals become useful when they’re subscribed to or used with bindings.</p>
+<h3 id="Signal_transform">Signal transform</h3><h3 id="Map">Map</h3><p>A map is an operator that takes in a signal as a receiver, performs some operation on the values sent over that signal, and generates a new signal with the new, mapped values.</p>
+<h3 id="Side-effects">Side-effects</h3><h4 id="Subscribe_a_signal_and_perform_side_effects">Subscribe a signal and perform side effects</h4><p>A good example would be the signal emitted by a button  when it’s pressed; we can subscribe to that signal in order to perform side effects.</p>
+<h3 id="Bind_a_signal_to_a_property">Bind a signal to a property</h3><p>For example, a signal that sends the location of a gesture recognizer can be mapped to a color and bound to the background color of a view. Then, when the user changes their tap position, the view changes color.</p>
+<p>In a summary, we can set up at the beginning of an application runtime and tell the code what to do without telling it how to do it. This is the value of functional reactive programming.</p>
+<h2 id="Core_—_derived_state">Core — derived state</h2><p>The derived state means that you never explicitly set the value of a bound property, but rather rely on signal transformations to derive that state for you.</p>
+<h1 id="Framework_Overview">Framework Overview</h1><h2 id="Streams">Streams</h2><p>RACStream is any series of object values. Stream allows complex operations to be built on a few basic primitives(-bind: in particular).</p>
+<h2 id="Signals">Signals</h2><p>Signals generally represent data that will be delivered in the future. Users must subscribe to a signal in order to access its values.</p>
+<p>Signals send three different types of events to their subscribers:</p>
+<ul>
+<li><p>The next event provides a new value from the stream. RACStream methods only operate on event of this type. Signal could include nil.</p>
+</li>
+<li><p>The error event indicates that an error occurred before the signal could finish. The event may include an NSError object that indicates what went wrong. Errors must be handled specially – they are not included in the stream’s values.</p>
+</li>
+<li><p>The completed event indicates that the signal finished successfully, and that no more values will be added to the stream. Completion must be handled specially – it is not included in the stream of values.</p>
+</li>
+</ul>
+<p>The lifetime of a signal consists of any number of next events, followed by one error or completed event (but not both).</p>
+<h2 id="Subscription">Subscription</h2><p>A subscriber is anything that is waiting or capable of waiting for events from a signal. Within RAC, a subscriber is represented as any object that conforms to the RACSubscriber protocol.</p>
+<p>A subscription is created through any call to -subscribeNext:error:completed:, or one of the corresponding convenience methods. Technically, most RACStream and RACSignal operators create subscriptions as well, but these intermediate subscriptions are usually an implementation detail.</p>
+<h2 id="Subjects">Subjects</h2><p>A subject, represented by the RACSubject class, is a signal that can be manually controlled.</p>
+<p>Subjects are useful for bridging non-RAC code into the world of signals.</p>
+<p>For example, instead of handling logic in block callbacks, you can send events or values to a subject. You can subscribe the subject and perform your task.</p>
+<h2 id="Commands">Commands</h2><p>A command, represented by the RACCommand class, creates and subscribes to a signal in response to some action. This makes it easy to perform side-effects when user interacts with the app.</p>
+<p>Usually the action triggering a command is UI-driven, like when a button is clicked. Commands can also be automatically disabled based on a signal, and this disabled state can be represented in a UI by disabling any controls associated with the command.</p>
+<p>On OS X, RAC adds a rac_command property to NSButton for setting up these behaviors automatically.</p>
+<h2 id="Connections">Connections</h2><p>RAC 参考教程</p>
+<h2 id="官方文档_-_针对objc">官方文档 - 针对objc</h2><p><a href="https://github.com/ReactiveCocoa/ReactiveCocoa/tree/master/Documentation/Legacy" target="_blank" rel="external">https://github.com/ReactiveCocoa/ReactiveCocoa/tree/master/Documentation/Legacy</a></p>
+<h2 id="raywenderlich">raywenderlich</h2><p><a href="http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1" target="_blank" rel="external">http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1</a><br><a href="http://www.raywenderlich.com/62796/reactivecocoa-tutorial-pt2" target="_blank" rel="external">http://www.raywenderlich.com/62796/reactivecocoa-tutorial-pt2</a></p>
+<h2 id="blog">blog</h2><p><a href="http://limboy.me/ios/2014/06/06/deep-into-reactivecocoa2.html" target="_blank" rel="external">http://limboy.me/ios/2014/06/06/deep-into-reactivecocoa2.html</a><br><a href="http://limboy.me/ios/2013/06/19/frp-reactivecocoa.html" target="_blank" rel="external">http://limboy.me/ios/2013/06/19/frp-reactivecocoa.html</a><br><a href="http://www.teehanlax.com/blog/getting-started-with-reactivecocoa/" target="_blank" rel="external">http://www.teehanlax.com/blog/getting-started-with-reactivecocoa/</a><br><a href="http://rcdp.io/flattenMap-vs-map-switchToLatest.html" target="_blank" rel="external">http://rcdp.io/flattenMap-vs-map-switchToLatest.html</a><br><a href="http://spin.atomicobject.com/" target="_blank" rel="external">http://spin.atomicobject.com/</a><br><a href="http://codeblog.shape.dk/blog/2013/12/05/reactivecocoa-essentials-understanding-and-using-raccommand/" target="_blank" rel="external">http://codeblog.shape.dk/blog/2013/12/05/reactivecocoa-essentials-understanding-and-using-raccommand/</a><br><a href="https://github.com/mailworks/LearnReactivecocoaSource" target="_blank" rel="external">https://github.com/mailworks/LearnReactivecocoaSource</a></p>
+<h2 id="app">app</h2><p><a href="https://github.com/AshFurrow/C-41" target="_blank" rel="external">https://github.com/AshFurrow/C-41</a><br><a href="https://github.com/jspahrsummers/GroceryList" target="_blank" rel="external">https://github.com/jspahrsummers/GroceryList</a></p>
+<p>RAC &amp;&amp; MVVM<br><a href="http://www.sprynthesis.com/2014/12/06/reactivecocoa-mvvm-introduction/" target="_blank" rel="external">http://www.sprynthesis.com/2014/12/06/reactivecocoa-mvvm-introduction/</a><br><a href="http://cocoasamurai.blogspot.com/2013/03/basic-mvvm-with-reactivecocoa.html" target="_blank" rel="external">http://cocoasamurai.blogspot.com/2013/03/basic-mvvm-with-reactivecocoa.html</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Reactive_Philosophy">Reactive Philosophy</h1><h2 id="Imperative_programming">Imperative programming</h2><p>error-prone, relies too h]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[resume]]></title>
+    <link href="http://devliu.com/2015/08/31/resume/"/>
+    <id>http://devliu.com/2015/08/31/resume/</id>
+    <published>2015-08-31T05:50:17.000Z</published>
+    <updated>2015-08-31T06:33:23.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="学历">学历</h1><h2 id="硕士_东北大学_2010-09_-_2012-07_计算机应用技术">硕士 东北大学 2010.09 - 2012.07 计算机应用技术</h2><h2 id="学士_长安大学_2005-09_-_2009-07_建筑设施智能技术">学士 长安大学 2005.09 - 2009.07 建筑设施智能技术</h2><h1 id="工作经历">工作经历</h1><h2 id="猎豹移动_2013-04_至今">猎豹移动 2013.04 至今</h2><h3 id="iOS_电池医生">iOS 电池医生</h3><ul>
+<li>充电屏保开发，负责充电屏保复杂动画的开发工作</li>
+<li>应用市场，定制TableView，实现上滑隐藏顶部导航栏，定制tableView实现表格布局，优化滚动速度。封装应用市场SDK，提供给第三方厂商使用</li>
+<li>应用市场自定义顶部导航栏</li>
+<li>活动中心</li>
+</ul>
+<h3 id="iOS_shine">iOS shine</h3><ul>
+<li>自定义UICollectionView布局，实现瀑布流效果</li>
+<li>定制TabbarController，实现推入页面隐藏底部tabbar.</li>
+<li>扩展SDWebImage，实现对animated webp格式的支持</li>
+<li>使用autolayout搭建评论系统，IM系统的界面</li>
+<li>自定义CoreTextLabel，支持自定义表情，连接，标签，电话号码，地址等的匹配和相关回调，支持Aautolayout</li>
+<li>自定义表情键盘（基于自定义UICollectionView的布局），与系统键盘无缝切换</li>
+<li>使用ReactiveCocoa实现MVVM模式，去掉大量状态依赖，减少潜在bug，实现业务逻辑与UI的完美解耦</li>
+<li>使用Core Data，存储用户数据</li>
+<li>大量优化CollectionView和TableView的滚动速度</li>
+<li>大量自定义控件，熟练使用Quartz2D，Core Animation</li>
+<li>熟练使用git进行版本管理</li>
+<li>实现注册登录流程及Facebook的接入</li>
+<li>70%以上的接口对接，使用JSONModel序列化数据</li>
+</ul>
+<h2 id="智信创想">智信创想</h2><h3 id="iOS_宝来药通_2012-10_-_2013-04">iOS 宝来药通 2012.10 - 2013.04</h3><ul>
+<li>封装TableviewController基类，将上下拉，数据存储等功能进行封装</li>
+<li>聊天系统，采用Core Text图文混排，支持自定义表情，自定义表情键盘</li>
+<li>使用Core Data存储用户数据，熟练使用Magical Record和RestKit</li>
+<li>使用RestKit和AFNetworking对接服务端</li>
+</ul>
+<h1 id="个人优势">个人优势</h1><ul>
+<li>很强的学习能力，对新技术能很快的掌握并应用</li>
+<li>重视基础，常读Apple官方文档和观看WWDC视频，能快速定位Bug的根本原因</li>
+<li>经常阅读优质博客，比如objcio，nshipster等。经常浏览Github上优质的开源项目</li>
+<li>支持正版软件</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="学历">学历</h1><h2 id="硕士_东北大学_2010-09_-_2012-07_计算机应用技术">硕士 东北大学 2010.09 - 2012.07 计算机应用技术</h2><h2 id="学士_长安大学_2005-09_-_2009-07_建筑设施智能]]>
+    </summary>
+    
+      <category term="resume" scheme="http://devliu.com/tags/resume/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[iOS常见面试题]]></title>
+    <link href="http://devliu.com/2015/07/26/iOS%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>http://devliu.com/2015/07/26/iOS常见面试题/</id>
+    <published>2015-07-26T15:53:13.000Z</published>
+    <updated>2015-07-26T16:02:53.000Z</updated>
+    <content type="html"><![CDATA[<p>在这里记录一下网上流行的iOS面试题，以后面试用。首先就是唐巧最近在微信里发布了一套面试题，在这里记录一下，以后找时间总结一下回答，当然是在弄懂的前提下。仅仅吧答案背下来，却不弄懂是没什么用的。</p>
+<a id="more"></a>
+<h2 id="一个区分度很大的面试题">一个区分度很大的面试题</h2><hr>
+<p>考察一个面试者基础咋样，基本上问一个 @property 就够了：</p>
+<p>@property 后面可以有哪些修饰符？<br>什么情况使用 weak 关键字，相比 assign 有什么不同？<br>怎么用 copy 关键字？<br>这个写法会出什么问题： @property (copy) NSMutableArray *array;<br>如何让自己的类用 copy 修饰符？如何重写带 copy 关键字的 setter？<br>这一套问题区分度比较大，如果上面的问题都能回答正确，可以延伸问更深入点的：</p>
+<p>@property 的本质是什么？ivar、getter、setter 是如何生成并添加到这个类中的<br>@protocol 和 category 中如何使用 @property<br>runtime 如何实现 weak 属性<br>每个人擅长的领域不一样，我们一般会从简历上找自己写擅长的技术聊，假如自己并不是很熟，最好别写出来或扯出来，万一面试官刚好非常精通这里就露馅了。</p>
+<h2 id="Checklist">Checklist</h2><hr>
+<p>总结过些面试题，没坚持下去，后来把这些当 checklist，面试的时候实在没话聊的时候做个提醒，语言、框架、运行机制性质的：</p>
+<p>[※]@property中有哪些属性关键字？<br>[※]weak属性需要在dealloc中置nil么？<br>[※※]@synthesize和@dynamic分别有什么作用？<br>[※※※]ARC下，不显示指定任何属性关键字时，默认的关键字都有哪些？<br>[※※※]用@property声明的NSString（或NSArray，NSDictionary）经常使用copy关键字，为什么？如果改用strong关键字，可能造成什么问题？<br>[※※※]@synthesize合成实例变量的规则是什么？假如property名为foo，存在一个名为_foo的实例变量，那么还会自动合成新变量么？<br>[※※※※※]在有了自动合成属性实例变量之后，@synthesize还有哪些使用场景？</p>
+<p>[※※]objc中向一个nil对象发送消息将会发生什么？<br>[※※※]objc中向一个对象发送消息[obj foo]和objc_msgSend()函数之间有什么关系？<br>[※※※]什么时候会报unrecognized selector的异常？<br>[※※※※]一个objc对象如何进行内存布局？（考虑有父类的情况）<br>[※※※※]一个objc对象的isa的指针指向什么？有什么作用？<br>[※※※※]下面的代码输出什么？</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Son</span> : <span class="title">Father</span></span></span><br><span class="line">- (<span class="keyword">id</span>)init</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> class]));</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="built_in">NSStringFromClass</span>([<span class="keyword">super</span> class]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>[※※※※]runtime如何通过selector找到对应的IMP地址？（分别考虑类方法和实例方法）<br>[※※※※]使用runtime Associate方法关联的对象，需要在主对象dealloc的时候释放么？<br>[※※※※※]objc中的类方法和实例方法有什么本质区别和联系？<br>[※※※※※]_objc_msgForward函数是做什么的，直接调用它将会发生什么？<br>[※※※※※]runtime如何实现weak变量的自动置nil？<br>[※※※※※]能否向编译后得到的类中增加实例变量？能否向运行时创建的类中添加实例变量？为什么？</p>
+<p>[※※※]runloop和线程有什么关系？<br>[※※※]runloop的mode作用是什么？<br>[※※※※]以+ scheduledTimerWithTimeInterval…的方式触发的timer，在滑动页面上的列表时，timer会暂定回调，为什么？如何解决？<br>[※※※※※]猜想runloop内部是如何实现的？</p>
+<p>[※]objc使用什么机制管理对象内存？<br>[※※※※]ARC通过什么方式帮助开发者管理内存？<br>[※※※※]不手动指定autoreleasepool的前提下，一个autorealese对象在什么时刻释放？（比如在一个vc的viewDidLoad中创建）<br>[※※※※]BAD_ACCESS在什么情况下出现？<br>[※※※※※]苹果是如何实现autoreleasepool的？</p>
+<p>[※※]使用block时什么情况会发生引用循环，如何解决？<br>[※※]在block内如何修改block外部变量？<br>[※※※]使用系统的某些block api（如UIView的block版本写动画时），是否也考虑引用循环问题？</p>
+<p>[※※]GCD的队列（dispatch_queue_t）分哪两种类型？<br>[※※※※]如何用GCD同步若干个异步调用？（如根据若干个url异步加载多张图片，然后在都下载完成后合成一张整图）<br>[※※※※]dispatch_barrier_async的作用是什么？<br>[※※※※※]苹果为什么要废弃dispatch_get_current_queue？<br>[※※※※※]以下代码运行结果如何？</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"1"</span>);</span><br><span class="line">    <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"2"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"3"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>[※※]addObserver:forKeyPath:options:context:各个参数的作用分别是什么，observer中需要实现哪个方法才能获得KVO回调？<br>[※※※]如何手动触发一个value的KVO<br>[※※※]若一个类有实例变量NSString *_foo，调用setValue:forKey:时，可以以foo还是_foo作为key？<br>[※※※※]KVC的keyPath中的集合运算符如何使用？<br>[※※※※]KVC和KVO的keyPath一定是属性么？<br>[※※※※※]如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？<br>[※※※※※]apple用什么方式实现对一个对象的KVO？</p>
+<p>[※※]IBOutlet连出来的视图属性为什么可以被设置成weak?<br>[※※※※※]IB中User Defined Runtime Attributes如何使用？</p>
+<p>[※※※]如何调试BAD_ACCESS错误<br>[※※※]lldb（gdb）常用的调试命令？</p>
+<p>这些小题可以做为讨论的入口，根据面试者的回答再继续聊下去。其中一些题比较底层，是留给屌屌的面试者或者试探评级用的，一般情况并不是重点的考察内容。</p>
+<p>最后还有两段讲软实力的，也记在这里，希望以后面试能够有所借鉴。</p>
+<h2 id="业务能力">业务能力</h2><p>毕竟平常的工作内容不是 runtime、runloop，不怎么会用到底层的黑魔法，80% 的时间都是和搭建页面、写业务逻辑、网络请求打交道。<br>要求面试者能够熟练构建 UI，我会找一个面试者做过的页面让他分析下页面结构、约束或者 frame 布局的连法和计算方法；有时也会让面试者说说 UITableView 常用的几个 delegate 和 data source 代理方法，动态 Cell 高度计算什么的；接下来，在手机里随便找一个 App 的页面，让面试者当场说说如果是他写应该用哪些 UI 组件和布局方式等。问几个问题后就能大概了解业务能力了，我们这边重度使用 IB 和 AutoLayout，假如面试者依然使用代码码 UI 也到没关系，有“从良”意愿就很好~</p>
+<p>程序架构和一些设计模式如果面试者自己觉得还不错的话也会聊聊，但跪求别说 Singleton 了，用的越多对水平就越表示怀疑。对设计模式自信的我一般问一个问题，抽象工厂模式在 Cocoa SDK 中哪些类中体现？<br>架构上 MVC 还是 MVVM 还是 MVP 神马的到是可以聊聊各自的见解，反正也没有正确答案，只要别搞的太离谱就行，比如有的人说网络请求和数据库的操作最好放到 UIView 的子类里面干。</p>
+<p>网络请求、数据库等各家都有成熟的封装，基本知道咋用就行。除此之外，我们还会顺带的问下除了 iOS 开发外，还会什么其他编程语言、或者熟悉哪种脚本语言和 Terminal 操作等，甚至还问问是如何翻墙- -，相信这些技能都是很重要的。</p>
+<h2 id="性格">性格</h2><p>大家都是写程序的，没啥必要用奇怪的、很难的问题难为对方，更关键的还是性格，和 Team 的风格是不是和的来。一个心态良好的面试者需要有个平常心，不傲娇也不跪舔，表达要正常，经常遇到问一个问题后一两分钟一直处于沉思状态，一句话不说，交流像挤牙膏一样，很是憋屈；还有非常屌屌的，明明不懂仍然强行据理力争，镇得住面试官也罢，撞枪口上就别怪不客气了- - 。决定要不要一个人基本上聊 5 分钟就可以确定了，喜欢水到渠成的感觉，看对眼了挡都挡不住。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在这里记录一下网上流行的iOS面试题，以后面试用。首先就是唐巧最近在微信里发布了一套面试题，在这里记录一下，以后找时间总结一下回答，当然是在弄懂的前提下。仅仅吧答案背下来，却不弄懂是没什么用的。</p>]]>
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://devliu.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[git 技巧]]></title>
+    <link href="http://devliu.com/2015/07/26/git-%E6%8A%80%E5%B7%A7/"/>
+    <id>http://devliu.com/2015/07/26/git-技巧/</id>
+    <published>2015-07-26T14:53:15.000Z</published>
+    <updated>2015-07-26T16:01:17.000Z</updated>
+    <content type="html"><![CDATA[<p>这是我过去使用git总结的一些技巧和在google和ss上搜到的一些知识，希望大家喜欢。<br><a id="more"></a><br>1.列出本地git文件<br>git ls-tree —full-tree -r HEAD</p>
+<ol>
+<li>假如你想要丢弃你所有的本地改动与提交，可以到服务器上获取最新的版本并将你本地主分支指向到它：<br>git fetch origin<br>git reset —hard origin/master</li>
+</ol>
+<p>3.删除掉本地从暂存区删除的文件<br>git rm $(git ls-files —deleted)</p>
+<p>4.修改.gitignore失效的解决办法 <a href="http://stackoverflow.com/questions/1139762/gitignore-file-not-ignoring" target="_blank" rel="external">http://stackoverflow.com/questions/1139762/gitignore-file-not-ignoring</a><br>     1&gt; 删除暂存区的文件<br>     git rm -r —-cached .<br>     2&gt; 把文件加回来<br>     git add .<br>     3&gt; 提交<br>     git commit -m “.gitignore is now working”</p>
+<p>5.alias<br>[alias]<br>    lg = log —graph —pretty=format:’%Cred%h%Creset -%C(yellow)%d%Creset %C(blue)%s%Creset %C(dim cyan<br>    st = status -sb<br>    co = checkout<br>    br = branch<br>    mg = merge<br>    ci = commit<br>    ds = diff —staged<br>    dt = difftool<br>    mt = mergetool<br>    last = log -1 HEAD<br>    latest = for-each-ref —sort=-committerdate —format=\”%(committername)@%(refname:short) [%(committ<br>    ls = log —pretty=format:\”%C(yellow)%h %C(blue)%ad %C(red)%d %C(reset)%s %C(green)[%cn]\” —decora<br>    hist = log —pretty=format:\”%C(yellow)%h %C(red)%d %C(reset)%s %C(green)[%an] %C(blue)%ad\” —topo<br>    type = cat-file -t<br>    dump = cat-file -p<br>    pom = push origin master</p>
+<p>6.设置跟踪<br>     git config —global push.default simple</p>
+<p>7.检查一个提交包含在哪个tag下面<br>     git name-rev —name-only 50f3754</p>
+<p>8.找出哪个分支包含某个提交<br>     git branch —contains 50f3754</p>
+<p>9.检查cherry pick的状态<br>     当前在feature分支<br>     git cherry -v master<br>输出：</p>
+<pre><code>+ <span class="number">497034</span>f2 Listener.<span class="built_in">new</span> now accepts <span class="operator">a</span> hash <span class="operator">of</span> options
+- <span class="number">2</span>d0333ff cache <span class="operator">the</span> absolute images path <span class="keyword">for</span> growl messages
++ e4406858 <span class="built_in">rename</span> Listener<span class="comment">#run to #start</span>
+</code></pre><p>+表示没有在master分支上，-表示已经在master分支上</p>
+<p>10.给提交写注释<br>     git notes add<br>注：注释只存在本地</p>
+<p>11.git 查看所有分支<br>     git branch -v -a</p>
+<p>12.git reset 模式<br>     —soft 缓存区和工作区都不变，只把 HEAD 指针指向commit<br>     —mixed 把缓存区重置，但是不改变工作区。是默认模式<br>     —hard 缓存区和工作区都重置</p>
+<p>13.git rm —cached <file> vs. git reset — <file><br>git rm —cached <file> will completely remove the file’s contents from the index. This means that on commit the file will be removed from the HEAD commit. (If the file was only added to the index and not yet tracked this is a “no-op”.)<br>     从缓存中删除该文件，下次提交，该文件会再版本库中删除。但本地还需要手动删除。</file></file></file></p>
+<p>git reset — <file> resets the contents of the file in the index to be the same as the head commit. This means that on commit no changes will be committed to the file. This operation is not valid if there is no tracked version of the file in the HEAD commit.<br>     重置缓存区中该文件的内容，保持和head commit一样。但工作区中不受影响。可以用git checkout — <file> 还原文件的内容</file></file></p>
+<p>14.git diff 找到哪行被修改<br>git diff —unified=0 commit1 commit2</p>
+<p>15.git checkout时tag和branch有相同的名字<br>git checkout tags/<tagname></tagname></p>
+<p>16.在过去的某一个commit创建分支，(detached head)<br>     1.git checkout <commit> 回到那个commit<br>     2.git checkout -b <branch_name> 创建新分支<br>     也可以这样做<br>     git branch new_branch -v ee79123 基于过去的某个提交建立分支</branch_name></commit></p>
+<p>17.<br>     git repack 重新打包<br>     git repack -d 用来压缩体积，不太重用，目前不是很明白。</p>
+<pre><code><span class="title">git</span> gc 压缩体积
+</code></pre><p>18.git 查找工程中所有的TODO<br>     [alias] todo = grep -n -e TODO -e FIXME -e XXX -e OPTIMIZE</p>
+<p>19.修改某个提交的信息<br>     1.如果是修改最近一次提交 git commit —amend -m “new commit message”<br>     2.如果不是最近一次提交<br>               1.git rebase -i &lt;要修改提交之前的那次提交&gt;<br>                2.git commit —amend -m “new commit message”<br>                3.git rebase —continue</p>
+<p>20.压缩提交<br>如果多次提交的信息大致相同，可以把它们压缩成一个提交<br>首先找到你要压缩的这些提交的前一个提交叫 commit_before<br>     1.git rebase -i <commit_before><br>     2.进入编辑界面<br>          1.确定一个提交号 commit_retain，虽然要压缩提交，也得保留一个提交，把这个提交标记为pick<br>          2.把其他提交笔记为squash</commit_before></p>
+<pre><code><span class="number">3</span>. :wq 退出编辑界面，这时会提示输入commit <span class="keyword">message</span>，输入就好了，比如“Squash the <span class="keyword">message</span>.”这样就好了。
+</code></pre><p>21.Merge 其他分支上的所有提交作为1个提交<br>     1.git merge —squash <feature branch=""><br>     2.这时可能会有未跟踪的文件，或者冲突（还没遇到过，但是应该会有这种情况），用 git add，或者解完冲突，再提交就好了。</feature></p>
+<p>22.对提交重新排序<br>     1.首先git log查看提交信息，确定哪些提交需要重新排序，找到最前面的commit<em>need_reorder<br>     2.git reabse -i <commit_need_reorder>，进入编辑界面<br>     3.里面列出了各个提交，用vim排序就好了，比如把某一行移到某一行的下面 ^</commit_need_reorder></em>^</p>
+<p>23.git bisect 用git二分法查找bug<br>     大致思路：<br>     1.首先确认两个起始点，一个标记为good，一个标记为bad，这时会确定一个中间的提交，在这个提交上运行测试代码，根据结果标记为good 或者 bad，这时会进入另外一半的commits（注意是负数）。这样递归就可以看到，最后是在那个commit引入了这个bug。<br>     命令：<br>     git bisect start<br>     git bisect good <commit_good><br>     git bisect bad <commit_bad><br>     —&gt; go to the mid commit<br>     —&gt; run the test code<br>     if good<br>          run git bisect good<br>          go to the [commit_good…commit_mid] -&gt; new commit_mid<br>     else<br>          run git bisect bad<br>          go to the [commid_mid…commit_bad] -&gt; new commid_mid</commit_bad></commit_good></p>
+<pre><code><span class="keyword">finally</span> <span class="keyword">find</span> the commit_with_bug
+</code></pre><p>24.git 交互式 add<br>     如果在一个文件中，你编辑了多行内容，但是这些内容可能属于多个提交，你可以考虑用git add -p来分开add进缓存区。<br>     1.git add -p</p>
+<pre><code>可以看到这两行内容应该属于不同的提交，这时选择e，进入编辑界面。
+<span class="number">2.</span>删除掉不需要的内容，比如删掉
+
+然后用git <span class="keyword">add</span>加入缓存区就好了。
+</code></pre><p>25.git revert <commit><br>     放弃某个提交，但不修改提交历史，而是新增一个提交</commit></p>
+<p>26.撤销git reset —hard 的修改<br>     有时候你会用git reset —hard来撤销某个commit，并使你的工作区回到那个commit之前的状态，但是你可能又后悔了，这时你可以用git reflog来执行你的反悔操作。<br>     1.git reflog<br>          找到你用 git reset —hard 撤销的提交，叫commit_should_restored<br>     2.git reset —hard <commit_should_restored> 这样就ok了。</commit_should_restored></p>
+<p>27.解决合并时候的冲突<br>     当分支合并时难免会遇到冲突，使合并中途失败，这时不要怕，找到有冲突的文件，解完冲突，在来一个commit就行了<br>     1.git branch <feature_branch><br>          这里出现了冲突<br>     2.用git status查看那个文件存在冲突，它没被加到缓存区<br>     3.用你最爱的编辑器修改完冲突，这时候你需要注意，&lt;&lt;&lt;&lt;<head和=====标记的是你所在的分支，====和<feature_branch>标记的是你要合并过来的分支。<br>     4.git add .<br>     5.git commit -m “merge branch”</head和=====标记的是你所在的分支，====和<feature_branch></feature_branch></p>
+<p>28.撤销某个文件的修改<br>     1.git checkout — file 从缓存中撤销该文件的修改<br>     2.git checkout <branch>/<origin master="">/<head~> — file 从某个分支/远端/HEAD之前的提交中撤销该文件的修改（或者看做获取文件内容）</head~></origin></branch></p>
+<p>29.重置缓存区<br>     git reset HEAD . （后面的 . 可以不加）<br>     主要可以用在这种情况，比如先加到缓存区中的文件，然后本地又删除了一些文件（已加到缓存区），这时可以重置一下缓存区，在git add .  重加一下。</p>
+<p>30.git blame 技巧<br>git blame -w # 忽略移除空白这类改动<br>git blame -M # 忽略移动文本内容这类改动<br>git blame -C # 忽略移动文本内容到其它文件这类改动</p>
+<p>31.git rebase -i 分割提交<br>     1.用 git rebase -i <commit> 打开编辑界面<br>     2.用 edit 选择要分割的commit，这时commit会跳转到要分隔的commit_sep<br>     3.用git reset HEAD~ 把commit跳到commit_sep之前<br>     4.按情况把提交加上就可以了，比如用 git add -p</commit></p>
+<p>32.查看某个commit的改动<br>     git show <commit></commit></p>
+<p>33.查看某个提交添加了哪些文件<br>     git diff-tree —no-commit-id —name-only -r —diff-filter=A <commit><br>     注意：—diff-filter=A 是添加的意思，M是修改的意思<br>The —no-commit-id suppresses the commit ID output.<br>The —pretty argument specifies an empty format string to avoid the cruft at the beginning.<br>The —name-only argument shows only the file names that were affected (Thanks Hank).<br>The -r argument is to recurse into sub-trees</commit></p>
+<p>34.git 查看所有alias<br>     git config —get-regexp alias</p>
+<p>35.git tag 操作<br>     加标签<br>     git tag -a v0.1.0 -m ‘version 0.1.0’</p>
+<pre><code>本地删标签
+<span class="label">git</span> tag -d v0.<span class="number">1</span>.<span class="number">0</span>
+
+远程删标签
+<span class="label">git</span> <span class="keyword">push </span>origin :<span class="number">0</span>.<span class="number">1</span>.<span class="number">0</span>
+
+<span class="keyword">push标签
+</span><span class="label">git</span> <span class="keyword">push </span>—tags
+
+删除全部本地标签
+<span class="label">git</span> tag -l <span class="title">| xargs git tag -d</span>
+</code></pre><p>36.git查看当天的提交 （写日报用）<br>     git log —since ‘1 day ago’ —oneline —author <youremail></youremail></p>
+<p>37.git 恢复单个文件的历史版本<br>     首先查看该文件的历史版本信息：git log Default@2x.png<br>     记录下需要恢复的commit版本号：如 9aa51d89799716aa68cff3f30c26f8815408e926<br>     恢复该文件：git reset 9aa51d89799716aa68cff3f30c26f8815408e926 Default@2x.png<br>     提交git:git commit -m “revert old file”</p>
+<p>38.git checkout 远程分支<br>git checkout -b test origin/test</p>
+<p>39.git 查看本地分支对应的远程分支git branch -vv # doubly verbose!</p>
+<p>40.git filter-branch 修改大量提交<br>     1.从所有提交中删除一个文件<br>     git filter-branch —tree-filter ‘rm -f passwords.txt’ HEAD<br>     2.讲一个子目录设置为新的根目录<br>     git filter-branch —subdirectory-filter trunk HEAD<br>   3.全局性的更换提交的邮件地址<br>    git filter-branch —commit-filter ‘<br>     if [ “$GIT_AUTHOR_EMAIL” = “schacon@localhost” ];<br>     then<br>          GIT_AUTHOR_NAME=”Scott Chacon”;<br>          GIT_AUTHOR_EMAIL=”schacon@example.com”;<br>          git commit-tree “$@”;<br>     else<br>          git commit-tree “$@”;<br>     fi’ HEAD</p>
+<p>41.HEAD~ 和 HEAD^<br>     HEAD~是沿着一条提交线，往前查找，比如HEAD~3是这个提交之前的第3个提交<br>     HEAD^是广度查找，比如这个提交是两个分支的交点，则HEAD^^，就是第二个分支上的父提交（第二父提交），如果不是交点，则和HEAD~~一样</p>
+<p>42.git stash<br>     1.git stash与分支无关，如果在feature分支上stash了，可以在master分支上apply stash中的内容<br>     2.在stash上创建分支<br>          git stash branch <branch_name><br>     3.取消储藏<br>          git stash show -p stash@{0} | git apply -R</branch_name></p>
+<p>43.git reflog</p>
+<pre><code>1. 每次更改git的HEAD的时候，git都会帮你记录这个改动，这样就可以找回git <span class="operator"><span class="keyword">reset</span> —hard &lt;commit_id&gt; 弄丢的<span class="keyword">commit</span>了，参考第<span class="number">26</span>条
+ <span class="number">2.</span>
+
+ 查看HEAD@{<span class="number">3</span>}，git <span class="keyword">show</span> HEAD@{<span class="number">3</span>}，控制台会显示<span class="number">1</span>c36188的<span class="keyword">commit</span> 信息
+ <span class="number">3.</span>查看<span class="keyword">master</span>分支昨天在哪
+      git <span class="keyword">show</span> <span class="keyword">master</span>@{yesterday}</span>
+</code></pre><p>44.查看某个分支指向那个提交<br>     git rev-parse <branch></branch></p>
+<p>45.git 提交范围</p>
+<pre><code><span class="number">1.</span> 双点 ..
+主要是git区分出可从一个分支获得而无法从另一个分支上获得的提交
+git <span class="command">log</span> master..experiment
+</code></pre><p>  D C<br>     查看你将把什么推送到远程<br>     git log origin/master..HEAD<br>    2.多点，查看refA refB中有，refC中没有的提交<br>     git log refA refB —not refC = git log refA refB ^refC    </p>
+<pre><code><span class="number">3</span>.三点 ...
+这个可以指定被两个引用中的一个包含但又不被两者同时包含的分支
+</code></pre><p>46.git checkout 远程分支</p>
+<p>git checkout -b test origin/test</p>
+<p>47.git 展示某个文件不同版本间的差异</p>
+<p>$ git diff $start_commit..$end_commit — path/to/file</p>
+<p>48.查看那个提交删除了某个文件<br>git log — /path/to/file</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>这是我过去使用git总结的一些技巧和在google和ss上搜到的一些知识，希望大家喜欢。<br>]]>
+    
+    </summary>
+    
+      <category term="git" scheme="http://devliu.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[V]]></title>
+    <link href="http://devliu.com/2015/07/26/V/"/>
+    <id>http://devliu.com/2015/07/26/V/</id>
+    <published>2015-07-26T14:40:58.000Z</published>
+    <updated>2015-07-26T14:48:48.000Z</updated>
+    <content type="html"><![CDATA[<p>《V字仇杀队》是我最喜欢的电影之一，当然我不能说没有之一这种屁话，那太绝对了。我不知道如何评论这部电影，或者说我不敢在互联网这个开放的环境下写出我内心真实的感受。或者，我怀疑自己的措辞能力无法表现出这部电影的伟大。But，你需要去看这部电影。</p>
+<p>V怪客在电视台向全国民众发表演说的台词：（请原谅我粘贴自网络）<br><a id="more"></a>　　　　　　<br>　　　　　　尽管沉默代替了言语<br>　　　　　　言语却总是能保持它的力量<br>　　　　　　含义深刻的言语<br>　　　　　　它向那些愿意倾听的<br>　　　　　　人们发出真相的宣告<br>　　　　　　而真相是，这个国家<br>　　　　　　有些事情错得可怕<br>　　　　　　人民被残暴、不公、歧视和镇压<br>　　　　　　你曾经有过反对的自由<br>　　　　　　可以说出你想说的话<br>　　　　　　但是现在有了传感器和全天24小时的监视系统<br>　　　　　　- 强迫你沉默<br>　　　　　　- 强迫你服从<br>　　　　　　<br>　　　　　　这是怎么发生的？<br>　　　　　　这要怪谁？<br>　　　　　　谁更需要负上这个责任？<br>　　　　　　你想找到这个罪人的话<br>　　　　　　你只需要照照镜子<br>　　　　　　<br>　　　　　　我知道你为什么这样做<br>　　　　　　我知道你害怕<br>　　　　　　谁不会呢？<br>　　　　　　战争、恐怖事件、疾病<br>　　　　　　它们就像杂草种子<br>　　　　　　用来摧毁你的理智<br>　　　　　　夺走你的常识<br>　　　　　　恐惧控制了你<br>　　　　　　让你在慌乱中投向了元首先生<br>　　　　　　——亚当·苏特勒<br>　　　　　　他向你许诺秩序<br>　　　　　　他向你许诺和平<br>　　　　　　而他所要的回报不过<br>　　　　　　是你的服从和沉默<br>　　　　　　<br>　　　　　　昨晚我决定结束这种沉默<br>　　　　　　昨晚我摧毁了老巴里街<br>　　　　　　以提醒这个国家忘记的事情<br>　　　　　　将近400年前<br>　　　　　　一位伟大的公民打算将11月5日<br>　　　　　　永远刻入我们的记忆中<br>　　　　　　以此提醒世界公平、正义和自由<br>　　　　　　不只是口头说说<br>　　　　　　它们是人生来就有的权利<br>　　　　　　<br>　　　　　　所以如果你什么也没看见<br>　　　　　　对这个政府犯下的罪行一无所知<br>　　　　　　我建议你让这个11月5日平淡地过去<br>　　　　　　<br>　　　　　　可是如果你看见我所见的<br>　　　　　　如果你有跟我一样的感受<br>　　　　　　如果你有像我一样去寻觅真理和自由<br>　　　　　　我请你在一年以后的今晚<br>　　　　　　站到议会大厦的外面<br>　　　　　　团结一致，我们将使11月5日<br>　　　　　　永远不会被忘怀！ </p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>《V字仇杀队》是我最喜欢的电影之一，当然我不能说没有之一这种屁话，那太绝对了。我不知道如何评论这部电影，或者说我不敢在互联网这个开放的环境下写出我内心真实的感受。或者，我怀疑自己的措辞能力无法表现出这部电影的伟大。But，你需要去看这部电影。</p>
+<p>V怪客在电视台向全国民众发表演说的台词：（请原谅我粘贴自网络）<br>]]>
+    
+    </summary>
+    
+      <category term="电影" scheme="http://devliu.com/tags/%E7%94%B5%E5%BD%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[uicollectionview 用法小结]]></title>
+    <link href="http://devliu.com/2015/05/20/uicollectionview-%E7%94%A8%E6%B3%95%E5%B0%8F%E7%BB%93/"/>
+    <id>http://devliu.com/2015/05/20/uicollectionview-用法小结/</id>
+    <published>2015-05-20T14:37:53.000Z</published>
+    <updated>2015-05-20T23:57:21.000Z</updated>
+    <content type="html"><![CDATA[<p>最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。</p>
+<h2 id="项目需求：">项目需求：</h2><p>1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。<br>2.cell中圆角和阴影共存。</p>
+<p>请看效果图<br><img src="/images/uicollectionview/uicollectionview.gif" alt="瀑布流效果图"></p>
+<a id="more"></a>
+<h2 id="项目实现">项目实现</h2><h3 id="自定义uicollectionview的布局，实现瀑布流">自定义uicollectionview的布局，实现瀑布流</h3><p>1.在prepareLayout函数中初始化变量，比如cell的间距</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  初始化layout后自动调动，可以在该方法中初始化一些自定义的变量参数</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)prepareLayout &#123;</span><br><span class="line">    [<span class="keyword">super</span> prepareLayout];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 初始化参数</span></span><br><span class="line">    _cellCount = [<span class="keyword">self</span><span class="variable">.collectionView</span> numberOfItemsInSection:<span class="number">0</span>]; <span class="comment">// cell个数，直接从collectionView中获得</span></span><br><span class="line">    _insert = <span class="number">5</span>; <span class="comment">// 设置间距</span></span><br><span class="line">    _itemWidth = SCREEN_WIDTH / <span class="number">2</span> - <span class="number">2</span> * _insert; <span class="comment">// cell宽度</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.重写collectionViewContentSize函数返回collectionview的大小<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  设置UICollectionView的内容大小，道理与UIScrollView的contentSize类似</span><br><span class="line"> *</span><br><span class="line"> *  @return 返回设置的UICollectionView的内容大小</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">CGSize</span>)collectionViewContentSize &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">CGSizeMake</span>(SCREEN_WIDTH, MAX(_leftY, _rightY));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.确定每个cell的显示属性<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  初始Layout外观</span><br><span class="line"> *</span><br><span class="line"> *  @param rect 所有元素的布局属性</span><br><span class="line"> *</span><br><span class="line"> *  @return 所有元素的布局</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">NSArray</span> *)layoutAttributesForElementsInRect:(<span class="built_in">CGRect</span>)rect &#123;</span><br><span class="line">    _leftY = _insert; <span class="comment">// 左边起始Y轴</span></span><br><span class="line">    _rightY = _insert; <span class="comment">// 右边起始Y轴</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSMutableArray</span> *attributes = [[<span class="built_in">NSMutableArray</span> alloc] init];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">self</span><span class="variable">.cellCount</span>; i ++) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSIndexPath</span> *indexPath = [<span class="built_in">NSIndexPath</span> indexPathForRow:i inSection:<span class="number">0</span>];</span><br><span class="line">        [attributes addObject:[<span class="keyword">self</span> layoutAttributesForItemAtIndexPath:indexPath]];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> attributes;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  根据不同的indexPath，给出布局</span><br><span class="line"> *</span><br><span class="line"> *  @param indexPath</span><br><span class="line"> *</span><br><span class="line"> *  @return 布局</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UICollectionViewLayoutAttributes</span> *)layoutAttributesForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">    <span class="comment">// 获取代理中返回的每一个cell的大小</span></span><br><span class="line">    <span class="built_in">CGSize</span> itemSize = [<span class="keyword">self</span><span class="variable">.layoutDelegate</span> collectionView:<span class="keyword">self</span><span class="variable">.collectionView</span> collectionViewLayout:<span class="keyword">self</span> sizeOfItemAtIndexPath:indexPath];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 防止代理中给的size.width大于(或小于)layout中定义的width，所以等比例缩放size</span></span><br><span class="line">    <span class="built_in">CGFloat</span> itemHeight = itemSize<span class="variable">.height</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UICollectionViewLayoutAttributes</span> *attributes = [<span class="built_in">UICollectionViewLayoutAttributes</span> layoutAttributesForCellWithIndexPath:indexPath];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断当前的item应该在左侧还是右侧</span></span><br><span class="line">    <span class="built_in">BOOL</span> isLeft = _leftY &lt; _rightY;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (isLeft) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">CGFloat</span> x = _insert; <span class="comment">// x轴起始位置为0</span></span><br><span class="line">        attributes<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(x, _leftY, _itemWidth, itemHeight);</span><br><span class="line">        _leftY += itemHeight + <span class="number">2</span> * _insert; <span class="comment">// 设置新的Y起点</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!isLeft) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">CGFloat</span> x = _itemWidth + <span class="number">3</span> * _insert;</span><br><span class="line">        attributes<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(x, _rightY, _itemWidth, itemHeight);</span><br><span class="line">        _rightY += itemHeight + <span class="number">2</span> * _insert;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> attributes;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实现了这些函数，瀑布流就实现好了。其中的关键在于取到每个cell的大小，然后layoutAttributesForItemAtIndexPath这个函数会计算每个cell的frame，也就是cell的位置，来解决flowlayout同行cell居中对齐的问题。</p>
+<h3 id="用masonry自定义cell布局，并实现自动计算高度">用masonry自定义cell布局，并实现自动计算高度</h3><p>1.设置autolayout布局<br>cell布局高度之所以不一样，是因为有行数为0的label。自动计算cell的关键有3步，首先用masonry定义好布局，要求得高度，每个空间的上下约束必须完整，也就是说最上面控件的top，最下面控件的bottom，还有各个控件中间的间距都需要定义。请看代码。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setupUI</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGFloat</span> natureOffset = <span class="number">8.</span>f;	<span class="comment">//苹果建议的控件间距</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.dummyView</span> = [[<span class="built_in">UIView</span> alloc] init];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:<span class="keyword">self</span><span class="variable">.dummyView</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.dummyView</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.edges</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.contentView</span>);</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.layer</span><span class="variable">.cornerRadius</span> = cornerRadius;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.layer</span><span class="variable">.masksToBounds</span> = <span class="literal">YES</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIView</span> *superView = <span class="keyword">self</span><span class="variable">.dummyView</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.pic</span> = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">    [superView addSubview:<span class="keyword">self</span><span class="variable">.pic</span>];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.contentView</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.width</span><span class="variable">.equalTo</span>(@((SCREEN_WIDTH - <span class="number">20</span>) / <span class="number">2.</span>f));</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.pic</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.top</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_top</span>);	<span class="comment">// 最上面控件的top</span></span><br><span class="line">        make<span class="variable">.left</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_left</span>);</span><br><span class="line">        make<span class="variable">.right</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_right</span>);</span><br><span class="line">        make<span class="variable">.height</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_width</span>)<span class="variable">.multipliedBy</span>(<span class="number">4.0</span> / <span class="number">3.0</span>);</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.pic</span><span class="variable">.userInteractionEnabled</span> = <span class="literal">YES</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> avatarOffset = <span class="number">8</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> avatarSize = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.avatar</span> = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.avatar</span><span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"touch_focus"</span>];</span><br><span class="line">    [superView addSubview:<span class="keyword">self</span><span class="variable">.avatar</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.avatar</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.left</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_left</span>)<span class="variable">.offset</span>(avatarOffset);</span><br><span class="line">        make<span class="variable">.top</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.pic</span><span class="variable">.mas_bottom</span>)<span class="variable">.offset</span>(avatarOffset);</span><br><span class="line">        make<span class="variable">.width</span><span class="variable">.equalTo</span>(@(avatarSize));</span><br><span class="line">        make<span class="variable">.height</span><span class="variable">.equalTo</span>(@(avatarSize));</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.name</span> = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">    [superView addSubview:<span class="keyword">self</span><span class="variable">.name</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.name</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.left</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.avatar</span><span class="variable">.mas_right</span>)<span class="variable">.offset</span>(natureOffset);</span><br><span class="line">        make<span class="variable">.right</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_right</span>)<span class="variable">.offset</span>(-natureOffset);</span><br><span class="line">        make<span class="variable">.centerY</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.avatar</span><span class="variable">.mas_centerY</span>);</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.name</span><span class="variable">.numberOfLines</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.name</span><span class="variable">.font</span> = [<span class="built_in">UIFont</span> boldSystemFontOfSize:<span class="number">14</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.name</span><span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> colorWithRed:<span class="number">66</span> / <span class="number">255.</span>f green:<span class="number">66</span> / <span class="number">255.</span>f blue:<span class="number">66</span> / <span class="number">255.</span>f alpha:<span class="number">1.0</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.signature</span> = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.signature</span><span class="variable">.numberOfLines</span> = <span class="number">0</span>;	<span class="comment">//多行label</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.signature</span><span class="variable">.lineBreakMode</span> = <span class="built_in">NSLineBreakByWordWrapping</span>;</span><br><span class="line">    [superView addSubview:<span class="keyword">self</span><span class="variable">.signature</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.signature</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make<span class="variable">.top</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.name</span><span class="variable">.mas_bottom</span>)<span class="variable">.offset</span>(avatarOffset);</span><br><span class="line">        make<span class="variable">.left</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.name</span><span class="variable">.mas_left</span>);</span><br><span class="line">        make<span class="variable">.right</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.name</span><span class="variable">.mas_right</span>);</span><br><span class="line">        make<span class="variable">.bottom</span><span class="variable">.equalTo</span>(superView<span class="variable">.mas_bottom</span>)<span class="variable">.offset</span>(-natureOffset);	<span class="comment">// 最下面控件的bottom</span></span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.signature</span><span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.signature</span><span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> colorWithRed:<span class="number">117</span> / <span class="number">255.</span>f green:<span class="number">117</span> / <span class="number">255.</span>f blue:<span class="number">117</span> / <span class="number">255.</span>f alpha:<span class="number">1.0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.重写intrinsicSize返回cell的大小<br>请看代码</p>
+<ul>
+<li>(CGSize)intrinsicContentSize<br>{<br>  CGFloat desiredHeight = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;<br>  CGSize size = CGSizeMake((SCREEN_WIDTH - 20) / 2.f, desiredHeight);<br>  return size;<br>}<br>只需要systemLayoutSizeFittingSize这个函数就可以得到cell的高度，就不用算frame了。</li>
+</ul>
+<p>到这里瀑布流布局就实现了，只需要很少的代码，是不是很赞。</p>
+<h3 id="添加dummyview来实现圆角和阴影共存">添加dummyview来实现圆角和阴影共存</h3><p>问题：为什么圆角和阴影不能共存。<br>答案：如果要设置圆角，必须设置layer的masktobounds = YES; 但是设置这个属性会导致阴影不能绘制。因为masktobounds的意思就是切掉layer外面的内容。stackoverflow上给出的解决办法是把圆角设置在cell的不用的view上，比如圆角设置在contentview的layer上，阴影设置在self的layer上。我试了不同的组合，都没有生效。所以决定在cell上加一个同样大小的dummyview，在dummyview上设置圆角。在self.layer上设置阴影。请看代码。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span><span class="variable">.dummyView</span> = [[<span class="built_in">UIView</span> alloc] init];	<span class="comment">//在dummyview上设置圆角</span></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:<span class="keyword">self</span><span class="variable">.dummyView</span>];</span><br><span class="line"><span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.dummyView</span> mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make<span class="variable">.edges</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.contentView</span>);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.layer</span><span class="variable">.cornerRadius</span> = cornerRadius;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.dummyView</span><span class="variable">.layer</span><span class="variable">.masksToBounds</span> = <span class="literal">YES</span>;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)layoutSubviews</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> layoutSubviews];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.cornerRadius</span> = cornerRadius;	<span class="comment">//在self.layer上设置阴影</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.shadowColor</span> = [<span class="built_in">UIColor</span> darkGrayColor]<span class="variable">.CGColor</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.masksToBounds</span> = <span class="literal">NO</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.shadowOffset</span> = <span class="built_in">CGSizeMake</span>(<span class="number">1</span>, <span class="number">3.0</span>f);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.shadowRadius</span> = cornerRadius;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.shadowOpacity</span> = <span class="number">0.75</span>f;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.layer</span><span class="variable">.shadowPath</span> = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="keyword">self</span><span class="variable">.bounds</span> cornerRadius:cornerRadius]<span class="variable">.CGPath</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为什么要在layoutSubviews中设置阴影呢，因为在init的时候设置有的cell的阴影会跑偏，我试了下在layoutSubviews中设置阴影，发现可以。但具体为什么暂时不知道。</p>
+<h2 id="总结">总结</h2><p>以上就是在用collectionview的一点心得。<br>1.自定义collectionview的layout实现瀑布流<br>2.用masonry实现autolayout，并计算cell的高度<br>3.阴影和圆角并存</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。</p>
+<h2 id="项目需求：">项目需求：</h2><p>1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。<br>2.cell中圆角和阴影共存。</p>
+<p>请看效果图<br><img src="/images/uicollectionview/uicollectionview.gif" alt="瀑布流效果图"></p>]]>
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://devliu.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[iOS在获取用户的位置授权之后，做一些事情]]></title>
+    <link href="http://devliu.com/2015/04/26/ios%E5%9C%A8%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E7%9A%84%E4%BD%8D%E7%BD%AE%E6%8E%88%E6%9D%83%E4%B9%8B%E5%90%8E%EF%BC%8C%E5%81%9A%E4%B8%80%E4%BA%9B%E4%BA%8B%E6%83%85/"/>
+    <id>http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/</id>
+    <published>2015-04-25T16:07:37.000Z</published>
+    <updated>2015-04-25T16:10:19.000Z</updated>
+    <content type="html"><![CDATA[<p>在做天气模块时，需要获取用户的位置授权，在获取完权限后，我们需要解码城市，然后去服务器请求天气信息<br>1.获取授权后请求天气<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) &#123;</span><br><span class="line">        [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kLocationManagerAuthorizationStatusChangeNotification object:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.解码城市<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation &#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.location2D</span> = newLocation<span class="variable">.coordinate</span>;</span><br><span class="line">    [PersistenceHelper setData:@(<span class="keyword">self</span><span class="variable">.location2D</span><span class="variable">.latitude</span>) forKey:LAT];</span><br><span class="line">    [PersistenceHelper setData:@(<span class="keyword">self</span><span class="variable">.location2D</span><span class="variable">.longitude</span>) forKey:LONG];</span><br><span class="line">    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];</span><br><span class="line">    [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(<span class="built_in">NSArray</span> *placemarks, <span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">        <span class="keyword">for</span> (CLPlacemark * placemark <span class="keyword">in</span> placemarks) &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *city = placemark<span class="variable">.administrativeArea</span>;</span><br><span class="line">            <span class="keyword">if</span> ([city hasSuffix:<span class="string">@"市"</span>]) &#123;</span><br><span class="line">                city = [city substringToIndex:city<span class="variable">.length</span>-<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (city<span class="variable">.length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">self</span><span class="variable">.cityName</span> = city;</span><br><span class="line">                [PersistenceHelper setData:city forKey:<span class="built_in">CITY</span>];</span><br><span class="line">                [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kLocationManagerAuthorizationStatusChangeNotification object:<span class="literal">nil</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">    [manager stopUpdatingLocation];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在做天气模块时，需要获取用户的位置授权，在获取完权限后，我们需要解码城市，然后去服务器请求天气信息<br>1.获取授权后请求天气<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><sp]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://devliu.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[reactivecocoa用法小记]]></title>
+    <link href="http://devliu.com/2015/04/25/reactivecocoa%E7%94%A8%E6%B3%95%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://devliu.com/2015/04/25/reactivecocoa用法小记/</id>
+    <published>2015-04-25T15:51:46.000Z</published>
+    <updated>2015-04-25T16:04:31.000Z</updated>
+    <content type="html"><![CDATA[<p>1.绑定UI元素和数据<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RAC(<span class="keyword">self</span>, city<span class="variable">.text</span>) = RACObserve(<span class="keyword">self</span>, weatherModel<span class="variable">.city_name</span>);</span><br></pre></td></tr></table></figure></p>
+<p>2.观察数据，数据变化时做下一步操作<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[RACObserve(<span class="keyword">self</span>, weizhangData<span class="variable">.zongmoney</span>) subscribeNext:^(<span class="built_in">NSNumber</span> *zongmoney) &#123;</span><br><span class="line">    <span class="keyword">if</span> (zongmoney) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *string = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@%@元"</span>, <span class="string">@"罚款："</span>, zongmoney];</span><br><span class="line">        <span class="built_in">NSMutableAttributedString</span> *attrString = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:string];</span><br><span class="line">        <span class="built_in">UIColor</span> *color = [<span class="built_in">UIColor</span> redColor]; <span class="comment">// select needed color</span></span><br><span class="line">        <span class="built_in">NSDictionary</span> *attrs = @&#123;<span class="built_in">NSForegroundColorAttributeName</span>: color&#125;;</span><br><span class="line">        [attrString addAttributes:attrs range:[string rangeOfString:[zongmoney stringValue]]];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.penalty</span><span class="variable">.attributedText</span> = attrString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+<p>3.uibutton 设置事件<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="keyword">self</span><span class="variable">.askBtn</span> rac_signalForControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>] subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span><span class="variable">.delegate</span> respondsToSelector:<span class="keyword">@selector</span>(addCarTextCellAskPress:)]) &#123;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.delegate</span> addCarTextCellAskPress:<span class="keyword">self</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+<p>4.检测nsuserdefault<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[[<span class="built_in">NSUserDefaults</span> standardUserDefaults] rac_valuesForKeyPath:<span class="built_in">UID</span> observer:<span class="keyword">self</span>] subscribeNext:^(<span class="built_in">NSNumber</span> *uid) &#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.uid</span> = uid;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>1.绑定UI元素和数据<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="cod]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://devliu.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[autolayout下更新布局文件时采用动画]]></title>
+    <link href="http://devliu.com/2015/04/25/autolayout%E4%B8%8B%E6%9B%B4%E6%96%B0%E5%B8%83%E5%B1%80%E6%96%87%E4%BB%B6%E6%97%B6%E9%87%87%E7%94%A8%E5%8A%A8%E7%94%BB/"/>
+    <id>http://devliu.com/2015/04/25/autolayout下更新布局文件时采用动画/</id>
+    <published>2015-04-25T15:44:59.000Z</published>
+    <updated>2015-04-25T15:49:21.000Z</updated>
+    <content type="html"><![CDATA[<p>1.在IB中找到对应的constraints<br>2.改变这个constraints<br>3.对相应的元素调用 setNeedsUpdateConstraints<br>4.在动画中对该元素调用 layoutIfNeeded</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)bindAd</span><br><span class="line">&#123;</span><br><span class="line">    [RACObserve(<span class="keyword">self</span>, adModel) subscribeNext:^(AdModel *ad) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ad) &#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.adBanner</span><span class="variable">.hidden</span> = <span class="literal">NO</span>;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.adBanner</span><span class="variable">.adModel</span> = ad;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.weatherIconTopSpace</span><span class="variable">.constant</span> = <span class="number">12</span> + <span class="built_in">CGRectGetHeight</span>(<span class="keyword">self</span><span class="variable">.adBanner</span><span class="variable">.frame</span>);</span><br><span class="line">            [<span class="keyword">self</span><span class="variable">.weatherIcon</span> setNeedsUpdateConstraints];</span><br><span class="line">            [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.3</span> animations:^&#123;</span><br><span class="line">                [<span class="keyword">self</span><span class="variable">.weatherIcon</span> layoutIfNeeded];</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.adBanner</span><span class="variable">.hidden</span> = <span class="literal">YES</span>;</span><br><span class="line">            <span class="built_in">CGFloat</span> topSpace = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.weatherIconTopSpace</span><span class="variable">.constant</span> = topSpace;</span><br><span class="line">            [<span class="keyword">self</span><span class="variable">.weatherIcon</span> setNeedsUpdateConstraints];</span><br><span class="line">            [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.3</span> animations:^&#123;</span><br><span class="line">                [<span class="keyword">self</span><span class="variable">.weatherIcon</span> layoutIfNeeded];</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，你再改变某个constraint的时候，相关的constraints是会联动的</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>1.在IB中找到对应的constraints<br>2.改变这个constraints<br>3.对相应的元素调用 setNeedsUpdateConstraints<br>4.在动画中对该元素调用 layoutIfNeeded</p>
+<figure class="hig]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://devliu.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[在autolayout下响应键盘事件]]></title>
+    <link href="http://devliu.com/2015/04/25/%E5%9C%A8autolayout%E4%B8%8B%E5%93%8D%E5%BA%94%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/"/>
+    <id>http://devliu.com/2015/04/25/在autolayout下响应键盘事件/</id>
+    <published>2015-04-25T15:37:18.000Z</published>
+    <updated>2015-04-25T15:41:38.000Z</updated>
+    <content type="html"><![CDATA[<p>在键盘出现时，有的输入地方会被遮盖住，解决办法是监听键盘出现和消失的广播，并设置view的frame。如果是tableview，可以设置tableview的contentinset，让tableview可以滚动</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)registKeyboardNotify</span><br><span class="line">&#123;</span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserverForName:<span class="built_in">UIKeyboardWillShowNotification</span> object:<span class="literal">nil</span> queue:<span class="literal">nil</span> usingBlock:^(<span class="built_in">NSNotification</span> *note) &#123;</span><br><span class="line">        <span class="keyword">id</span> _obj = [note<span class="variable">.userInfo</span> valueForKey:<span class="built_in">UIKeyboardFrameEndUserInfoKey</span>];</span><br><span class="line">        <span class="built_in">CGRect</span> _keyboardFrame = <span class="built_in">CGRectNull</span>;</span><br><span class="line">        <span class="keyword">if</span> ([_obj respondsToSelector:<span class="keyword">@selector</span>(getValue:)]) [_obj getValue:&amp;_keyboardFrame];</span><br><span class="line">        [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.25</span>f delay:<span class="number">0.</span>f options:<span class="built_in">UIViewAnimationOptionCurveEaseInOut</span> animations:^&#123;</span><br><span class="line">            [_tableView setContentInset:<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">0.</span>f, <span class="number">0.</span>f, _keyboardFrame<span class="variable">.size</span><span class="variable">.height</span>, <span class="number">0.</span>f)];</span><br><span class="line">        &#125; completion:<span class="literal">nil</span>];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserverForName:<span class="built_in">UIKeyboardWillHideNotification</span> object:<span class="literal">nil</span> queue:<span class="literal">nil</span> usingBlock:^(<span class="built_in">NSNotification</span> *note) &#123;</span><br><span class="line">        [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.25</span>f delay:<span class="number">0.</span>f options:<span class="built_in">UIViewAnimationOptionCurveEaseInOut</span> animations:^&#123;</span><br><span class="line">            [_tableView setContentInset:<span class="built_in">UIEdgeInsetsZero</span>];</span><br><span class="line">        &#125; completion:<span class="literal">nil</span>];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在键盘出现时，有的输入地方会被遮盖住，解决办法是监听键盘出现和消失的广播，并设置view的frame。如果是tableview，可以设置tableview的contentinset，让tableview可以滚动</p>
+<figure class="highlight ob]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://devliu.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[解释一下kvo和常用使用场景]]></title>
+    <link href="http://devliu.com/2015/04/25/%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8Bkvo%E5%92%8C%E5%B8%B8%E7%94%A8%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/"/>
+    <id>http://devliu.com/2015/04/25/解释一下kvo和常用使用场景/</id>
+    <published>2015-04-25T03:08:36.000Z</published>
+    <updated>2015-04-25T04:06:53.000Z</updated>
+    <content type="html"><![CDATA[<p>kvo：key value observer，翻译成键值观察。具体是说对象的属性在发生某种变化的时候，如果你对该值得变化进行了注册，就可以接到相应的通知。从而可以进行相应的处理。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>kvo：key value observer，翻译成键值观察。具体是说对象的属性在发生某种变化的时候，如果你对该值得变化进行了注册，就可以接到相应的通知。从而可以进行相应的处理。</p>
+]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://devliu.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[什么是多态，多态在OC里面是怎么实现的]]></title>
+    <link href="http://devliu.com/2015/04/25/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%9A%E6%80%81%EF%BC%8C%E5%A4%9A%E6%80%81%E5%9C%A8oc%E9%87%8C%E9%9D%A2%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84/"/>
+    <id>http://devliu.com/2015/04/25/什么是多态，多态在oc里面是怎么实现的/</id>
+    <published>2015-04-25T02:28:51.000Z</published>
+    <updated>2015-04-25T02:59:49.000Z</updated>
+    <content type="html"><![CDATA[<p>多态：不同的对象可以定义相同名字的方法</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span> animal;</span><br><span class="line"></span><br><span class="line">Dog *dog = [[Dog alloc] init];</span><br><span class="line">Cat *cat = [[Cat alloc] init];</span><br><span class="line">animal = dog;</span><br><span class="line">[animal cry];</span><br><span class="line">animal = cat;</span><br><span class="line">[animal cry];</span><br></pre></td></tr></table></figure>
+<p>animal 是id类型，objc中每一个类都有一个isa指针，用来指向自己所属的类型。对象所属的类型主要记录了对象的所持有的变量和方法。程序在运行时对象根据方发表和变量表去找寻对应的方法。如果找不到就会导致崩溃。比如animal在执行cry方法时，如果他本身是dog类，就会根据Dog类的方发表去找到dog的cry方法。猫是一样的道理。</p>
+<p>说白了这道面试题主要考察面试者对于iOS运行时的理解。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>多态：不同的对象可以定义相同名字的方法</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="lin]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://devliu.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[保持良好心态]]></title>
+    <link href="http://devliu.com/2014/08/06/%E4%BF%9D%E6%8C%81%E8%89%AF%E5%A5%BD%E5%BF%83%E6%80%81/"/>
+    <id>http://devliu.com/2014/08/06/保持良好心态/</id>
+    <published>2014-08-05T16:16:23.000Z</published>
+    <updated>2014-08-05T16:18:54.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="保持良好心态">保持良好心态</h1><h2 id="1-早睡早起">1.早睡早起</h2><h2 id="2-保持室内和工作环境的整洁，有序">2.保持室内和工作环境的整洁，有序</h2><h2 id="3-讲究个人卫生">3.讲究个人卫生</h2><h2 id="4-挺胸抬头">4.挺胸抬头</h2><h2 id="5-每天早上给自己一个微笑">5.每天早上给自己一个微笑</h2><h2 id="6-不抱怨">6.不抱怨</h2>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="保持良好心态">保持良好心态</h1><h2 id="1-早睡早起">1.早睡早起</h2><h2 id="2-保持室内和工作环境的整洁，有序">2.保持室内和工作环境的整洁，有序</h2><h2 id="3-讲究个人卫生">3.讲究个人卫生</h2><h2 id]]>
+    </summary>
+    
+      <category term="life" scheme="http://devliu.com/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[GCD学习笔记]]></title>
+    <link href="http://devliu.com/2014/08/04/gcd%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://devliu.com/2014/08/04/gcd学习笔记/</id>
+    <published>2014-08-04T13:21:20.000Z</published>
+    <updated>2014-08-06T02:10:29.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="GCD定义">GCD定义</h1><h1 id="GCD术语">GCD术语</h1><h2 id="顺序_vs_并发_(serial_vs_concurrent)">顺序 vs 并发 (serial vs concurrent)</h2><h2 id="同步_vs_异步_(synchronous_vs_asynchronous)">同步 vs 异步 (synchronous vs asynchronous)</h2><h2 id="关键区_(critical_section)">关键区 (critical section)</h2><h2 id="竞争条件_(race_condition)">竞争条件 (race condition)</h2><h2 id="死锁_(Deadlock)">死锁 (Deadlock)</h2><h2 id="线程安全_(Thread_safe)">线程安全 (Thread safe)</h2><h2 id="上下文切换_(Context_switch)">上下文切换 (Context switch)</h2><h2 id="dispatch_asyn_把耗时工作放到子线程">dispatch_asyn 把耗时工作放到子线程</h2><h2 id="dispatch_after_延时执行">dispatch_after 延时执行</h2><h2 id="dispatch_once_线程安全单例">dispatch_once 线程安全单例</h2><h2 id="dispatch_barrier_读者/写者问题">dispatch_barrier 读者/写者问题</h2><h2 id="dispatch_group">dispatch_group</h2><h2 id="semaphore">semaphore</h2><h2 id="dispatch_source">dispatch_source</h2><h2 id="dispatch_apply">dispatch_apply</h2>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="GCD定义">GCD定义</h1><h1 id="GCD术语">GCD术语</h1><h2 id="顺序_vs_并发_(serial_vs_concurrent)">顺序 vs 并发 (serial vs concurrent)</h2><h2 id="同步_vs]]>
+    </summary>
+    
+      <category term="gcd" scheme="http://devliu.com/tags/gcd/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[XVim介绍]]></title>
+    <link href="http://devliu.com/2014/08/01/xvim%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://devliu.com/2014/08/01/xvim介绍/</id>
+    <published>2014-08-01T14:18:42.000Z</published>
+    <updated>2014-08-03T06:29:09.000Z</updated>
+    <content type="html"><![CDATA[<p>XVim是Xcode下的vim插件，而且支持vim的大部分功能，喜欢vim的同学，绝对不能错过这个插件。<br>下面简要介绍一下XVim的基本功能。<br><a id="more"></a></p>
+<h2 id="移动">移动</h2><h3 id="基本">基本</h3><p>h,j,k,l 左，上，下，右</p>
+<h3 id="移动词">移动词</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>w</td>
+<td style="text-align:left">移到下一个词的开头</td>
+</tr>
+<tr>
+<td>W</td>
+<td style="text-align:left">移到下一个字符串的开头</td>
+</tr>
+<tr>
+<td>b</td>
+<td style="text-align:left">移到上一个词的开头</td>
+</tr>
+<tr>
+<td>B</td>
+<td style="text-align:left">移到上一个字符串的开头</td>
+</tr>
+<tr>
+<td>e</td>
+<td style="text-align:left">移到下一个词的末尾</td>
+</tr>
+<tr>
+<td>E</td>
+<td style="text-align:left">移到下一个字符串的末尾</td>
+</tr>
+<tr>
+<td>f {char}</td>
+<td style="text-align:left">向右找到char</td>
+</tr>
+<tr>
+<td>F {char}</td>
+<td style="text-align:left">向左找到char</td>
+</tr>
+<tr>
+<td>t {char}</td>
+<td style="text-align:left">向左找到char，光标停在char左边</td>
+</tr>
+<tr>
+<td>T {char}</td>
+<td style="text-align:left">向右找到char，光标停在char右边</td>
+</tr>
+<tr>
+<td>;</td>
+<td style="text-align:left">重复最近的f, t, F, T，可重复</td>
+</tr>
+<tr>
+<td>,</td>
+<td style="text-align:left">重复最近的f, t, F, T，可重复，但是相反方向</td>
+</tr>
+</tbody>
+</table>
+<h3 id="行内移动">行内移动</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td style="text-align:left">移到行首</td>
+</tr>
+<tr>
+<td>^</td>
+<td style="text-align:left">移到第一个非空字符</td>
+</tr>
+<tr>
+<td>$</td>
+<td style="text-align:left">移到行尾</td>
+</tr>
+</tbody>
+</table>
+<h3 id="段落移动">段落移动</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{</td>
+<td style="text-align:left">移到上个段落开头</td>
+</tr>
+<tr>
+<td>}</td>
+<td style="text-align:left">移到下个段落开头</td>
+</tr>
+</tbody>
+</table>
+<h3 id="页面移动">页面移动</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ctrl-f</td>
+<td style="text-align:left">向下移动一页</td>
+</tr>
+<tr>
+<td>ctrl-b</td>
+<td style="text-align:left">向上移动一页</td>
+</tr>
+<tr>
+<td>ctrl-d</td>
+<td style="text-align:left">向下移动半页</td>
+</tr>
+<tr>
+<td>ctrl-u</td>
+<td style="text-align:left">向上移动半页</td>
+</tr>
+</tbody>
+</table>
+<h3 id="文件内移动">文件内移动</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gg</td>
+<td style="text-align:left">移到文件头</td>
+</tr>
+<tr>
+<td>G</td>
+<td style="text-align:left">移到文件末尾</td>
+</tr>
+</tbody>
+</table>
+<h3 id="插入">插入</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td style="text-align:left">光标后插入</td>
+</tr>
+<tr>
+<td>A</td>
+<td style="text-align:left">行后插入</td>
+</tr>
+<tr>
+<td>i</td>
+<td style="text-align:left">光标处插入</td>
+</tr>
+<tr>
+<td>I</td>
+<td style="text-align:left">行前插入</td>
+</tr>
+<tr>
+<td>o</td>
+<td style="text-align:left">在光标所在行下面新起一行，插入</td>
+</tr>
+<tr>
+<td>O</td>
+<td style="text-align:left">在光标所在行上面新起一行，插入</td>
+</tr>
+</tbody>
+</table>
+<h3 id="删除">删除</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td style="text-align:left">删除光标处字符</td>
+</tr>
+<tr>
+<td>X</td>
+<td style="text-align:left">删除光标前字符</td>
+</tr>
+<tr>
+<td>dd</td>
+<td style="text-align:left">删除当前行</td>
+</tr>
+<tr>
+<td>D</td>
+<td style="text-align:left">从光标删除至行尾</td>
+</tr>
+</tbody>
+</table>
+<p>注意在visual 模式下，这些删除操作同样可以使用</p>
+<h3 id="修改_和_替换">修改 和 替换</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r{char}</td>
+<td style="text-align:left">将光标处字符替换成char</td>
+<td>注释： {}不需要输入</td>
+</tr>
+<tr>
+<td>~</td>
+<td style="text-align:left">改变当前字符的大小写</td>
+</tr>
+<tr>
+<td>g~{移动}</td>
+<td style="text-align:left">改变移动范围内文字的大小写</td>
+<td>注释： {}不需要输入</td>
+</tr>
+<tr>
+<td>{visual}~</td>
+<td style="text-align:left">可视模式改变选中区域的大小写</td>
+<td>注释： visual 模式下</td>
+</tr>
+</tbody>
+</table>
+<h3 id="替换">替换</h3><p>:s/{pattern}/{string}/<br>:%s/{pattern}/{string}/g<br><strong>在文件范围内，用string替换pattern。%表示所有行中，g替换行中所有匹配点。</strong><br>:{visual}/{pattern}/{string}    visual 模式下替换</p>
+<h3 id="跳转_(Xcode_特有)">跳转 (Xcode 特有)</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ctrl-o, ctrl-i, gd</td>
+<td style="text-align:left">跳到函数定义</td>
+</tr>
+<tr>
+<td>gd</td>
+<td style="text-align:left">当光标在某个文件处时，跳到该文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="行连接">行连接</h3><p>J 注释：大写</p>
+<h3 id="排版">排版</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;&lt;</td>
+<td style="text-align:left">左移一个tab</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td style="text-align:left">右移一个tab</td>
+</tr>
+<tr>
+<td>=</td>
+<td style="text-align:left">自动排版</td>
+</tr>
+</tbody>
+</table>
+<p><strong>文件内全局排版</strong><br>gg=G</p>
+<h3 id="粘贴">粘贴</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>y{count}y</td>
+<td style="text-align:left">复制count行</td>
+</tr>
+<tr>
+<td>y{count}w</td>
+<td style="text-align:left">复制count词</td>
+</tr>
+<tr>
+<td>p</td>
+<td style="text-align:left">光标后（下）粘贴</td>
+</tr>
+<tr>
+<td>P</td>
+<td style="text-align:left">光标前（上）粘贴</td>
+</tr>
+</tbody>
+</table>
+<p><strong>用d操作删除的内容同样可以用p粘贴</strong></p>
+<h3 id="修改">修改</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cw</td>
+<td style="text-align:left">删除光标所在词，并插入</td>
+</tr>
+<tr>
+<td>c^</td>
+<td style="text-align:left">删除到行前第一个字符，并插入</td>
+</tr>
+<tr>
+<td>c0</td>
+<td style="text-align:left">删除到行前并插入</td>
+</tr>
+<tr>
+<td>c$</td>
+<td style="text-align:left">删除到行尾并插入</td>
+</tr>
+</tbody>
+</table>
+<h3 id="标记">标记</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m{char}</td>
+<td style="text-align:left">标记光标处的char</td>
+</tr>
+<tr>
+<td>`{char}</td>
+<td style="text-align:left">回到标记处</td>
+</tr>
+<tr>
+<td>:marks</td>
+<td style="text-align:left">列出所有标记</td>
+</tr>
+</tbody>
+</table>
+<h3 id="查找">查找</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/{pattern}</td>
+<td style="text-align:left">查找pattern</td>
+</tr>
+<tr>
+<td>n / N</td>
+<td style="text-align:left">向下/上查找</td>
+</tr>
+</tbody>
+</table>
+<h3 id="可视模式">可视模式</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ctrl-v</td>
+<td style="text-align:left">纵向可视模式</td>
+</tr>
+<tr>
+<td>shift-v</td>
+<td style="text-align:left">横向可视模式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-_操作符">. 操作符</h3><p>重复上次操作<br>比如dd之后，按.就会重复dd。不能重复移动操作</p>
+<h3 id="常用技巧">常用技巧</h3><p>1.在行后插入字符<br>:s/$/{char}/g<br>2.在行前插入字符<br>:s/^/{char}/g<br>3.列模式可视模式下，插入<br>ctrl-v选中列模式，shift-i插入字符，esc 3次</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>XVim是Xcode下的vim插件，而且支持vim的大部分功能，喜欢vim的同学，绝对不能错过这个插件。<br>下面简要介绍一下XVim的基本功能。<br>]]>
+    
+    </summary>
+    
+      <category term="Xcode" scheme="http://devliu.com/tags/Xcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[群辉入门教程]]></title>
+    <link href="http://devliu.com/2014/07/31/%E7%BE%A4%E8%BE%89%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
+    <id>http://devliu.com/2014/07/31/群辉入门教程/</id>
+    <published>2014-07-31T13:52:43.000Z</published>
+    <updated>2014-07-31T15:55:29.000Z</updated>
+    <content type="html"><![CDATA[<p>先上图片，来自官网，我觉得机子还是很漂亮的，白色机身，非常干净。<br><a id="more"></a><br><img src="!--￼0--&gt;/images/qunhui/001.jpg" alt="正面图"><br><img src="!--￼1--&gt;/images/qunhui/003.jpg" alt="侧面图"><br><img src="!--￼2--&gt;/images/qunhui/004.jpg" alt="背面图"></p>
+<h2 id="安装步骤">安装步骤</h2><p>安装步骤很简单，把外壳打开，把硬盘塞进去，盖上外壳就行了。注意包装里面有螺丝，是用来固定硬盘用的，不要忘了。<br>安装完毕后，用网线接上你的路由器，开启群辉的电源，这时候就可以在局域网中看到了。</p>
+<h2 id="软件设置">软件设置</h2><h3 id="1-在浏览器中输入http://find-synology-com/，就可以打开联机群辉的页面了。">1.在浏览器中输入<a><a href="http://find.synology.com/" target="_blank" rel="external">http://find.synology.com/</a></a>，就可以打开联机群辉的页面了。</h3><p><img src="!--￼3--&gt;/images/qunhui/connect.png" alt="联机界面"></p>
+<h3 id="2-然后会出现登录界面，输入你的用户名，密码就进入到群辉的控制台了（暂且叫控制台吧）。">2.然后会出现登录界面，输入你的用户名，密码就进入到群辉的控制台了（暂且叫控制台吧）。</h3><p><img src="!--￼4--&gt;/images/qunhui/login.png" alt="登录界面"><br><img src="!--￼5--&gt;/images/qunhui/control_panel.png" alt="控制台"></p>
+<h3 id="3-首先进入套件中心，下载必须的套件">3.首先进入套件中心，下载必须的套件</h3><p><img src="!--￼6--&gt;/images/qunhui/widget_center.png" alt="套件中心"><br>群辉提供了老多老多的套件，先介绍几个简单常用的。</p>
+<h4 id="Download_station">Download station</h4><p>Download station和迅雷的界面差不多，大家一用应该就明白了，有一个url批量下载功能，你只需要把要下载的url放入一个文件，然后打开这个文件，群辉就会全部帮你下载。<br><img src="!--￼7--&gt;/images/qunhui/download_center.png" alt="下载中心"><br><img src="!--￼8--&gt;/images/qunhui/download_center_urls.png" alt="下载中心"></p>
+<h4 id="File_station">File station</h4><p>File station是用来管理群会上的文件的，操作也很简单，复制，粘贴，剪切，就是这些基本操作。介绍一下如何建立共享文件夹，共享文件夹指的是能在File station根目录中看见的。<br>1.点击控制面板，共享文件夹<br><img src="!--￼9--&gt;/images/qunhui/share_folder.png" alt="共享文件夹"><br>2.新增，然后取名字比如back_up<br><img src="!--￼10--&gt;/images/qunhui/back_up.png" alt="共享文件夹"><br>3.指定权限为读写<br>这时候在你的File station根目录中就可以看见back_up了。<br><img src="!--￼11--&gt;/images/qunhui/back_up_charge.png" alt="共享文件夹"></p>
+<h4 id="QuickConnect">QuickConnect</h4><p>可以用QuickConnect功能通过外网链接群辉。我试了一下外部访问那个功能，没有配成功，可能由于DDNS没有太理解，或者群辉里面那些DNS提供商被墙的原因吧。QuickConnect一次性就配成功了，只需要注册一个账号就可以了。<br><img src="!--￼12--&gt;/images/qunhui/quick_connect.png" alt="Quick connect"></p>
+<h4 id="Time_machine">Time machine</h4><p>群辉自带time machine功能，可以说是果粉不可缺少的功能了。由于图文较多，就不介绍了， 配置可参考官方教程。<br><a href="http://www.synology.com/zh-tw/support/tutorials/481" target="_blank" rel="external">http://www.synology.com/zh-tw/support/tutorials/481</a><br>大概思路就是建立个共享文件夹，然后制定给mac作为time machine的备份。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>先上图片，来自官网，我觉得机子还是很漂亮的，白色机身，非常干净。<br>]]>
+    
+    </summary>
+    
+      <category term="群辉" scheme="http://devliu.com/tags/%E7%BE%A4%E8%BE%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[iOS 性能优化]]></title>
+    <link href="http://devliu.com/2014/04/10/ios-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <id>http://devliu.com/2014/04/10/ios-性能优化/</id>
+    <published>2014-04-10T13:06:08.000Z</published>
+    <updated>2014-04-10T14:22:46.000Z</updated>
+    <content type="html"><![CDATA[<a id="more"></a>
+<h1 id="此文是对网络上一些博客和自己开发中遇到的性能问题的总结。">此文是对网络上一些博客和自己开发中遇到的性能问题的总结。</h1><h2 id="1-循环引用">1.循环引用</h2><p>在使用block的时候会出现引用计数的问题，在MRC和ARC下分别用<strong>block和</strong>weak来接触循环引用，或者在block执行结束之前，将block引用的对象赋值为nil。但有时block层次比较深，用static analysis和instrument都检测不到，这时候有一个简单的办法就是在dealloc中打印一条语句，看看dealloc是否调用就好了。</p>
+<h2 id="2-图片">2.图片</h2><p>常用且较小的图片就[UIImage imageNamed:@”imageName”]，这个方法会把图片进行缓存。而对于那些size比较大的图片，且使用次数很少最好用[[UIImage alloc] initWithContentsOfFile:@”filePath”]。</p>
+<h2 id="3-drawRect">3.drawRect</h2><p>对于结构复杂的view可以考虑用drawRect进行绘制，而不是从nib载入。drawRect有一个特点：即使在drawRect函数中没有任何代码实现，系统一样会创建一张画布，也就是说这时候你白白的耗费了内存，所以在决定不进行绘制的时候，应该注释掉这个函数。</p>
+<h2 id="4-tableView的优化">4.tableView的优化</h2><p>随着sns应用的广泛发展，tableView变得越来越复杂，如果不进行优化，UI就会卡顿。关于tableView优化我的一些经验是：</p>
+<ol>
+<li>设置cell的opaque属性，加快系统的颜色绘制。</li>
+<li>缓存cell高度，比如朋友圈这种应用，如果每次都在heightForCell中计算高度，肯定会卡，所以在读取完数据的时候，可以在后台线程中计算数据所对应的高度，并在model中增加height字段用来保留height。在应用数据库的情况下要存取height。</li>
+<li>coretext优化，在支持自定义表情的时候，要应用正则表达式算出对应的attributedString，其中用ctrundelegate记录emoj的图片，高度，宽度等信息，用来在自定义label中进行绘制，显然在cell重用的过程中重新计算严重影响效率，所以一种解决办法是，model持有一个记录attributedString的类Match，该类记录attributedString和height等信息。当数据读取完毕，不论是从网上还是本地，首先在后台线程中计算Match的相关信息，然后再前台刷新。有一点要注意，在从本地读取数据的时候，如果在后台更新好，在回到主线程更新UI，会存在一定的延时，我的解决办法是在主线程计算前5条信息，在后台线程中分批次计算并刷新tableView，为了保持顺序，后台线程使用serialQueue，用dispatch_barrier进行批次处理。</li>
+<li>imageView的antialias（反锯齿），如果imageView的大小和使用的image大小不一样，系统会自动进行压缩，很明显这会消耗一些时间，所以最好把size弄成一样的。</li>
+</ol>
+<p>总结就是，尽可能多的缓存tableView所需的东西。</p>
+<h2 id="5-autoreleasepool">5.autoreleasepool</h2><p>关于autorelease的释放时机，每次runloop运行都会创建一个autoreleasepool，在这次runloop结束时，对这个pool中挂载的对象进行一次release操作。所以如果一个方法或者循环内部有大量的临时对象，最好用@autorelease{}包一下，以便最快的释放内存。</p>
+<h2 id="6-不要再viewWillAppear中做耗时的操作">6.不要再viewWillAppear中做耗时的操作</h2><h2 id="7-使用IMP">7.使用IMP</h2><p>如果一个方法在一个循环次数非常多的循环中使用，在进入循环前使用 methodForSelector 获取该方法 IMP，然后在循环体中直接使用该 IMP。</p>
+<h2 id="8-core_data优化">8.core data优化</h2><ol>
+<li>设置fetchrequest的batch size，比如一次取20.</li>
+<li>使用nest managedObjectContext，把save操作放在privateContext中进行。</li>
+<li>联合fetchResultController和tableView，提高用户体验。</li>
+<li>再有relationship时可以考虑对relationship进行prefetch。</li>
+</ol>
+<h2 id="9-提高app加载速度">9.提高app加载速度</h2><p>如果app启动时间过长，系统的watchdog会kill掉app。系统对app的启动时间有严格要求，example：launch 20s，resume 10秒，suspend 10秒，Quit 6秒，background task 10秒。<br>app启动会包括以下部分。<br>1）    链接和载入：可以在Time Profile中显示dyld载入库函数，库会被映射到地址空间，同时完成绑定以及静态初始化。<br>2）    UIKit初始化：如果应用的Root View Controller是由XIB实现的，也会在启动时被初始化。<br>3）    应用回调：调用UIApplicationDeleagte的回调：application:didFinishLaunchingWithOptions<br>4）    第一次Core Animation调用：在启动后的方法-[UIApplication _resportAppLaunchFinished]中调用CA::Transaction::commit实现第一帧画面的绘制。</p>
+<h3 id="解决办法：">解决办法：</h3><ol>
+<li>将与显示第一屏画面无关的操作放到之后执行；</li>
+<li>如果是用XIB文件load第一屏，XIB文件中的View层也要如果扁平，不要有太多图层。</li>
+<li>减少+(void)load的使用。</li>
+<li>减少启动时复杂xib的使用，尽量用代码。</li>
+<li>提高core data的读取效率，如设置fetchSize = 20.</li>
+</ol>
+<p>参考链接：</p>
+<p><a><a href="http://www.hrchen.com/2013/05/performance-with-instruments/" target="_blank" rel="external">http://www.hrchen.com/2013/05/performance-with-instruments/</a></a><br><a><a href="http://itindex.net/detail/48367-ios-%E6%80%A7%E8%83%BD-%E4%BC%98%E5%8C%96" target="_blank" rel="external">http://itindex.net/detail/48367-ios-%E6%80%A7%E8%83%BD-%E4%BC%98%E5%8C%96</a></a><br><a><a href="http://www.cnblogs.com/kesalin/archive/2013/04/05/ios_opt.html" target="_blank" rel="external">http://www.cnblogs.com/kesalin/archive/2013/04/05/ios_opt.html</a></a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<a id="more"></a>
+<h1 id="此文是对网络上一些博客和自己开发中遇到的性能问题的总结。">此文是对网络上一些博客和自己开发中遇到的性能问题的总结。</h1><h2 id="1-循环引用">1.循环引用</h2><p>在使用block的时候会出现引用计数的问题]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://devliu.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Xcode 常用插件]]></title>
+    <link href="http://devliu.com/2014/01/05/xcode-%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/"/>
+    <id>http://devliu.com/2014/01/05/xcode-常用插件/</id>
+    <published>2014-01-05T13:20:55.000Z</published>
+    <updated>2014-08-01T15:04:57.000Z</updated>
+    <content type="html"><![CDATA[<a id="more"></a>
+<h2 id="Alcatraz">Alcatraz</h2><p>Xcode插件管理器，这个插件可以管理你为Xcode安装的所有（大部分）插件，之前XVim可以是不能通过这个插件管理的，目前已经好用了。经过测试该插件与Xcode 6兼容。<br>官网：<a><a href="http://alcatraz.io/" target="_blank" rel="external">http://alcatraz.io/</a></a><br>Github:<a><a href="https://github.com/supermarin/Alcatraz" target="_blank" rel="external">https://github.com/supermarin/Alcatraz</a></a><br>安装方法：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh</span><br></pre></td></tr></table></figure></p>
+<p>卸载方法：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin</span><br></pre></td></tr></table></figure></p>
+<p>移除掉所有安装过的插件：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~/Library/Application\ Support/Alcatraz/</span><br></pre></td></tr></table></figure></p>
+<p>使用方法：<br>打开Xcode，打开window，看到Package Manager就是了。快捷键:shift + cmd + 9<br><img src="!--￼3--&gt;/images/xcode_plugin/alcatraz.png" alt="Alcatraz"></p>
+<h2 id="XAlign">XAlign</h2><p>Xcode 代码经常被写的很烂，特别是一些宏定义或者property定义的时候，而Xcode自身好像没有什么好的办法解决代码的缩进。好在有这个插件<a href="https://github.com/qfish/XAlign" target="_blank" rel="external">XAlign</a><br>官网 / Github: <a><a href="https://github.com/qfish/XAlign" target="_blank" rel="external">https://github.com/qfish/XAlign</a></a><br>安装方法：使用alcatraz<br>卸载方法：使用alcatraz<br>使用方法：见官网（由于我暂时不知道怎么把那些动态图弄过来 -_-）</p>
+<h2 id="Cocoapods-xcode-plugin">Cocoapods-xcode-plugin</h2><p><a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>是个超级好的东西了，管理第三方库，设定依赖关系基本能一键解决了，但是需要在命令行操作，用这个插件就解决了，<a href="https://github.com/kattrali/cocoapods-xcode-plugin" target="_blank" rel="external">传送门</a></p>
+<h2 id="XVim">XVim</h2><p>vim 编辑器之神，XVim插件可以为Xcode增加vim编辑功能，熟悉vim的人不要错过，<a href="https://github.com/JugglerShu/XVim" target="_blank" rel="external">传送门</a><br>注意：XVim的快捷键和XAlign有冲突</p>
+<h2 id="ColorSense-for-Xcode">ColorSense-for-Xcode</h2><p>安了这个插件，当敲[UIColor redcolor]的时候就显示一个红色，很方便，RGB的颜色也可以显示，超酷。<a href="https://github.com/omz/ColorSense-for-Xcode" target="_blank" rel="external">传送门</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<a id="more"></a>
+<h2 id="Alcatraz">Alcatraz</h2><p>Xcode插件管理器，这个插件可以管理你为Xcode安装的所有（大部分）插件，之前XVim可以是不能通过这个插件管理的，目前已经好用了。经过测试该插件与Xcode 6兼容。<b]]>
+    </summary>
+    
+      <category term="Xcode" scheme="http://devliu.com/tags/Xcode/"/>
+    
+  </entry>
+  
+</feed>

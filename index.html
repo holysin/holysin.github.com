@@ -1,12 +1,19 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    
 <head>
-  <meta charset="utf-8">
-  
-  <title>holysin&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="holysin&#39;s blog">
+    <title>holysin&#39;s blog</title>
+    <meta name="author" content="holysin">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description">
+<meta property="og:type" content="blog">
 <meta property="og:title" content="holysin's blog">
 <meta property="og:url" content="http://devliu.com/index.html">
 <meta property="og:site_name" content="holysin's blog">
@@ -14,172 +21,228 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="holysin's blog">
 <meta name="twitter:description">
-  
-    <link rel="alternative" href="/atom.xml" title="holysin&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  
-
+    
+    
+    
+        <meta property="og:image" content="http://www.gravatar.com/avatar/eb07c7a3867c84acdf805060d46cef94?s=640"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
 </head>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">holysin&#39;s blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
         
-          <a class="main-nav-link" href="/">Home</a>
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">holysin&#39;s blog</a>
+    </h1>
+    
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+            <a  class="header-right-picture "
+                href="/#about">
         
-      </nav>
-      <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+            <img class="header-picture" src="http://www.gravatar.com/avatar/eb07c7a3867c84acdf805060d46cef94?s=90"/>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://devliu.com"></form>
-      </div>
-    </div>
-  </div>
+        </a>
+    
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-新-MacbookPro-装机记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/11/11/新-MacbookPro-装机记/" class="article-date">
-  <time datetime="2015-11-11T07:10:53.000Z" itemprop="datePublished">2015-11-11</time>
-</a>
+
+            <!-- Define author's picture -->
+
+
     
-  </div>
-  <div class="article-inner">
+
+<nav id="sidebar" data-behavior="2">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="http://www.gravatar.com/avatar/eb07c7a3867c84acdf805060d46cef94?s=110"/>
+            </a>
+            <span class="sidebar-profile-name">holysin</span>
+        </div>
     
     
-      <header class="article-header">
+        <ul class="sidebar-buttons">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/11/新-MacbookPro-装机记/">新 MacbookPro 装机记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="开发环境搭建">开发环境搭建</h1><ul>
-<li>Xcode</li>
-<li>iTerm</li>
-<li>Reveal</li>
-<li>Charles</li>
-<li>Atom</li>
-<li>Quiver</li>
-<li>SourceTree</li>
-<li>Dash</li>
-</ul>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>cask install <span class="keyword">iterm2 </span><span class="keyword">reveal </span>atom sourcetree dash --appdir=/Applications</span><br></pre></td></tr></table></figure>
-<p>charles、quiver 用 appstore 装</p>
-<h1 id="oh-my-zsh">oh-my-zsh</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
-<h1 id="Xcode_插件">Xcode 插件</h1><h2 id="Alcatraz_插件管理器">Alcatraz 插件管理器</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/supermarin/Alcatraz/deploy/Scripts/install.<span class="keyword">sh</span> | <span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
-<h2 id="插件">插件</h2><ul>
-<li>VVDocumenter-Xcode</li>
-<li>XVim</li>
-<li>XAlign</li>
-<li>RSImageOptimPlugin</li>
-<li>RTImageAssets</li>
-<li>KSImageNamed</li>
-</ul>
-<h1 id="CocoaPods">CocoaPods</h1><h2 id="更换_ruby_gems_源">更换 ruby gems 源</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem sources --<span class="built_in">add</span> http<span class="variable">s:</span>//<span class="keyword">ruby</span>.taobao.org/ --<span class="built_in">remove</span> http<span class="variable">s:</span>//rubygems.org/</span><br></pre></td></tr></table></figure>
-<h2 id="安装_cocoapods">安装 cocoapods</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure>
-<h2 id="atom_插件">atom 插件</h2><ul>
-<li>autocomplete</li>
-<li>pretty-json</li>
-<li>atom-runner</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apm <span class="operator"><span class="keyword">install</span> autocomplete pretty-<span class="keyword">json</span> atom-runner</span></span><br></pre></td></tr></table></figure>
-<h1 id="git">git</h1><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>install git</span><br></pre></td></tr></table></figure>
-<h1 id="brew">brew</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-<h2 id="homebrew-cask">homebrew-cask</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>update &amp;&amp; <span class="keyword">brew </span>upgrade <span class="keyword">brew-cask </span>&amp;&amp; <span class="keyword">brew </span>cleanup &amp;&amp; <span class="keyword">brew </span>cask cleanup</span><br><span class="line"><span class="keyword">brew </span>install caskroom/cask/<span class="keyword">brew-cask</span></span><br></pre></td></tr></table></figure>
-<h1 id="node-js">node.js</h1><h2 id="安装_nvm">安装 nvm</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>install nvm</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=~/.nvm</span><br><span class="line"><span class="built_in">source</span> $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> .zshrc</span><br></pre></td></tr></table></figure>
-<h2 id="用_nvm_安装_node-js">用 nvm 安装 node.js</h2><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm <span class="keyword">ls</span>-remote</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install <span class="number">5.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use <span class="number">5.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm alias <span class="keyword">default</span> <span class="number">5.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
-<h1 id="Hexo">Hexo</h1><p>先安装 node.js<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> hexo-cli -<span class="keyword">g</span></span></span><br></pre></td></tr></table></figure></p>
-<h1 id="Mac_软件">Mac 软件</h1><ul>
-<li>Alfred</li>
-<li>Evernote</li>
-<li>Dropbox</li>
-<li>MonoDraw</li>
-<li>WeChat</li>
-<li>QQ</li>
-<li>Chrome</li>
-<li>Spectacle</li>
-<li>Pocket</li>
-<li>Reeder</li>
-<li>ReadKit</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask <span class="operator"><span class="keyword">install</span> alfred evernote dropbox monodraw wechat qq google-chrome spectacle <span class="comment">--appdir=/Applications</span></span></span><br></pre></td></tr></table></figure>
-<p>WeChat pocket reeder readKit 用 AppStore 装</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/11/11/新-MacbookPro-装机记/" data-id="ciguo427d0008fesp0v4j8dzo" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2015/11/11/新-MacbookPro-装机记/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MacbookPro/">MacbookPro</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Objective-C-内存管理学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/19/Objective-C-内存管理学习笔记/" class="article-date">
-  <time datetime="2015-10-19T06:22:46.000Z" itemprop="datePublished">2015-10-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/19/Objective-C-内存管理学习笔记/">Objective-C 内存管理学习笔记</a>
-    </h1>
-  
-
-      </header>
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="/#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言">前言</h1><p><a href="http://weibo.com/u/1364395395">微博@我就叫Sunny怎么了</a>发布了一套难度很大的<a href="http://blog.sunnyxx.com/2015/07/04/ios-interview/">iOS面试题</a>，<a href="http://weibo.com/luohanchenyilong">微博@iOS程序犭袁</a>给出了一份优秀的<a href="https://github.com/ChenYilong/iOSInterviewQuestions">答案</a>，由于面试题中有很多问题具有相关性，所以我准备将这套面试题总结一下，其中不乏自己的理解，如有不当之处，还望指出。</p>
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+
+<section class="postShorten-group main-content-wrap">
+    
+        
+        <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2015/11/11/新-MacbookPro-装机记/">新 MacbookPro 装机记</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Wed Nov 11 2015 15:10:53 GMT+0800">
+	
+		    Nov 11, 2015
+    	
+    </time>
+    
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-excerpt" itemprop="articleBody">
+                        <p>公司新配的 Macbook Pro 13，在此记一下配置环境的过程。主要分为两个部分：</p>
+<ol>
+<li>开发环境搭建</li>
+<li>Mac 常用 App 安装</li>
+</ol>
+                        
+                            <a href="/2015/11/11/新-MacbookPro-装机记/" class="postShorten-excerpt_link link">
+                                Continue reading
+                            </a>
+                            
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
+        
+        <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2015/10/19/Objective-C-内存管理学习笔记/">Objective-C 内存管理学习笔记</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Mon Oct 19 2015 14:22:46 GMT+0800">
+	
+		    Oct 19, 2015
+    	
+    </time>
+    
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-excerpt" itemprop="articleBody">
+                        <h1 id="前言">前言</h1><p><a href="http://weibo.com/u/1364395395">微博@我就叫Sunny怎么了</a>发布了一套难度很大的<a href="http://blog.sunnyxx.com/2015/07/04/ios-interview/">iOS面试题</a>，<a href="http://weibo.com/luohanchenyilong">微博@iOS程序犭袁</a>给出了一份优秀的<a href="https://github.com/ChenYilong/iOSInterviewQuestions">答案</a>，由于面试题中有很多问题具有相关性，所以我准备将这套面试题总结一下，其中不乏自己的理解，如有不当之处，还望指出。</p>
 <p>这份面试题主要涉及了四个方向的知识点：</p>
 <ol>
 <li>Objective-C 基本概念，其中包括 property，kvo，对象内存布局等</li>
@@ -188,51 +251,40 @@
 <li>GCD 和 block 相关知识点</li>
 </ol>
 <p>本问主要总结了 property 相关的知识点。内容涉及 property 语法，weak 关键字的意义及如何实现，在 category 和 protocol 中如何使用 property。<br>
+                        
+                            <a href="/2015/10/19/Objective-C-内存管理学习笔记/" class="postShorten-excerpt_link link">
+                                Continue reading
+                            </a>
+                            
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
         
-          <p class="article-more-link">
-            <a href="/2015/10/19/Objective-C-内存管理学习笔记/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/" data-id="ciguo429b0024fespedxyqhzd" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ReactiveCocoa" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/05/ReactiveCocoa/" class="article-date">
-  <time datetime="2015-10-05T10:20:38.000Z" itemprop="datePublished">2015-10-05</time>
-</a>
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2015/10/05/ReactiveCocoa/">ReactiveCocoa</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Mon Oct 05 2015 18:20:38 GMT+0800">
+	
+		    Oct 05, 2015
+    	
+    </time>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/05/ReactiveCocoa/">ReactiveCocoa</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Reactive_Philosophy">Reactive Philosophy</h1><h2 id="Imperative_programming">Imperative programming</h2><p>error-prone, relies too heavily on the infallibility of the programmer</p>
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <h1 id="Reactive_Philosophy">Reactive Philosophy</h1><h2 id="Imperative_programming">Imperative programming</h2><p>error-prone, relies too heavily on the infallibility of the programmer</p>
 <h2 id="Functional_Reactive_programming">Functional Reactive programming</h2><h3 id="Functions_don’t_have_side-effects">Functions don’t have side-effects</h3><h3 id="there’s_no_mutable_state">there’s no mutable state</h3><p>It’s a difficult way to program since the real world is mutable. Modeling things like user input becomes a nightmare.</p>
 <h2 id="Reactive_programming">Reactive programming</h2><p>the best way to describe reactive programming is to think of a spreadsheet. Imagine three cells, A, B, and C. A is defined as the sum of B and C. Whenever B or C changes, A reacts to update itself. That’s reactive programming: changes propagate throughout a system automatically.</p>
 <p>combination of functional and reactive paradigms.</p>
@@ -269,44 +321,45 @@
 <h2 id="app">app</h2><p><a href="https://github.com/AshFurrow/C-41" target="_blank" rel="external">https://github.com/AshFurrow/C-41</a><br><a href="https://github.com/jspahrsummers/GroceryList" target="_blank" rel="external">https://github.com/jspahrsummers/GroceryList</a></p>
 <p>RAC &amp;&amp; MVVM<br><a href="http://www.sprynthesis.com/2014/12/06/reactivecocoa-mvvm-introduction/" target="_blank" rel="external">http://www.sprynthesis.com/2014/12/06/reactivecocoa-mvvm-introduction/</a><br><a href="http://cocoasamurai.blogspot.com/2013/03/basic-mvvm-with-reactivecocoa.html" target="_blank" rel="external">http://cocoasamurai.blogspot.com/2013/03/basic-mvvm-with-reactivecocoa.html</a></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/10/05/ReactiveCocoa/" data-id="ciguo429a0023fesp6byymqr7" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2015/10/05/ReactiveCocoa/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+                        
+                            
 
-
-  
-    <article id="post-resume" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/31/resume/" class="article-date">
-  <time datetime="2015-08-31T05:50:17.000Z" itemprop="datePublished">2015-08-31</time>
-</a>
+                        
+                        
+                            <p>
+                                <a href="/2015/10/05/ReactiveCocoa/#post-footer" class="postShorten-excerpt_link link">
+                                    Comment and share
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/31/resume/">resume</a>
-    </h1>
-  
-
-      </header>
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2015/08/31/resume/">resume</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Mon Aug 31 2015 13:50:17 GMT+0800">
+	
+		    Aug 31, 2015
+    	
+    </time>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="学历">学历</h1><h2 id="硕士_东北大学_2010-09_-_2012-07_计算机应用技术">硕士 东北大学 2010.09 - 2012.07 计算机应用技术</h2><h2 id="学士_长安大学_2005-09_-_2009-07_建筑设施智能技术">学士 长安大学 2005.09 - 2009.07 建筑设施智能技术</h2><h1 id="工作经历">工作经历</h1><h2 id="猎豹移动_2013-04_至今">猎豹移动 2013.04 至今</h2><h3 id="iOS_电池医生">iOS 电池医生</h3><ul>
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <h1 id="学历">学历</h1><h2 id="硕士_东北大学_2010-09_-_2012-07_计算机应用技术">硕士 东北大学 2010.09 - 2012.07 计算机应用技术</h2><h2 id="学士_长安大学_2005-09_-_2009-07_建筑设施智能技术">学士 长安大学 2005.09 - 2009.07 建筑设施智能技术</h2><h1 id="工作经历">工作经历</h1><h2 id="猎豹移动_2013-04_至今">猎豹移动 2013.04 至今</h2><h3 id="iOS_电池医生">iOS 电池医生</h3><ul>
 <li>充电屏保开发，负责充电屏保复杂动画的开发工作</li>
 <li>应用市场，定制TableView，实现上滑隐藏顶部导航栏，定制tableView实现表格布局，优化滚动速度。封装应用市场SDK，提供给第三方厂商使用</li>
 <li>应用市场自定义顶部导航栏</li>
@@ -340,404 +393,316 @@
 <li>支持正版软件</li>
 </ul>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/08/31/resume/" data-id="ciguo4280000yfespwcsaei4p" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2015/08/31/resume/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resume/">resume</a></li></ul>
+                        
+                            
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-iOS常见面试题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/26/iOS常见面试题/" class="article-date">
-  <time datetime="2015-07-26T15:53:13.000Z" itemprop="datePublished">2015-07-26</time>
-</a>
+                        
+                        
+                            <p>
+                                <a href="/2015/08/31/resume/#post-footer" class="postShorten-excerpt_link link">
+                                    Comment and share
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/26/iOS常见面试题/">iOS常见面试题</a>
-    </h1>
-  
-
-      </header>
+        <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2015/07/26/iOS常见面试题/">iOS常见面试题</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Sun Jul 26 2015 23:53:13 GMT+0800">
+	
+		    Jul 26, 2015
+    	
+    </time>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在这里记录一下网上流行的iOS面试题，以后面试用。首先就是唐巧最近在微信里发布了一套面试题，在这里记录一下，以后找时间总结一下回答，当然是在弄懂的前提下。仅仅吧答案背下来，却不弄懂是没什么用的。</p>
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-excerpt" itemprop="articleBody">
+                        <p>在这里记录一下网上流行的iOS面试题，以后面试用。首先就是唐巧最近在微信里发布了一套面试题，在这里记录一下，以后找时间总结一下回答，当然是在弄懂的前提下。仅仅吧答案背下来，却不弄懂是没什么用的。</p>
+                        
+                            <a href="/2015/07/26/iOS常见面试题/" class="postShorten-excerpt_link link">
+                                Continue reading
+                            </a>
+                            
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
         
-          <p class="article-more-link">
-            <a href="/2015/07/26/iOS常见面试题/#more">Read More</a>
-          </p>
+        <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2015/07/26/git-技巧/">git 技巧</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Sun Jul 26 2015 22:53:15 GMT+0800">
+	
+		    Jul 26, 2015
+    	
+    </time>
+    
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-excerpt" itemprop="articleBody">
+                        <p>这是我过去使用git总结的一些技巧和在google和ss上搜到的一些知识，希望大家喜欢。<br>
+                        
+                            <a href="/2015/07/26/git-技巧/" class="postShorten-excerpt_link link">
+                                Continue reading
+                            </a>
+                            
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
         
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/07/26/iOS常见面试题/" data-id="ciguo428q001mfesp2eg3mbpe" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2015/07/26/iOS常见面试题/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-git-技巧" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/26/git-技巧/" class="article-date">
-  <time datetime="2015-07-26T14:53:15.000Z" itemprop="datePublished">2015-07-26</time>
-</a>
+        <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2015/07/26/V/">V</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Sun Jul 26 2015 22:40:58 GMT+0800">
+	
+		    Jul 26, 2015
+    	
+    </time>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/26/git-技巧/">git 技巧</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是我过去使用git总结的一些技巧和在google和ss上搜到的一些知识，希望大家喜欢。<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/07/26/git-技巧/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/07/26/git-技巧/" data-id="ciguo428u001ofespvoi7np4u" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2015/07/26/git-技巧/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-V" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/26/V/" class="article-date">
-  <time datetime="2015-07-26T14:40:58.000Z" itemprop="datePublished">2015-07-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/26/V/">V</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>《V字仇杀队》是我最喜欢的电影之一，当然我不能说没有之一这种屁话，那太绝对了。我不知道如何评论这部电影，或者说我不敢在互联网这个开放的环境下写出我内心真实的感受。或者，我怀疑自己的措辞能力无法表现出这部电影的伟大。But，你需要去看这部电影。</p>
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-excerpt" itemprop="articleBody">
+                        <p>《V字仇杀队》是我最喜欢的电影之一，当然我不能说没有之一这种屁话，那太绝对了。我不知道如何评论这部电影，或者说我不敢在互联网这个开放的环境下写出我内心真实的感受。或者，我怀疑自己的措辞能力无法表现出这部电影的伟大。But，你需要去看这部电影。</p>
 <p>V怪客在电视台向全国民众发表演说的台词：（请原谅我粘贴自网络）<br>
+                        
+                            <a href="/2015/07/26/V/" class="postShorten-excerpt_link link">
+                                Continue reading
+                            </a>
+                            
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
         
-          <p class="article-more-link">
-            <a href="/2015/07/26/V/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/07/26/V/" data-id="ciguo42970020fespbq5f3xoq" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2015/07/26/V/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电影/">电影</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-uicollectionview-用法小结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/05/20/uicollectionview-用法小结/" class="article-date">
-  <time datetime="2015-05-20T14:37:53.000Z" itemprop="datePublished">2015-05-20</time>
-</a>
+        <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2015/05/20/uicollectionview-用法小结/">uicollectionview 用法小结</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Wed May 20 2015 22:37:53 GMT+0800">
+	
+		    May 20, 2015
+    	
+    </time>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/20/uicollectionview-用法小结/">uicollectionview 用法小结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。</p>
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-excerpt" itemprop="articleBody">
+                        <p>最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。</p>
 <h2 id="项目需求：">项目需求：</h2><p>1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。<br>2.cell中圆角和阴影共存。</p>
 <p>请看效果图<br><img src="/images/uicollectionview/uicollectionview.gif" alt="瀑布流效果图"></p>
+                        
+                            <a href="/2015/05/20/uicollectionview-用法小结/" class="postShorten-excerpt_link link">
+                                Continue reading
+                            </a>
+                            
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
         
-          <p class="article-more-link">
-            <a href="/2015/05/20/uicollectionview-用法小结/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/05/20/uicollectionview-用法小结/" data-id="ciguo427u000ufespndb7bda4" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2015/05/20/uicollectionview-用法小结/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ios在获取用户的位置授权之后，做一些事情" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/04/26/ios在获取用户的位置授权之后，做一些事情/" class="article-date">
-  <time datetime="2015-04-25T16:07:37.000Z" itemprop="datePublished">2015-04-26</time>
-</a>
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2015/04/26/ios在获取用户的位置授权之后，做一些事情/">iOS在获取用户的位置授权之后，做一些事情</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Sun Apr 26 2015 00:07:37 GMT+0800">
+	
+		    Apr 26, 2015
+    	
+    </time>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/26/ios在获取用户的位置授权之后，做一些事情/">iOS在获取用户的位置授权之后，做一些事情</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在做天气模块时，需要获取用户的位置授权，在获取完权限后，我们需要解码城市，然后去服务器请求天气信息<br>1.获取授权后请求天气<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) &#123;</span><br><span class="line">        [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kLocationManagerAuthorizationStatusChangeNotification object:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <p>在做天气模块时，需要获取用户的位置授权，在获取完权限后，我们需要解码城市，然后去服务器请求天气信息<br>1.获取授权后请求天气<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) &#123;</span><br><span class="line">        [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kLocationManagerAuthorizationStatusChangeNotification object:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>2.解码城市<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation &#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.location2D</span> = newLocation<span class="variable">.coordinate</span>;</span><br><span class="line">    [PersistenceHelper setData:@(<span class="keyword">self</span><span class="variable">.location2D</span><span class="variable">.latitude</span>) forKey:LAT];</span><br><span class="line">    [PersistenceHelper setData:@(<span class="keyword">self</span><span class="variable">.location2D</span><span class="variable">.longitude</span>) forKey:LONG];</span><br><span class="line">    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];</span><br><span class="line">    [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(<span class="built_in">NSArray</span> *placemarks, <span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">        <span class="keyword">for</span> (CLPlacemark * placemark <span class="keyword">in</span> placemarks) &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *city = placemark<span class="variable">.administrativeArea</span>;</span><br><span class="line">            <span class="keyword">if</span> ([city hasSuffix:<span class="string">@"市"</span>]) &#123;</span><br><span class="line">                city = [city substringToIndex:city<span class="variable">.length</span>-<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (city<span class="variable">.length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">self</span><span class="variable">.cityName</span> = city;</span><br><span class="line">                [PersistenceHelper setData:city forKey:<span class="built_in">CITY</span>];</span><br><span class="line">                [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kLocationManagerAuthorizationStatusChangeNotification object:<span class="literal">nil</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">    [manager stopUpdatingLocation];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/" data-id="ciguo42870015fespokdsp0qp" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+                        
+                            
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-reactivecocoa用法小记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/04/25/reactivecocoa用法小记/" class="article-date">
-  <time datetime="2015-04-25T15:51:46.000Z" itemprop="datePublished">2015-04-25</time>
-</a>
+                        
+                        
+                            <p>
+                                <a href="/2015/04/26/ios在获取用户的位置授权之后，做一些事情/#post-footer" class="postShorten-excerpt_link link">
+                                    Comment and share
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/25/reactivecocoa用法小记/">reactivecocoa用法小记</a>
-    </h1>
-  
-
-      </header>
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2015/04/25/reactivecocoa用法小记/">reactivecocoa用法小记</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Sat Apr 25 2015 23:51:46 GMT+0800">
+	
+		    Apr 25, 2015
+    	
+    </time>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.绑定UI元素和数据<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RAC(<span class="keyword">self</span>, city<span class="variable">.text</span>) = RACObserve(<span class="keyword">self</span>, weatherModel<span class="variable">.city_name</span>);</span><br></pre></td></tr></table></figure></p>
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <p>1.绑定UI元素和数据<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RAC(<span class="keyword">self</span>, city<span class="variable">.text</span>) = RACObserve(<span class="keyword">self</span>, weatherModel<span class="variable">.city_name</span>);</span><br></pre></td></tr></table></figure></p>
 <p>2.观察数据，数据变化时做下一步操作<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[RACObserve(<span class="keyword">self</span>, weizhangData<span class="variable">.zongmoney</span>) subscribeNext:^(<span class="built_in">NSNumber</span> *zongmoney) &#123;</span><br><span class="line">    <span class="keyword">if</span> (zongmoney) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *string = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@%@元"</span>, <span class="string">@"罚款："</span>, zongmoney];</span><br><span class="line">        <span class="built_in">NSMutableAttributedString</span> *attrString = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:string];</span><br><span class="line">        <span class="built_in">UIColor</span> *color = [<span class="built_in">UIColor</span> redColor]; <span class="comment">// select needed color</span></span><br><span class="line">        <span class="built_in">NSDictionary</span> *attrs = @&#123;<span class="built_in">NSForegroundColorAttributeName</span>: color&#125;;</span><br><span class="line">        [attrString addAttributes:attrs range:[string rangeOfString:[zongmoney stringValue]]];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.penalty</span><span class="variable">.attributedText</span> = attrString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
 <p>3.uibutton 设置事件<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="keyword">self</span><span class="variable">.askBtn</span> rac_signalForControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>] subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span><span class="variable">.delegate</span> respondsToSelector:<span class="keyword">@selector</span>(addCarTextCellAskPress:)]) &#123;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.delegate</span> addCarTextCellAskPress:<span class="keyword">self</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
 <p>4.检测nsuserdefault<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[[<span class="built_in">NSUserDefaults</span> standardUserDefaults] rac_valuesForKeyPath:<span class="built_in">UID</span> observer:<span class="keyword">self</span>] subscribeNext:^(<span class="built_in">NSNumber</span> *uid) &#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.uid</span> = uid;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/25/reactivecocoa用法小记/" data-id="ciguo42820011fespyl15yb9w" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2015/04/25/reactivecocoa用法小记/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+                        
+                            
 
-    </footer>
-  </div>
-  
-</article>
+                        
+                        
+                            <p>
+                                <a href="/2015/04/25/reactivecocoa用法小记/#post-footer" class="postShorten-excerpt_link link">
+                                    Comment and share
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="/page/2/">
+                    <span>OLDER POSTS</span>
+                <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+        </li>
+        
+        <li class="pagination-number">page 1 of 4</li>
+    </ul>
+</div>
 
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 </section>
-        
-          <aside id="sidebar">
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/">English</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacbookPro/">MacbookPro</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcd/">gcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/resume/">resume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/群辉/">群辉</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/English/" style="font-size: 16.67px;">English</a> <a href="/tags/MacbookPro/" style="font-size: 10px;">MacbookPro</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Xcode/" style="font-size: 13.33px;">Xcode</a> <a href="/tags/gcd/" style="font-size: 10px;">gcd</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/resume/" style="font-size: 10px;">resume</a> <a href="/tags/杂/" style="font-size: 10px;">杂</a> <a href="/tags/电影/" style="font-size: 10px;">电影</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/群辉/" style="font-size: 10px;">群辉</a>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">6</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2015/11/11/新-MacbookPro-装机记/">新 MacbookPro 装机记</a>
-          </li>
-        
-          <li>
-            <a href="/2015/10/19/Objective-C-内存管理学习笔记/">Objective-C 内存管理学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2015/10/05/ReactiveCocoa/">ReactiveCocoa</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/31/resume/">resume</a>
-          </li>
-        
-          <li>
-            <a href="/2015/07/26/iOS常见面试题/">iOS常见面试题</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2015 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2015 holysin. All Rights Reserved.
+    </span>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+            </div>
+            
+        </div>
+        <!-- Define author's picture -->
+
+
     
-<script>
-  var disqus_shortname = 'devliu';
-  
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="http://www.gravatar.com/avatar/eb07c7a3867c84acdf805060d46cef94?s=110"/>
+        
+            <h4 id="about-card-name">holysin</h4>
+        
+            <h5 id="about-card-bio"><p>iOS Developer</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Happy Iterating Inc.</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Beijing China
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
-
-
-<script src="/js/script.js" type="text/javascript"></script>
-
-  </div>
-</body>
 </html>
