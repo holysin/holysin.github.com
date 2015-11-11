@@ -61,6 +61,102 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-新-MacbookPro-装机记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/11/新-MacbookPro-装机记/" class="article-date">
+  <time datetime="2015-11-11T07:10:53.000Z" itemprop="datePublished">2015-11-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/11/新-MacbookPro-装机记/">新 MacbookPro 装机记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="开发环境搭建">开发环境搭建</h1><ul>
+<li>Xcode</li>
+<li>iTerm</li>
+<li>Reveal</li>
+<li>Charles</li>
+<li>Atom</li>
+<li>Quiver</li>
+<li>SourceTree</li>
+<li>Dash</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>cask install <span class="keyword">iterm2 </span><span class="keyword">reveal </span>charles atom sourcetree dash --appdir=/Applications</span><br></pre></td></tr></table></figure>
+<p>quiver 用 appstore 装</p>
+<h1 id="oh-my-zsh">oh-my-zsh</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
+<h1 id="Xcode_插件">Xcode 插件</h1><h2 id="Alcatraz_插件管理器">Alcatraz 插件管理器</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/supermarin/Alcatraz/deploy/Scripts/install.<span class="keyword">sh</span> | <span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+<h2 id="插件">插件</h2><ul>
+<li>VVDocumenter-Xcode</li>
+<li>XVim</li>
+<li>XAlign</li>
+<li>RSImageOptimPlugin</li>
+<li>RTImageAssets</li>
+<li>KSImageNamed</li>
+</ul>
+<h1 id="CocoaPods">CocoaPods</h1><h2 id="更换_ruby_gems_源">更换 ruby gems 源</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem sources --<span class="built_in">add</span> http<span class="variable">s:</span>//<span class="keyword">ruby</span>.taobao.org/ --<span class="built_in">remove</span> http<span class="variable">s:</span>//rubygems.org/</span><br></pre></td></tr></table></figure>
+<h2 id="安装_cocoapods">安装 cocoapods</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure>
+<h2 id="atom_插件">atom 插件</h2><ul>
+<li>autocomplete</li>
+<li>pretty-json</li>
+<li>atom-runner</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apm <span class="operator"><span class="keyword">install</span> autocomplete pretty-<span class="keyword">json</span> atom-runner</span></span><br></pre></td></tr></table></figure>
+<h1 id="git">git</h1><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>install git</span><br></pre></td></tr></table></figure>
+<h1 id="brew">brew</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+<h2 id="homebrew-cask">homebrew-cask</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>update &amp;&amp; <span class="keyword">brew </span>upgrade <span class="keyword">brew-cask </span>&amp;&amp; <span class="keyword">brew </span>cleanup &amp;&amp; <span class="keyword">brew </span>cask cleanup</span><br><span class="line"><span class="keyword">brew </span>install caskroom/cask/<span class="keyword">brew-cask</span></span><br></pre></td></tr></table></figure>
+<h1 id="node-js">node.js</h1><h2 id="安装_nvm">安装 nvm</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>install nvm</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=~/.nvm</span><br><span class="line"><span class="built_in">source</span> $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> .zshrc</span><br></pre></td></tr></table></figure>
+<h2 id="用_nvm_安装_node-js">用 nvm 安装 node.js</h2><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm <span class="keyword">ls</span>-remote</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install <span class="number">5.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use <span class="number">5.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm alias <span class="keyword">default</span> <span class="number">5.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<h1 id="Hexo">Hexo</h1><p>先安装 node.js<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> hexo-cli -<span class="keyword">g</span></span></span><br></pre></td></tr></table></figure></p>
+<h1 id="Mac_软件">Mac 软件</h1><ul>
+<li>Alfred</li>
+<li>Evernote</li>
+<li>Dropbox</li>
+<li>MonoDraw</li>
+<li>WeChat</li>
+<li>QQ</li>
+<li>Chrome</li>
+<li>Spectacle</li>
+<li>Pocket</li>
+<li>Reeder</li>
+<li>ReadKit</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask <span class="operator"><span class="keyword">install</span> alfred evernote dropbox monodraw wechat qq google-chrome spectacle <span class="comment">--appdir=/Applications</span></span></span><br></pre></td></tr></table></figure>
+<p>pocket reeder readKit 用 appstore 装</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://devliu.com/2015/11/11/新-MacbookPro-装机记/" data-id="cigum9qvu0008eesp5mqbd935" class="article-share-link">Share</a>
+      
+        <a href="http://devliu.com/2015/11/11/新-MacbookPro-装机记/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MacbookPro/">MacbookPro</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Objective-C-内存管理学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/10/19/Objective-C-内存管理学习笔记/" class="article-date">
@@ -100,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/" data-id="cify3bc1l0021pvwtf9ot9zcq" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/" data-id="cigum9qy60024eespwp7f6zlz" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/10/19/Objective-C-内存管理学习笔记/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -176,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/10/05/ReactiveCocoa/" data-id="cify3bc1k0020pvwtjh5zk4si" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/10/05/ReactiveCocoa/" data-id="cigum9qxw0023eesppw5zbw46" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/10/05/ReactiveCocoa/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -247,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/08/31/resume/" data-id="cify3bc0l000vpvwtiq70fooo" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/08/31/resume/" data-id="cigum9qwn000yeesp4mszdfad" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/08/31/resume/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -292,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/07/26/iOS常见面试题/" data-id="cify3bc14001jpvwt1vramnnd" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/07/26/iOS常见面试题/" data-id="cigum9qxe001meesp9o1x6nmh" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/07/26/iOS常见面试题/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -337,7 +433,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/07/26/git-技巧/" data-id="cify3bc17001lpvwtqwt779jo" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/07/26/git-技巧/" data-id="cigum9qxh001oeespogon6oen" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/07/26/git-技巧/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -383,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/07/26/V/" data-id="cify3bc1h001xpvwtyyl3lh8o" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/07/26/V/" data-id="cigum9qxu0020eespp6qpqggl" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/07/26/V/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -430,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/05/20/uicollectionview-用法小结/" data-id="cify3bc0f000rpvwtok7xc7oo" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/05/20/uicollectionview-用法小结/" data-id="cigum9qwi000ueesppa3275ob" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/05/20/uicollectionview-用法小结/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -472,7 +568,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/" data-id="cify3bc0p0012pvwt5o0467vv" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/" data-id="cigum9qwt0015eespsoqyfhj4" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/04/26/ios在获取用户的位置授权之后，做一些事情/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -516,52 +612,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/25/reactivecocoa用法小记/" data-id="cify3bc0m000ypvwtspopp81h" class="article-share-link">Share</a>
+      <a data-url="http://devliu.com/2015/04/25/reactivecocoa用法小记/" data-id="cigum9qwp0011eespfwnyywok" class="article-share-link">Share</a>
       
         <a href="http://devliu.com/2015/04/25/reactivecocoa用法小记/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-autolayout下更新布局文件时采用动画" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/04/25/autolayout下更新布局文件时采用动画/" class="article-date">
-  <time datetime="2015-04-25T15:44:59.000Z" itemprop="datePublished">2015-04-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/25/autolayout下更新布局文件时采用动画/">autolayout下更新布局文件时采用动画</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.在IB中找到对应的constraints<br>2.改变这个constraints<br>3.对相应的元素调用 setNeedsUpdateConstraints<br>4.在动画中对该元素调用 layoutIfNeeded</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)bindAd</span><br><span class="line">&#123;</span><br><span class="line">    [RACObserve(<span class="keyword">self</span>, adModel) subscribeNext:^(AdModel *ad) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ad) &#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.adBanner</span><span class="variable">.hidden</span> = <span class="literal">NO</span>;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.adBanner</span><span class="variable">.adModel</span> = ad;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.weatherIconTopSpace</span><span class="variable">.constant</span> = <span class="number">12</span> + <span class="built_in">CGRectGetHeight</span>(<span class="keyword">self</span><span class="variable">.adBanner</span><span class="variable">.frame</span>);</span><br><span class="line">            [<span class="keyword">self</span><span class="variable">.weatherIcon</span> setNeedsUpdateConstraints];</span><br><span class="line">            [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.3</span> animations:^&#123;</span><br><span class="line">                [<span class="keyword">self</span><span class="variable">.weatherIcon</span> layoutIfNeeded];</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.adBanner</span><span class="variable">.hidden</span> = <span class="literal">YES</span>;</span><br><span class="line">            <span class="built_in">CGFloat</span> topSpace = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.weatherIconTopSpace</span><span class="variable">.constant</span> = topSpace;</span><br><span class="line">            [<span class="keyword">self</span><span class="variable">.weatherIcon</span> setNeedsUpdateConstraints];</span><br><span class="line">            [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.3</span> animations:^&#123;</span><br><span class="line">                [<span class="keyword">self</span><span class="variable">.weatherIcon</span> layoutIfNeeded];</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意，你再改变某个constraint的时候，相关的constraints是会联动的</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://devliu.com/2015/04/25/autolayout下更新布局文件时采用动画/" data-id="cify3bc1g001vpvwtcekgp3k8" class="article-share-link">Share</a>
-      
-        <a href="http://devliu.com/2015/04/25/autolayout下更新布局文件时采用动画/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
@@ -588,7 +641,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/">English</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcd/">gcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/resume/">resume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/群辉/">群辉</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/">English</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacbookPro/">MacbookPro</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcd/">gcd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/resume/">resume</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/群辉/">群辉</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -597,7 +650,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/English/" style="font-size: 16.67px;">English</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Xcode/" style="font-size: 13.33px;">Xcode</a> <a href="/tags/gcd/" style="font-size: 10px;">gcd</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/resume/" style="font-size: 10px;">resume</a> <a href="/tags/杂/" style="font-size: 10px;">杂</a> <a href="/tags/电影/" style="font-size: 10px;">电影</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/群辉/" style="font-size: 10px;">群辉</a>
+      <a href="/tags/English/" style="font-size: 16.67px;">English</a> <a href="/tags/MacbookPro/" style="font-size: 10px;">MacbookPro</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Xcode/" style="font-size: 13.33px;">Xcode</a> <a href="/tags/gcd/" style="font-size: 10px;">gcd</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/resume/" style="font-size: 10px;">resume</a> <a href="/tags/杂/" style="font-size: 10px;">杂</a> <a href="/tags/电影/" style="font-size: 10px;">电影</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/群辉/" style="font-size: 10px;">群辉</a>
     </div>
   </div>
 
@@ -606,7 +659,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -616,6 +669,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/11/11/新-MacbookPro-装机记/">新 MacbookPro 装机记</a>
+          </li>
         
           <li>
             <a href="/2015/10/19/Objective-C-内存管理学习笔记/">Objective-C 内存管理学习笔记</a>
@@ -631,10 +688,6 @@
         
           <li>
             <a href="/2015/07/26/iOS常见面试题/">iOS常见面试题</a>
-          </li>
-        
-          <li>
-            <a href="/2015/07/26/git-技巧/">git 技巧</a>
           </li>
         
       </ul>
