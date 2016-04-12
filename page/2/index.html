@@ -190,64 +190,6 @@
 
       <div class="body-wrap">
   
-    <article id="post-ios在获取用户的位置授权之后，做一些事情" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/04/26/ios在获取用户的位置授权之后，做一些事情/" class="article-date">
-  	<time datetime="2015-04-25T16:07:37.000Z" itemprop="datePublished">2015-04-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/26/ios在获取用户的位置授权之后，做一些事情/">iOS在获取用户的位置授权之后，做一些事情</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在做天气模块时，需要获取用户的位置授权，在获取完权限后，我们需要解码城市，然后去服务器请求天气信息<br>1.获取授权后请求天气<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) &#123;</span><br><span class="line">        [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kLocationManagerAuthorizationStatusChangeNotification object:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2.解码城市<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation &#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.location2D</span> = newLocation<span class="variable">.coordinate</span>;</span><br><span class="line">    [PersistenceHelper setData:@(<span class="keyword">self</span><span class="variable">.location2D</span><span class="variable">.latitude</span>) forKey:LAT];</span><br><span class="line">    [PersistenceHelper setData:@(<span class="keyword">self</span><span class="variable">.location2D</span><span class="variable">.longitude</span>) forKey:LONG];</span><br><span class="line">    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];</span><br><span class="line">    [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(<span class="built_in">NSArray</span> *placemarks, <span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">        <span class="keyword">for</span> (CLPlacemark * placemark <span class="keyword">in</span> placemarks) &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *city = placemark<span class="variable">.administrativeArea</span>;</span><br><span class="line">            <span class="keyword">if</span> ([city hasSuffix:<span class="string">@"市"</span>]) &#123;</span><br><span class="line">                city = [city substringToIndex:city<span class="variable">.length</span>-<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (city<span class="variable">.length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">self</span><span class="variable">.cityName</span> = city;</span><br><span class="line">                [PersistenceHelper setData:city forKey:<span class="built_in">CITY</span>];</span><br><span class="line">                [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kLocationManagerAuthorizationStatusChangeNotification object:<span class="literal">nil</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">    [manager stopUpdatingLocation];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-reactivecocoa用法小记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -757,6 +699,92 @@
         <p class="article-more-link">
           <a  href="/2014/07/31/群辉入门教程/#more">more >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ios-性能优化" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/04/10/ios-性能优化/" class="article-date">
+  	<time datetime="2014-04-10T13:06:08.000Z" itemprop="datePublished">2014-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/10/ios-性能优化/">iOS 性能优化</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h1 id="此文是对网络上一些博客和自己开发中遇到的性能问题的总结。">此文是对网络上一些博客和自己开发中遇到的性能问题的总结。</h1><h2 id="1-循环引用">1.循环引用</h2><p>在使用block的时候会出现引用计数的问题，在MRC和ARC下分别用<strong>block和</strong>weak来接触循环引用，或者在block执行结束之前，将block引用的对象赋值为nil。但有时block层次比较深，用static analysis和instrument都检测不到，这时候有一个简单的办法就是在dealloc中打印一条语句，看看dealloc是否调用就好了。</p>
+<h2 id="2-图片">2.图片</h2><p>常用且较小的图片就[UIImage imageNamed:@”imageName”]，这个方法会把图片进行缓存。而对于那些size比较大的图片，且使用次数很少最好用[[UIImage alloc] initWithContentsOfFile:@”filePath”]。</p>
+<h2 id="3-drawRect">3.drawRect</h2><p>对于结构复杂的view可以考虑用drawRect进行绘制，而不是从nib载入。drawRect有一个特点：即使在drawRect函数中没有任何代码实现，系统一样会创建一张画布，也就是说这时候你白白的耗费了内存，所以在决定不进行绘制的时候，应该注释掉这个函数。</p>
+<h2 id="4-tableView的优化">4.tableView的优化</h2><p>随着sns应用的广泛发展，tableView变得越来越复杂，如果不进行优化，UI就会卡顿。关于tableView优化我的一些经验是：</p>
+<ol>
+<li>设置cell的opaque属性，加快系统的颜色绘制。</li>
+<li>缓存cell高度，比如朋友圈这种应用，如果每次都在heightForCell中计算高度，肯定会卡，所以在读取完数据的时候，可以在后台线程中计算数据所对应的高度，并在model中增加height字段用来保留height。在应用数据库的情况下要存取height。</li>
+<li>coretext优化，在支持自定义表情的时候，要应用正则表达式算出对应的attributedString，其中用ctrundelegate记录emoj的图片，高度，宽度等信息，用来在自定义label中进行绘制，显然在cell重用的过程中重新计算严重影响效率，所以一种解决办法是，model持有一个记录attributedString的类Match，该类记录attributedString和height等信息。当数据读取完毕，不论是从网上还是本地，首先在后台线程中计算Match的相关信息，然后再前台刷新。有一点要注意，在从本地读取数据的时候，如果在后台更新好，在回到主线程更新UI，会存在一定的延时，我的解决办法是在主线程计算前5条信息，在后台线程中分批次计算并刷新tableView，为了保持顺序，后台线程使用serialQueue，用dispatch_barrier进行批次处理。</li>
+<li>imageView的antialias（反锯齿），如果imageView的大小和使用的image大小不一样，系统会自动进行压缩，很明显这会消耗一些时间，所以最好把size弄成一样的。</li>
+</ol>
+<p>总结就是，尽可能多的缓存tableView所需的东西。</p>
+<h2 id="5-autoreleasepool">5.autoreleasepool</h2><p>关于autorelease的释放时机，每次runloop运行都会创建一个autoreleasepool，在这次runloop结束时，对这个pool中挂载的对象进行一次release操作。所以如果一个方法或者循环内部有大量的临时对象，最好用@autorelease{}包一下，以便最快的释放内存。</p>
+<h2 id="6-不要再viewWillAppear中做耗时的操作">6.不要再viewWillAppear中做耗时的操作</h2><h2 id="7-使用IMP">7.使用IMP</h2><p>如果一个方法在一个循环次数非常多的循环中使用，在进入循环前使用 methodForSelector 获取该方法 IMP，然后在循环体中直接使用该 IMP。</p>
+<h2 id="8-core_data优化">8.core data优化</h2><ol>
+<li>设置fetchrequest的batch size，比如一次取20.</li>
+<li>使用nest managedObjectContext，把save操作放在privateContext中进行。</li>
+<li>联合fetchResultController和tableView，提高用户体验。</li>
+<li>再有relationship时可以考虑对relationship进行prefetch。</li>
+</ol>
+<h2 id="9-提高app加载速度">9.提高app加载速度</h2><p>如果app启动时间过长，系统的watchdog会kill掉app。系统对app的启动时间有严格要求，example：launch 20s，resume 10秒，suspend 10秒，Quit 6秒，background task 10秒。<br>app启动会包括以下部分。<br>1）    链接和载入：可以在Time Profile中显示dyld载入库函数，库会被映射到地址空间，同时完成绑定以及静态初始化。<br>2）    UIKit初始化：如果应用的Root View Controller是由XIB实现的，也会在启动时被初始化。<br>3）    应用回调：调用UIApplicationDeleagte的回调：application:didFinishLaunchingWithOptions<br>4）    第一次Core Animation调用：在启动后的方法-[UIApplication _resportAppLaunchFinished]中调用CA::Transaction::commit实现第一帧画面的绘制。</p>
+<h3 id="解决办法：">解决办法：</h3><ol>
+<li>将与显示第一屏画面无关的操作放到之后执行；</li>
+<li>如果是用XIB文件load第一屏，XIB文件中的View层也要如果扁平，不要有太多图层。</li>
+<li>减少+(void)load的使用。</li>
+<li>减少启动时复杂xib的使用，尽量用代码。</li>
+<li>提高core data的读取效率，如设置fetchSize = 20.</li>
+</ol>
+<p>参考链接：</p>
+<p><a><a href="http://www.hrchen.com/2013/05/performance-with-instruments/" target="_blank" rel="external">http://www.hrchen.com/2013/05/performance-with-instruments/</a></a><br><a><a href="http://itindex.net/detail/48367-ios-%E6%80%A7%E8%83%BD-%E4%BC%98%E5%8C%96" target="_blank" rel="external">http://itindex.net/detail/48367-ios-%E6%80%A7%E8%83%BD-%E4%BC%98%E5%8C%96</a></a><br><a><a href="http://www.cnblogs.com/kesalin/archive/2013/04/05/ios_opt.html" target="_blank" rel="external">http://www.cnblogs.com/kesalin/archive/2013/04/05/ios_opt.html</a></a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
       
       <div class="clearfix"></div>
     </div>
