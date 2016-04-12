@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Charles 介绍 | holysin&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简介Charles 是一款网络抓包分析工具，是一款收费软件，在不不付费的情况下也可以使用，但是每次启动要等待 10 秒。在客户端研发过程中，如果能善用 Charles 可以很大的提高开发效率。
+Charles 主要有以下功能：
+
+抓取电脑端的网络请求
+将电脑作为代理抓取手机端的网络请求
+抓取 http 和 https 请求
+过滤网络请求
+模拟慢速网络
+黑名单功能
+修改网络请求
+映射网络请求内容
+断">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Charles 介绍">
+<meta property="og:url" content="http://devliu.com/2016/04/12/charles介绍/index.html">
+<meta property="og:site_name" content="holysin's blog">
+<meta property="og:description" content="简介Charles 是一款网络抓包分析工具，是一款收费软件，在不不付费的情况下也可以使用，但是每次启动要等待 10 秒。在客户端研发过程中，如果能善用 Charles 可以很大的提高开发效率。
+Charles 主要有以下功能：
+
+抓取电脑端的网络请求
+将电脑作为代理抓取手机端的网络请求
+抓取 http 和 https 请求
+过滤网络请求
+模拟慢速网络
+黑名单功能
+修改网络请求
+映射网络请求内容
+断">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_1.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_2.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_3.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_4.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_5.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_6.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_7.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_8.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_9.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_10.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_11.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_12.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_13.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_14.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_15.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_16.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_17.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_18.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_19.png">
+<meta property="og:image" content="http://devliu.com/images/charles/charles_20.png">
+<meta property="og:updated_time" content="2016-04-12T10:22:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Charles 介绍">
+<meta name="twitter:description" content="简介Charles 是一款网络抓包分析工具，是一款收费软件，在不不付费的情况下也可以使用，但是每次启动要等待 10 秒。在客户端研发过程中，如果能善用 Charles 可以很大的提高开发效率。
+Charles 主要有以下功能：
+
+抓取电脑端的网络请求
+将电脑作为代理抓取手机端的网络请求
+抓取 http 和 https 请求
+过滤网络请求
+模拟慢速网络
+黑名单功能
+修改网络请求
+映射网络请求内容
+断">
+  
+    <link rel="alternative" href="/atom.xml" title="holysin&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://www.gravatar.com/avatar/eb07c7a3867c84acdf805060d46cef94?s=400" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">holysin</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/holysin" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/furyng@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Charles/" style="font-size: 10px;">Charles</a> <a href="/tags/English/" style="font-size: 16.67px;">English</a> <a href="/tags/MacbookPro/" style="font-size: 10px;">MacbookPro</a> <a href="/tags/Xcode/" style="font-size: 13.33px;">Xcode</a> <a href="/tags/gcd/" style="font-size: 10px;">gcd</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/resume/" style="font-size: 10px;">resume</a> <a href="/tags/杂/" style="font-size: 10px;">杂</a> <a href="/tags/电影/" style="font-size: 10px;">电影</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/群辉/" style="font-size: 10px;">群辉</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">holysin</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://www.gravatar.com/avatar/eb07c7a3867c84acdf805060d46cef94?s=400" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">holysin</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/holysin" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/furyng@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-charles介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/12/charles介绍/" class="article-date">
+  	<time datetime="2016-04-12T05:57:54.000Z" itemprop="datePublished">2016-04-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Charles 介绍
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Charles/">Charles</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="简介">简介</h1><p>Charles 是一款网络抓包分析工具，是一款收费软件，在不不付费的情况下也可以使用，但是每次启动要等待 10 秒。在客户端研发过程中，如果能善用 Charles 可以很大的提高开发效率。</p>
+<p>Charles 主要有以下功能：</p>
+<ul>
+<li>抓取电脑端的网络请求</li>
+<li>将电脑作为代理抓取手机端的网络请求</li>
+<li>抓取 http 和 https 请求</li>
+<li>过滤网络请求</li>
+<li>模拟慢速网络</li>
+<li>黑名单功能</li>
+<li>修改网络请求</li>
+<li>映射网络请求内容</li>
+<li>断点调试网络请求</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h1 id="安装_Charles">安装 Charles</h1><p>进入 <a href="http://www.charlesproxy.com/download/" target="_blank" rel="external">Charles 下载链接</a>，选择对应的平台下载。下载完成之后，双击安装，安装之后会提示授权，输入登录密码就可以了。</p>
+<p>Charles 安装之后会默认作为 Mac 的代理，也可以手动设置，如下图<br><img src="/images/charles/charles_1.png" alt="将charles设置为mac的代理"><br>这样 Mac 上所有的网络请求就会走 Charles。</p>
+<p>Charles 提供两种样式查看网路请求，Structure 和 Sequence。</p>
+<p>Structure 样式会把网络请求按域名来分类。同一个域名的网路请求，放在相同文件夹下。</p>
+<p><img src="/images/charles/charles_2.png" alt="structure 样式"></p>
+<p>Sequence 样式会按照时间顺序来展示网络请求，可以用 filter 来过滤网络请求。</p>
+<p><img src="/images/charles/charles_3.png" alt="sequence 样式"></p>
+<hr>
+<h1 id="抓取手机端的网络请求">抓取手机端的网络请求</h1><p>要抓取手机端的网络请求，必须保证你的电脑和手机在同一个 wifi 网络。同时在电脑端和手机端进行相应的配置。</p>
+<h2 id="手机配置">手机配置</h2><p>设置 -&gt; 无线局域网 -&gt; 找到当前连接的 wifi -&gt; 点击右侧的叹号</p>
+<p>滑到最底部 -&gt; 设置 http 代理为手动</p>
+<p>把服务器设置为 Mac 的 IP 地址，端口为 8888</p>
+<p><img src="/images/charles/charles_4.png" alt="手机端设置"></p>
+<p>Mac 的 IP 地址可以从 Charles 的 Help 菜单下的 local address 获取。</p>
+<p><img src="/images/charles/charles_5.png" alt="mac ip地址"></p>
+<h2 id="电脑端配置">电脑端配置</h2><p>在电脑端要把 Charles 监听的端口和上一步手机端设置的端口一致，端口默认值是 8888，如果和其他端口有冲突可以手动修改。点击 Proxy -&gt; Proxy settings</p>
+<p><img src="/images/charles/charles_6.png" alt="电脑端配置"></p>
+<p>这样在 Charles 中就可以看到手机端的网络请求了。</p>
+<hr>
+<h1 id="抓取_https_网络请求">抓取 https 网络请求</h1><p>iOS9 之后，苹果强烈建议服务端开发者把请求改为 https。在 Charles 没有配置 SSL 之前，Charles 虽然可以抓取 https 的请求，但是请求的 response 却显示为乱码，这样对我们开发调试是没有作用的。<br><img src="/images/charles/charles_7.png" alt="请求乱码"></p>
+<p>幸运的是 charles 可以解析 https 请求，只需要两步设置就可以。</p>
+<p><em>注：有些网站，比如 github，apple 过滤了 Charles 证书，所以即使进行了相应的配置，也不能看到网络请求的 response</em></p>
+<ul>
+<li>在手机端和电脑端安装 Charles 证书</li>
+<li>把相应的 https 请求添加到 SSL proxy setting 中</li>
+</ul>
+<h2 id="安装_Charles_证书">安装 Charles 证书</h2><p>打开 Charles，点击 Help -&gt; SSLProxy，会看到 SSL 的配置</p>
+<p><img src="/images/charles/charles_8.png" alt="ssl mac 配置"></p>
+<p>点击 <em>Install Charles Root Certificate</em> 会安装 Mac 端需要的证书。</p>
+<p>在手机端用 Safari 打开<a href="http://charlesproxy.com/getssl" target="_blank" rel="external">http://charlesproxy.com/getssl</a>，iPhone 会自动下载证书，点击安装即可。</p>
+<p><img src="/images/charles/charles_9.png" alt="SSL iphne 配置"></p>
+<h2 id="设置_Charles_的_SSL_proxy_setting">设置 Charles 的 SSL proxy setting</h2><p>打开 Charles，点击 SSL -&gt; Proxy settings</p>
+<p><img src="/images/charles/charles_10.png" alt="打开 proxy setting"></p>
+<p>然后添加对应的域名，域名是支持通配符的</p>
+<p><img src="/images/charles/charles_11.png" alt="proxy setting"></p>
+<p>以我司的 API 为例，上面的配置做好后，就可以看到 https 请求的 response 了。</p>
+<p><img src="/images/charles/charles_12.png" alt="https response"></p>
+<hr>
+<h1 id="过滤网络请求">过滤网络请求</h1><p>由于 charles 监听的是电脑和手机上所有的请求，非常多，所以我们经常需要过滤网络请求。过滤网络请求有两种方法，一种是在 Sequence 视图下输入字符串，来过滤网络请求，另一种是右键点击网络请求，点击 focus，然后在 Sequence 视图下点击 Focused，这样就可以看到所有 focus 的请求。如下图所示 Charles 只显示 github 和 ‘在直播’ 的网络请求了。</p>
+<p><img src="/images/charles/charles_13.png" alt="过滤网络请求"></p>
+<hr>
+<h1 id="模拟慢速网络">模拟慢速网络</h1><p>在客户端研发过程中，我们经常要测试 app 在慢速网络时是否工作正常，比如测试网络超时，或者 UI 是否正常。Charles 提供了多个选项可以模拟各种网络情况，包括 2G，3G 和 拨号网络等。这样就非常方便我们调试了。</p>
+<p>打开 Charles，点击 Proxy -&gt; Throttle settings，勾选 Enable Throttling，还可以指定域名，在这里我们要 throttle ‘在直播’ 的所有网络请求。</p>
+<p><img src="/images/charles/charles_14.png" alt="节流网络请求"></p>
+<p>设置好之后，点击刷新按钮，重新执行网络请求，看到网络请求的时间达到了6秒。</p>
+<p><img src="/images/charles/charles_15.png" alt="限流效果"></p>
+<p>PS: 记得在不需要的时候，把限流关掉。</p>
+<hr>
+<h1 id="黑名单功能">黑名单功能</h1><p>有时候，我们需要让某个接口直接返回失败，来测试相应的逻辑（比如无数据的情况）是否正常。这时我们可以通过黑名单功能来简化我们的测试。</p>
+<p>右键点击想加入黑名单的网络请求，点击 black list，也可以在 tools -&gt; blacklist 中添加接口。重发网络请求，可以看到网络请求失败了。</p>
+<p><img src="/images/charles/charles_16.png" alt="黑名单"></p>
+<p>PS: 记得在不需要的时候，把黑名单关掉。（有时候忘了会抓狂呦）</p>
+<hr>
+<h1 id="修改网络请求">修改网络请求</h1><p>通过 Charles，我们可以修改网络请求 request，比如增加字段，修改参数值等。也可以修改网络请求的 response。这一节介绍如何修改网络请求的 request。</p>
+<p>右键点击想修改的网络请求，点击 Edit，在右侧就可以编辑网络请求了。比如有的接口有版本号限制，那么就可以修改对应的字段，查看返回结果是否正确了。还记得用刷新按钮可以重发网络请求吗😄。</p>
+<p><img src="/images/charles/charles_17.png" alt="编辑网络请求"></p>
+<h1 id="映射网络请求内容">映射网络请求内容</h1><p>映射网络请求分两种情况，一个是 map local，一个是 map remote。首先讲 map local。</p>
+<h2 id="映射本地数据">映射本地数据</h2><p>我觉得这个功能<strong>最能</strong>提高效率了。在没有 Charles 之前，开发流程一般是这样的，产品经理宣讲需求，然后客户端服务器就开始开发了。风风火火，小伙伴撸起来。客户端先搭建界面，写动画，然后<strong>盲写</strong>（注意是盲写）一些和服务端交互的逻辑，这一步主要是保证客户端的流程可以跑得通，并没有真正的对接接口😄。真正和服务端交互的逻辑往往要等服务端同学开发完之后，再开始联调。这样客户端就出现了一段真空期，因为服务端经常会被其他同学打断去解决一些问题，导致没有时间编写新的接口。当服务端同学在最后时期发大招把接口写完，客户端和服务器联调又会出现很多问题（不要相信自己能一次性写出没有bug的代码哦），然后，你懂得，我们在老板的逼迫下就开始加班了😜（还记得洛杉矶凌晨4点的阳光吗）。万幸的是 Charles 的出现，彻底改变了这个情况，他犹如雨后的春风，润万物于无声（扯几句淡）。</p>
+<p>具体的流程是怎样的呢，当然也是要付出劳动的。研发同学在听完需求宣讲之后，就开始考虑需求如何做了，这时客户端，服务器都会思考要新加什么接口，新增什么字段。当我们理清逻辑之后，就找服务端对接吧，大战三百回合之后，客户端服务器终于定下了新增的接口和字段，当然，作为客户端的你肯定要让服务端立下字据，不要再改了（其实就是把文档写清楚，后面被吓哭的小朋友不要害怕啊）。</p>
+<p>以上都是准备工作，在接口对完之后，我们按照对接的接口拼装出需要的 JSON 来模拟服务端返回，比如叫 test.json。用 Charles 的 map local 功能，右键点击需要 map 的接口，点击 map local，然后配置好。</p>
+<p><img src="/images/charles/charles_18.png" alt="map local"></p>
+<p>经过如上的努力，我们终于可以提前写和服务端交互的逻辑了。</p>
+<h2 id="映射远程数据">映射远程数据</h2><p>在研发过程中，我们一般会有测试服务器和远程服务器两个地址。有的时候两个服务器的行为会出现一些差异，从而导致客户端的行为不太正常。这时我们可以用 Charles 的 map remote 功能来映射接口，把线上服务器映射到测试服务器，而不需要修改客户端的代码就可以轻松调试了。</p>
+<p><img src="/images/charles/charles_19.png" alt="map remote"></p>
+<hr>
+<h1 id="断点调试">断点调试</h1><p>我们可以用断点调试来修改网络请求的返回值，右键点击网络请求，点击 Breakpoints。当重发网络请求时，会触发断点，发送网络请求和收到网络请求回复都会断点，我们在网络请求回复中修改我们想要的值。</p>
+<p><img src="/images/charles/charles_20.png" alt="Breakpoints"></p>
+<p>断点会延长请求时间，如果客户端设置的超时很短的话，是等不到断点执行结束的。</p>
+<h1 id="总结">总结</h1><p>以上是 Charles 的一些常用功能，这篇博客主要参考了唐巧大神的 <a href="http://devtang.com/2015/11/14/charles-introduction/" target="_blank" rel="external">Charles 从入门到精通</a>，加上了自己的一些理解，记在此主要作为一个记录（求不要骂抄袭😁）。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/12/介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">介绍</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'devliu'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 holysin
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

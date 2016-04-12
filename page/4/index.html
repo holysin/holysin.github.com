@@ -110,7 +110,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/English/" style="font-size: 16.67px;">English</a> <a href="/tags/MacbookPro/" style="font-size: 10px;">MacbookPro</a> <a href="/tags/Xcode/" style="font-size: 13.33px;">Xcode</a> <a href="/tags/gcd/" style="font-size: 10px;">gcd</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/resume/" style="font-size: 10px;">resume</a> <a href="/tags/杂/" style="font-size: 10px;">杂</a> <a href="/tags/电影/" style="font-size: 10px;">电影</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/群辉/" style="font-size: 10px;">群辉</a>
+						<a href="/tags/Charles/" style="font-size: 10px;">Charles</a> <a href="/tags/English/" style="font-size: 16.67px;">English</a> <a href="/tags/MacbookPro/" style="font-size: 10px;">MacbookPro</a> <a href="/tags/Xcode/" style="font-size: 13.33px;">Xcode</a> <a href="/tags/gcd/" style="font-size: 10px;">gcd</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/resume/" style="font-size: 10px;">resume</a> <a href="/tags/杂/" style="font-size: 10px;">杂</a> <a href="/tags/电影/" style="font-size: 10px;">电影</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/群辉/" style="font-size: 10px;">群辉</a>
 					</div>
 				</section>
 				
@@ -189,6 +189,124 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-uiactivity-的使用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/11/21/uiactivity-的使用方法/" class="article-date">
+  	<time datetime="2013-11-21T14:54:24.000Z" itemprop="datePublished">2013-11-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/21/uiactivity-的使用方法/">UIActivity 的使用方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在做第三方平台的分享，有微信，新浪微博，腾讯微博等等平台，调研了一下，发现有人整合了<a href="https://github.com/ShareKit/ShareKit" title="[external] [title]">shareKit</a>，感觉有点臃肿。然后决定自己挨个接，发现也不是很费事，后来在网上发现了iOS自带的UIActivityController就自带分享功能了。</p>
+<p>UIActivityController的UI效果也不错，比简单的UIActionSheet好看很多，当然有爱的同学们也可以自己定义更漂亮的UI控件，^_^。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2013/11/21/uiactivity-的使用方法/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-cocoapods-requires-your-terminal-to-be-using-utf-8-encoding-解决办法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/11/19/cocoapods-requires-your-terminal-to-be-using-utf-8-encoding-解决办法/" class="article-date">
+  	<time datetime="2013-11-19T15:21:59.000Z" itemprop="datePublished">2013-11-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/19/cocoapods-requires-your-terminal-to-be-using-utf-8-encoding-解决办法/">CocoaPods requires your terminal to be using UTF-8 encoding. 解决办法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>cocoapod 升级到0.28.0 后会提示 “CocoaPods requires your terminal to be using UTF-8 encoding” 的警告，<a href="https://github.com/CocoaPods/guides.cocoapods.org/issues/26" title="[external] [title]" target="_blank" rel="external">issue26</a>中给出了解决办法，就是设置export LC_ALL=”en_US.UTF-8”，可以把这句话添加到.zshrc或者.bashrc中，然后source .zshrc或者source .bashrc就可以了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-ietls_writing_2013_11_15" class="article article-type-post" itemscope itemprop="blogPost">
   

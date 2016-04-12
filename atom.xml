@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://devliu.com/"/>
-  <updated>2015-11-11T11:25:57.000Z</updated>
+  <updated>2016-04-12T10:22:23.000Z</updated>
   <id>http://devliu.com/</id>
   
   <author>
@@ -13,6 +13,131 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Charles 介绍]]></title>
+    <link href="http://devliu.com/2016/04/12/charles%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://devliu.com/2016/04/12/charles介绍/</id>
+    <published>2016-04-12T05:57:54.000Z</published>
+    <updated>2016-04-12T10:22:23.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="简介">简介</h1><p>Charles 是一款网络抓包分析工具，是一款收费软件，在不不付费的情况下也可以使用，但是每次启动要等待 10 秒。在客户端研发过程中，如果能善用 Charles 可以很大的提高开发效率。</p>
+<p>Charles 主要有以下功能：</p>
+<ul>
+<li>抓取电脑端的网络请求</li>
+<li>将电脑作为代理抓取手机端的网络请求</li>
+<li>抓取 http 和 https 请求</li>
+<li>过滤网络请求</li>
+<li>模拟慢速网络</li>
+<li>黑名单功能</li>
+<li>修改网络请求</li>
+<li>映射网络请求内容</li>
+<li>断点调试网络请求</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h1 id="安装_Charles">安装 Charles</h1><p>进入 <a href="http://www.charlesproxy.com/download/" target="_blank" rel="external">Charles 下载链接</a>，选择对应的平台下载。下载完成之后，双击安装，安装之后会提示授权，输入登录密码就可以了。</p>
+<p>Charles 安装之后会默认作为 Mac 的代理，也可以手动设置，如下图<br><img src="/images/charles/charles_1.png" alt="将charles设置为mac的代理"><br>这样 Mac 上所有的网络请求就会走 Charles。</p>
+<p>Charles 提供两种样式查看网路请求，Structure 和 Sequence。</p>
+<p>Structure 样式会把网络请求按域名来分类。同一个域名的网路请求，放在相同文件夹下。</p>
+<p><img src="/images/charles/charles_2.png" alt="structure 样式"></p>
+<p>Sequence 样式会按照时间顺序来展示网络请求，可以用 filter 来过滤网络请求。</p>
+<p><img src="/images/charles/charles_3.png" alt="sequence 样式"></p>
+<hr>
+<h1 id="抓取手机端的网络请求">抓取手机端的网络请求</h1><p>要抓取手机端的网络请求，必须保证你的电脑和手机在同一个 wifi 网络。同时在电脑端和手机端进行相应的配置。</p>
+<h2 id="手机配置">手机配置</h2><p>设置 -&gt; 无线局域网 -&gt; 找到当前连接的 wifi -&gt; 点击右侧的叹号</p>
+<p>滑到最底部 -&gt; 设置 http 代理为手动</p>
+<p>把服务器设置为 Mac 的 IP 地址，端口为 8888</p>
+<p><img src="/images/charles/charles_4.png" alt="手机端设置"></p>
+<p>Mac 的 IP 地址可以从 Charles 的 Help 菜单下的 local address 获取。</p>
+<p><img src="/images/charles/charles_5.png" alt="mac ip地址"></p>
+<h2 id="电脑端配置">电脑端配置</h2><p>在电脑端要把 Charles 监听的端口和上一步手机端设置的端口一致，端口默认值是 8888，如果和其他端口有冲突可以手动修改。点击 Proxy -&gt; Proxy settings</p>
+<p><img src="/images/charles/charles_6.png" alt="电脑端配置"></p>
+<p>这样在 Charles 中就可以看到手机端的网络请求了。</p>
+<hr>
+<h1 id="抓取_https_网络请求">抓取 https 网络请求</h1><p>iOS9 之后，苹果强烈建议服务端开发者把请求改为 https。在 Charles 没有配置 SSL 之前，Charles 虽然可以抓取 https 的请求，但是请求的 response 却显示为乱码，这样对我们开发调试是没有作用的。<br><img src="/images/charles/charles_7.png" alt="请求乱码"></p>
+<p>幸运的是 charles 可以解析 https 请求，只需要两步设置就可以。</p>
+<p><em>注：有些网站，比如 github，apple 过滤了 Charles 证书，所以即使进行了相应的配置，也不能看到网络请求的 response</em></p>
+<ul>
+<li>在手机端和电脑端安装 Charles 证书</li>
+<li>把相应的 https 请求添加到 SSL proxy setting 中</li>
+</ul>
+<h2 id="安装_Charles_证书">安装 Charles 证书</h2><p>打开 Charles，点击 Help -&gt; SSLProxy，会看到 SSL 的配置</p>
+<p><img src="/images/charles/charles_8.png" alt="ssl mac 配置"></p>
+<p>点击 <em>Install Charles Root Certificate</em> 会安装 Mac 端需要的证书。</p>
+<p>在手机端用 Safari 打开<a href="http://charlesproxy.com/getssl" target="_blank" rel="external">http://charlesproxy.com/getssl</a>，iPhone 会自动下载证书，点击安装即可。</p>
+<p><img src="/images/charles/charles_9.png" alt="SSL iphne 配置"></p>
+<h2 id="设置_Charles_的_SSL_proxy_setting">设置 Charles 的 SSL proxy setting</h2><p>打开 Charles，点击 SSL -&gt; Proxy settings</p>
+<p><img src="/images/charles/charles_10.png" alt="打开 proxy setting"></p>
+<p>然后添加对应的域名，域名是支持通配符的</p>
+<p><img src="/images/charles/charles_11.png" alt="proxy setting"></p>
+<p>以我司的 API 为例，上面的配置做好后，就可以看到 https 请求的 response 了。</p>
+<p><img src="/images/charles/charles_12.png" alt="https response"></p>
+<hr>
+<h1 id="过滤网络请求">过滤网络请求</h1><p>由于 charles 监听的是电脑和手机上所有的请求，非常多，所以我们经常需要过滤网络请求。过滤网络请求有两种方法，一种是在 Sequence 视图下输入字符串，来过滤网络请求，另一种是右键点击网络请求，点击 focus，然后在 Sequence 视图下点击 Focused，这样就可以看到所有 focus 的请求。如下图所示 Charles 只显示 github 和 ‘在直播’ 的网络请求了。</p>
+<p><img src="/images/charles/charles_13.png" alt="过滤网络请求"></p>
+<hr>
+<h1 id="模拟慢速网络">模拟慢速网络</h1><p>在客户端研发过程中，我们经常要测试 app 在慢速网络时是否工作正常，比如测试网络超时，或者 UI 是否正常。Charles 提供了多个选项可以模拟各种网络情况，包括 2G，3G 和 拨号网络等。这样就非常方便我们调试了。</p>
+<p>打开 Charles，点击 Proxy -&gt; Throttle settings，勾选 Enable Throttling，还可以指定域名，在这里我们要 throttle ‘在直播’ 的所有网络请求。</p>
+<p><img src="/images/charles/charles_14.png" alt="节流网络请求"></p>
+<p>设置好之后，点击刷新按钮，重新执行网络请求，看到网络请求的时间达到了6秒。</p>
+<p><img src="/images/charles/charles_15.png" alt="限流效果"></p>
+<p>PS: 记得在不需要的时候，把限流关掉。</p>
+<hr>
+<h1 id="黑名单功能">黑名单功能</h1><p>有时候，我们需要让某个接口直接返回失败，来测试相应的逻辑（比如无数据的情况）是否正常。这时我们可以通过黑名单功能来简化我们的测试。</p>
+<p>右键点击想加入黑名单的网络请求，点击 black list，也可以在 tools -&gt; blacklist 中添加接口。重发网络请求，可以看到网络请求失败了。</p>
+<p><img src="/images/charles/charles_16.png" alt="黑名单"></p>
+<p>PS: 记得在不需要的时候，把黑名单关掉。（有时候忘了会抓狂呦）</p>
+<hr>
+<h1 id="修改网络请求">修改网络请求</h1><p>通过 Charles，我们可以修改网络请求 request，比如增加字段，修改参数值等。也可以修改网络请求的 response。这一节介绍如何修改网络请求的 request。</p>
+<p>右键点击想修改的网络请求，点击 Edit，在右侧就可以编辑网络请求了。比如有的接口有版本号限制，那么就可以修改对应的字段，查看返回结果是否正确了。还记得用刷新按钮可以重发网络请求吗😄。</p>
+<p><img src="/images/charles/charles_17.png" alt="编辑网络请求"></p>
+<h1 id="映射网络请求内容">映射网络请求内容</h1><p>映射网络请求分两种情况，一个是 map local，一个是 map remote。首先讲 map local。</p>
+<h2 id="映射本地数据">映射本地数据</h2><p>我觉得这个功能<strong>最能</strong>提高效率了。在没有 Charles 之前，开发流程一般是这样的，产品经理宣讲需求，然后客户端服务器就开始开发了。风风火火，小伙伴撸起来。客户端先搭建界面，写动画，然后<strong>盲写</strong>（注意是盲写）一些和服务端交互的逻辑，这一步主要是保证客户端的流程可以跑得通，并没有真正的对接接口😄。真正和服务端交互的逻辑往往要等服务端同学开发完之后，再开始联调。这样客户端就出现了一段真空期，因为服务端经常会被其他同学打断去解决一些问题，导致没有时间编写新的接口。当服务端同学在最后时期发大招把接口写完，客户端和服务器联调又会出现很多问题（不要相信自己能一次性写出没有bug的代码哦），然后，你懂得，我们在老板的逼迫下就开始加班了😜（还记得洛杉矶凌晨4点的阳光吗）。万幸的是 Charles 的出现，彻底改变了这个情况，他犹如雨后的春风，润万物于无声（扯几句淡）。</p>
+<p>具体的流程是怎样的呢，当然也是要付出劳动的。研发同学在听完需求宣讲之后，就开始考虑需求如何做了，这时客户端，服务器都会思考要新加什么接口，新增什么字段。当我们理清逻辑之后，就找服务端对接吧，大战三百回合之后，客户端服务器终于定下了新增的接口和字段，当然，作为客户端的你肯定要让服务端立下字据，不要再改了（其实就是把文档写清楚，后面被吓哭的小朋友不要害怕啊）。</p>
+<p>以上都是准备工作，在接口对完之后，我们按照对接的接口拼装出需要的 JSON 来模拟服务端返回，比如叫 test.json。用 Charles 的 map local 功能，右键点击需要 map 的接口，点击 map local，然后配置好。</p>
+<p><img src="/images/charles/charles_18.png" alt="map local"></p>
+<p>经过如上的努力，我们终于可以提前写和服务端交互的逻辑了。</p>
+<h2 id="映射远程数据">映射远程数据</h2><p>在研发过程中，我们一般会有测试服务器和远程服务器两个地址。有的时候两个服务器的行为会出现一些差异，从而导致客户端的行为不太正常。这时我们可以用 Charles 的 map remote 功能来映射接口，把线上服务器映射到测试服务器，而不需要修改客户端的代码就可以轻松调试了。</p>
+<p><img src="/images/charles/charles_19.png" alt="map remote"></p>
+<hr>
+<h1 id="断点调试">断点调试</h1><p>我们可以用断点调试来修改网络请求的返回值，右键点击网络请求，点击 Breakpoints。当重发网络请求时，会触发断点，发送网络请求和收到网络请求回复都会断点，我们在网络请求回复中修改我们想要的值。</p>
+<p><img src="/images/charles/charles_20.png" alt="Breakpoints"></p>
+<p>断点会延长请求时间，如果客户端设置的超时很短的话，是等不到断点执行结束的。</p>
+<h1 id="总结">总结</h1><p>以上是 Charles 的一些常用功能，这篇博客主要参考了唐巧大神的 <a href="http://devtang.com/2015/11/14/charles-introduction/" target="_blank" rel="external">Charles 从入门到精通</a>，加上了自己的一些理解，记在此主要作为一个记录（求不要骂抄袭😁）。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="简介">简介</h1><p>Charles 是一款网络抓包分析工具，是一款收费软件，在不不付费的情况下也可以使用，但是每次启动要等待 10 秒。在客户端研发过程中，如果能善用 Charles 可以很大的提高开发效率。</p>
+<p>Charles 主要有以下功能：</p>
+<ul>
+<li>抓取电脑端的网络请求</li>
+<li>将电脑作为代理抓取手机端的网络请求</li>
+<li>抓取 http 和 https 请求</li>
+<li>过滤网络请求</li>
+<li>模拟慢速网络</li>
+<li>黑名单功能</li>
+<li>修改网络请求</li>
+<li>映射网络请求内容</li>
+<li>断点调试网络请求</li>
+</ul>]]>
+    
+    </summary>
+    
+      <category term="Charles" scheme="http://devliu.com/tags/Charles/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[介绍]]></title>
+    <link href="http://devliu.com/2016/04/12/%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://devliu.com/2016/04/12/介绍/</id>
+    <published>2016-04-12T05:56:49.000Z</published>
+    <updated>2016-04-12T05:56:49.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[新 MacbookPro 装机记]]></title>
@@ -1098,77 +1223,6 @@ git <span class="command">log</span> master..experiment
     </summary>
     
       <category term="群辉" scheme="http://devliu.com/tags/%E7%BE%A4%E8%BE%89/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS 性能优化]]></title>
-    <link href="http://devliu.com/2014/04/10/ios-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    <id>http://devliu.com/2014/04/10/ios-性能优化/</id>
-    <published>2014-04-10T13:06:08.000Z</published>
-    <updated>2014-04-10T14:22:46.000Z</updated>
-    <content type="html"><![CDATA[<a id="more"></a>
-<h1 id="此文是对网络上一些博客和自己开发中遇到的性能问题的总结。">此文是对网络上一些博客和自己开发中遇到的性能问题的总结。</h1><h2 id="1-循环引用">1.循环引用</h2><p>在使用block的时候会出现引用计数的问题，在MRC和ARC下分别用<strong>block和</strong>weak来接触循环引用，或者在block执行结束之前，将block引用的对象赋值为nil。但有时block层次比较深，用static analysis和instrument都检测不到，这时候有一个简单的办法就是在dealloc中打印一条语句，看看dealloc是否调用就好了。</p>
-<h2 id="2-图片">2.图片</h2><p>常用且较小的图片就[UIImage imageNamed:@”imageName”]，这个方法会把图片进行缓存。而对于那些size比较大的图片，且使用次数很少最好用[[UIImage alloc] initWithContentsOfFile:@”filePath”]。</p>
-<h2 id="3-drawRect">3.drawRect</h2><p>对于结构复杂的view可以考虑用drawRect进行绘制，而不是从nib载入。drawRect有一个特点：即使在drawRect函数中没有任何代码实现，系统一样会创建一张画布，也就是说这时候你白白的耗费了内存，所以在决定不进行绘制的时候，应该注释掉这个函数。</p>
-<h2 id="4-tableView的优化">4.tableView的优化</h2><p>随着sns应用的广泛发展，tableView变得越来越复杂，如果不进行优化，UI就会卡顿。关于tableView优化我的一些经验是：</p>
-<ol>
-<li>设置cell的opaque属性，加快系统的颜色绘制。</li>
-<li>缓存cell高度，比如朋友圈这种应用，如果每次都在heightForCell中计算高度，肯定会卡，所以在读取完数据的时候，可以在后台线程中计算数据所对应的高度，并在model中增加height字段用来保留height。在应用数据库的情况下要存取height。</li>
-<li>coretext优化，在支持自定义表情的时候，要应用正则表达式算出对应的attributedString，其中用ctrundelegate记录emoj的图片，高度，宽度等信息，用来在自定义label中进行绘制，显然在cell重用的过程中重新计算严重影响效率，所以一种解决办法是，model持有一个记录attributedString的类Match，该类记录attributedString和height等信息。当数据读取完毕，不论是从网上还是本地，首先在后台线程中计算Match的相关信息，然后再前台刷新。有一点要注意，在从本地读取数据的时候，如果在后台更新好，在回到主线程更新UI，会存在一定的延时，我的解决办法是在主线程计算前5条信息，在后台线程中分批次计算并刷新tableView，为了保持顺序，后台线程使用serialQueue，用dispatch_barrier进行批次处理。</li>
-<li>imageView的antialias（反锯齿），如果imageView的大小和使用的image大小不一样，系统会自动进行压缩，很明显这会消耗一些时间，所以最好把size弄成一样的。</li>
-</ol>
-<p>总结就是，尽可能多的缓存tableView所需的东西。</p>
-<h2 id="5-autoreleasepool">5.autoreleasepool</h2><p>关于autorelease的释放时机，每次runloop运行都会创建一个autoreleasepool，在这次runloop结束时，对这个pool中挂载的对象进行一次release操作。所以如果一个方法或者循环内部有大量的临时对象，最好用@autorelease{}包一下，以便最快的释放内存。</p>
-<h2 id="6-不要再viewWillAppear中做耗时的操作">6.不要再viewWillAppear中做耗时的操作</h2><h2 id="7-使用IMP">7.使用IMP</h2><p>如果一个方法在一个循环次数非常多的循环中使用，在进入循环前使用 methodForSelector 获取该方法 IMP，然后在循环体中直接使用该 IMP。</p>
-<h2 id="8-core_data优化">8.core data优化</h2><ol>
-<li>设置fetchrequest的batch size，比如一次取20.</li>
-<li>使用nest managedObjectContext，把save操作放在privateContext中进行。</li>
-<li>联合fetchResultController和tableView，提高用户体验。</li>
-<li>再有relationship时可以考虑对relationship进行prefetch。</li>
-</ol>
-<h2 id="9-提高app加载速度">9.提高app加载速度</h2><p>如果app启动时间过长，系统的watchdog会kill掉app。系统对app的启动时间有严格要求，example：launch 20s，resume 10秒，suspend 10秒，Quit 6秒，background task 10秒。<br>app启动会包括以下部分。<br>1）    链接和载入：可以在Time Profile中显示dyld载入库函数，库会被映射到地址空间，同时完成绑定以及静态初始化。<br>2）    UIKit初始化：如果应用的Root View Controller是由XIB实现的，也会在启动时被初始化。<br>3）    应用回调：调用UIApplicationDeleagte的回调：application:didFinishLaunchingWithOptions<br>4）    第一次Core Animation调用：在启动后的方法-[UIApplication _resportAppLaunchFinished]中调用CA::Transaction::commit实现第一帧画面的绘制。</p>
-<h3 id="解决办法：">解决办法：</h3><ol>
-<li>将与显示第一屏画面无关的操作放到之后执行；</li>
-<li>如果是用XIB文件load第一屏，XIB文件中的View层也要如果扁平，不要有太多图层。</li>
-<li>减少+(void)load的使用。</li>
-<li>减少启动时复杂xib的使用，尽量用代码。</li>
-<li>提高core data的读取效率，如设置fetchSize = 20.</li>
-</ol>
-<p>参考链接：</p>
-<p><a><a href="http://www.hrchen.com/2013/05/performance-with-instruments/" target="_blank" rel="external">http://www.hrchen.com/2013/05/performance-with-instruments/</a></a><br><a><a href="http://itindex.net/detail/48367-ios-%E6%80%A7%E8%83%BD-%E4%BC%98%E5%8C%96" target="_blank" rel="external">http://itindex.net/detail/48367-ios-%E6%80%A7%E8%83%BD-%E4%BC%98%E5%8C%96</a></a><br><a><a href="http://www.cnblogs.com/kesalin/archive/2013/04/05/ios_opt.html" target="_blank" rel="external">http://www.cnblogs.com/kesalin/archive/2013/04/05/ios_opt.html</a></a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<a id="more"></a>
-<h1 id="此文是对网络上一些博客和自己开发中遇到的性能问题的总结。">此文是对网络上一些博客和自己开发中遇到的性能问题的总结。</h1><h2 id="1-循环引用">1.循环引用</h2><p>在使用block的时候会出现引用计数的问题]]>
-    </summary>
-    
-      <category term="iOS" scheme="http://devliu.com/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Xcode 常用插件]]></title>
-    <link href="http://devliu.com/2014/01/05/xcode-%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/"/>
-    <id>http://devliu.com/2014/01/05/xcode-常用插件/</id>
-    <published>2014-01-05T13:20:55.000Z</published>
-    <updated>2014-08-01T15:04:57.000Z</updated>
-    <content type="html"><![CDATA[<a id="more"></a>
-<h2 id="Alcatraz">Alcatraz</h2><p>Xcode插件管理器，这个插件可以管理你为Xcode安装的所有（大部分）插件，之前XVim可以是不能通过这个插件管理的，目前已经好用了。经过测试该插件与Xcode 6兼容。<br>官网：<a><a href="http://alcatraz.io/" target="_blank" rel="external">http://alcatraz.io/</a></a><br>Github:<a><a href="https://github.com/supermarin/Alcatraz" target="_blank" rel="external">https://github.com/supermarin/Alcatraz</a></a><br>安装方法：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh</span><br></pre></td></tr></table></figure></p>
-<p>卸载方法：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin</span><br></pre></td></tr></table></figure></p>
-<p>移除掉所有安装过的插件：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~/Library/Application\ Support/Alcatraz/</span><br></pre></td></tr></table></figure></p>
-<p>使用方法：<br>打开Xcode，打开window，看到Package Manager就是了。快捷键:shift + cmd + 9<br><img src="!--￼3--&gt;/images/xcode_plugin/alcatraz.png" alt="Alcatraz"></p>
-<h2 id="XAlign">XAlign</h2><p>Xcode 代码经常被写的很烂，特别是一些宏定义或者property定义的时候，而Xcode自身好像没有什么好的办法解决代码的缩进。好在有这个插件<a href="https://github.com/qfish/XAlign" target="_blank" rel="external">XAlign</a><br>官网 / Github: <a><a href="https://github.com/qfish/XAlign" target="_blank" rel="external">https://github.com/qfish/XAlign</a></a><br>安装方法：使用alcatraz<br>卸载方法：使用alcatraz<br>使用方法：见官网（由于我暂时不知道怎么把那些动态图弄过来 -_-）</p>
-<h2 id="Cocoapods-xcode-plugin">Cocoapods-xcode-plugin</h2><p><a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>是个超级好的东西了，管理第三方库，设定依赖关系基本能一键解决了，但是需要在命令行操作，用这个插件就解决了，<a href="https://github.com/kattrali/cocoapods-xcode-plugin" target="_blank" rel="external">传送门</a></p>
-<h2 id="XVim">XVim</h2><p>vim 编辑器之神，XVim插件可以为Xcode增加vim编辑功能，熟悉vim的人不要错过，<a href="https://github.com/JugglerShu/XVim" target="_blank" rel="external">传送门</a><br>注意：XVim的快捷键和XAlign有冲突</p>
-<h2 id="ColorSense-for-Xcode">ColorSense-for-Xcode</h2><p>安了这个插件，当敲[UIColor redcolor]的时候就显示一个红色，很方便，RGB的颜色也可以显示，超酷。<a href="https://github.com/omz/ColorSense-for-Xcode" target="_blank" rel="external">传送门</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<a id="more"></a>
-<h2 id="Alcatraz">Alcatraz</h2><p>Xcode插件管理器，这个插件可以管理你为Xcode安装的所有（大部分）插件，之前XVim可以是不能通过这个插件管理的，目前已经好用了。经过测试该插件与Xcode 6兼容。<b]]>
-    </summary>
-    
-      <category term="Xcode" scheme="http://devliu.com/tags/Xcode/"/>
     
   </entry>
   
