@@ -190,63 +190,6 @@
 
       <div class="body-wrap">
   
-    <article id="post-charles介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/13/charles介绍/" class="article-date">
-  	<time datetime="2016-04-13T02:12:07.000Z" itemprop="datePublished">2016-04-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="简介">简介</h1><p>Charles 是一款网络抓包分析工具，是一款收费软件，在不不付费的情况下也可以使用，但是每次启动要等待 10 秒。在客户端研发过程中，如果能善用 Charles 可以很大的提高开发效率。</p>
-<p>Charles 主要有以下功能：</p>
-<ul>
-<li>抓取电脑端的网络请求</li>
-<li>将电脑作为代理抓取手机端的网络请求</li>
-<li>抓取 http 和 https 请求</li>
-<li>过滤网络请求</li>
-<li>模拟慢速网络</li>
-<li>黑名单功能</li>
-<li>修改网络请求</li>
-<li>映射网络请求内容</li>
-<li>断点调试网络请求</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/13/charles介绍/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-新-MacbookPro-装机记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -827,6 +770,66 @@
       
         <p>在做天气模块时，需要获取用户的位置授权，在获取完权限后，我们需要解码城市，然后去服务器请求天气信息<br>1.获取授权后请求天气<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) &#123;</span><br><span class="line">        [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kLocationManagerAuthorizationStatusChangeNotification object:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>2.解码城市<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation &#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.location2D</span> = newLocation<span class="variable">.coordinate</span>;</span><br><span class="line">    [PersistenceHelper setData:@(<span class="keyword">self</span><span class="variable">.location2D</span><span class="variable">.latitude</span>) forKey:LAT];</span><br><span class="line">    [PersistenceHelper setData:@(<span class="keyword">self</span><span class="variable">.location2D</span><span class="variable">.longitude</span>) forKey:LONG];</span><br><span class="line">    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];</span><br><span class="line">    [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(<span class="built_in">NSArray</span> *placemarks, <span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">        <span class="keyword">for</span> (CLPlacemark * placemark <span class="keyword">in</span> placemarks) &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *city = placemark<span class="variable">.administrativeArea</span>;</span><br><span class="line">            <span class="keyword">if</span> ([city hasSuffix:<span class="string">@"市"</span>]) &#123;</span><br><span class="line">                city = [city substringToIndex:city<span class="variable">.length</span>-<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (city<span class="variable">.length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">self</span><span class="variable">.cityName</span> = city;</span><br><span class="line">                [PersistenceHelper setData:city forKey:<span class="built_in">CITY</span>];</span><br><span class="line">                [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kLocationManagerAuthorizationStatusChangeNotification object:<span class="literal">nil</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">    [manager stopUpdatingLocation];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-reactivecocoa用法小记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/04/25/reactivecocoa用法小记/" class="article-date">
+  	<time datetime="2015-04-25T15:51:46.000Z" itemprop="datePublished">2015-04-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/25/reactivecocoa用法小记/">reactivecocoa用法小记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.绑定UI元素和数据<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RAC(<span class="keyword">self</span>, city<span class="variable">.text</span>) = RACObserve(<span class="keyword">self</span>, weatherModel<span class="variable">.city_name</span>);</span><br></pre></td></tr></table></figure></p>
+<p>2.观察数据，数据变化时做下一步操作<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[RACObserve(<span class="keyword">self</span>, weizhangData<span class="variable">.zongmoney</span>) subscribeNext:^(<span class="built_in">NSNumber</span> *zongmoney) &#123;</span><br><span class="line">    <span class="keyword">if</span> (zongmoney) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *string = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@%@元"</span>, <span class="string">@"罚款："</span>, zongmoney];</span><br><span class="line">        <span class="built_in">NSMutableAttributedString</span> *attrString = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:string];</span><br><span class="line">        <span class="built_in">UIColor</span> *color = [<span class="built_in">UIColor</span> redColor]; <span class="comment">// select needed color</span></span><br><span class="line">        <span class="built_in">NSDictionary</span> *attrs = @&#123;<span class="built_in">NSForegroundColorAttributeName</span>: color&#125;;</span><br><span class="line">        [attrString addAttributes:attrs range:[string rangeOfString:[zongmoney stringValue]]];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.penalty</span><span class="variable">.attributedText</span> = attrString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+<p>3.uibutton 设置事件<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="keyword">self</span><span class="variable">.askBtn</span> rac_signalForControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>] subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span><span class="variable">.delegate</span> respondsToSelector:<span class="keyword">@selector</span>(addCarTextCellAskPress:)]) &#123;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.delegate</span> addCarTextCellAskPress:<span class="keyword">self</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+<p>4.检测nsuserdefault<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[[<span class="built_in">NSUserDefaults</span> standardUserDefaults] rac_valuesForKeyPath:<span class="built_in">UID</span> observer:<span class="keyword">self</span>] subscribeNext:^(<span class="built_in">NSNumber</span> *uid) &#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.uid</span> = uid;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
 
       
     </div>

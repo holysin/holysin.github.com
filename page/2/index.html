@@ -190,66 +190,6 @@
 
       <div class="body-wrap">
   
-    <article id="post-reactivecocoa用法小记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/04/25/reactivecocoa用法小记/" class="article-date">
-  	<time datetime="2015-04-25T15:51:46.000Z" itemprop="datePublished">2015-04-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/25/reactivecocoa用法小记/">reactivecocoa用法小记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.绑定UI元素和数据<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RAC(<span class="keyword">self</span>, city<span class="variable">.text</span>) = RACObserve(<span class="keyword">self</span>, weatherModel<span class="variable">.city_name</span>);</span><br></pre></td></tr></table></figure></p>
-<p>2.观察数据，数据变化时做下一步操作<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[RACObserve(<span class="keyword">self</span>, weizhangData<span class="variable">.zongmoney</span>) subscribeNext:^(<span class="built_in">NSNumber</span> *zongmoney) &#123;</span><br><span class="line">    <span class="keyword">if</span> (zongmoney) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *string = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@%@元"</span>, <span class="string">@"罚款："</span>, zongmoney];</span><br><span class="line">        <span class="built_in">NSMutableAttributedString</span> *attrString = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:string];</span><br><span class="line">        <span class="built_in">UIColor</span> *color = [<span class="built_in">UIColor</span> redColor]; <span class="comment">// select needed color</span></span><br><span class="line">        <span class="built_in">NSDictionary</span> *attrs = @&#123;<span class="built_in">NSForegroundColorAttributeName</span>: color&#125;;</span><br><span class="line">        [attrString addAttributes:attrs range:[string rangeOfString:[zongmoney stringValue]]];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.penalty</span><span class="variable">.attributedText</span> = attrString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
-<p>3.uibutton 设置事件<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="keyword">self</span><span class="variable">.askBtn</span> rac_signalForControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>] subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span><span class="variable">.delegate</span> respondsToSelector:<span class="keyword">@selector</span>(addCarTextCellAskPress:)]) &#123;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.delegate</span> addCarTextCellAskPress:<span class="keyword">self</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
-<p>4.检测nsuserdefault<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[[<span class="built_in">NSUserDefaults</span> standardUserDefaults] rac_valuesForKeyPath:<span class="built_in">UID</span> observer:<span class="keyword">self</span>] subscribeNext:^(<span class="built_in">NSNumber</span> *uid) &#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.uid</span> = uid;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-autolayout下更新布局文件时采用动画" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -781,6 +721,71 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-xcode-常用插件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/01/05/xcode-常用插件/" class="article-date">
+  	<time datetime="2014-01-05T13:20:55.000Z" itemprop="datePublished">2014-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/05/xcode-常用插件/">Xcode 常用插件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h2 id="Alcatraz">Alcatraz</h2><p>Xcode插件管理器，这个插件可以管理你为Xcode安装的所有（大部分）插件，之前XVim可以是不能通过这个插件管理的，目前已经好用了。经过测试该插件与Xcode 6兼容。<br>官网：<a><a href="http://alcatraz.io/" target="_blank" rel="external">http://alcatraz.io/</a></a><br>Github:<a><a href="https://github.com/supermarin/Alcatraz" target="_blank" rel="external">https://github.com/supermarin/Alcatraz</a></a><br>安装方法：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh</span><br></pre></td></tr></table></figure></p>
+<p>卸载方法：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin</span><br></pre></td></tr></table></figure></p>
+<p>移除掉所有安装过的插件：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~/Library/Application\ Support/Alcatraz/</span><br></pre></td></tr></table></figure></p>
+<p>使用方法：<br>打开Xcode，打开window，看到Package Manager就是了。快捷键:shift + cmd + 9<br><img src="!--￼3--&gt;/images/xcode_plugin/alcatraz.png" alt="Alcatraz"></p>
+<h2 id="XAlign">XAlign</h2><p>Xcode 代码经常被写的很烂，特别是一些宏定义或者property定义的时候，而Xcode自身好像没有什么好的办法解决代码的缩进。好在有这个插件<a href="https://github.com/qfish/XAlign" target="_blank" rel="external">XAlign</a><br>官网 / Github: <a><a href="https://github.com/qfish/XAlign" target="_blank" rel="external">https://github.com/qfish/XAlign</a></a><br>安装方法：使用alcatraz<br>卸载方法：使用alcatraz<br>使用方法：见官网（由于我暂时不知道怎么把那些动态图弄过来 -_-）</p>
+<h2 id="Cocoapods-xcode-plugin">Cocoapods-xcode-plugin</h2><p><a href="http://cocoapods.org/" target="_blank" rel="external">Cocoapods</a>是个超级好的东西了，管理第三方库，设定依赖关系基本能一键解决了，但是需要在命令行操作，用这个插件就解决了，<a href="https://github.com/kattrali/cocoapods-xcode-plugin" target="_blank" rel="external">传送门</a></p>
+<h2 id="XVim">XVim</h2><p>vim 编辑器之神，XVim插件可以为Xcode增加vim编辑功能，熟悉vim的人不要错过，<a href="https://github.com/JugglerShu/XVim" target="_blank" rel="external">传送门</a><br>注意：XVim的快捷键和XAlign有冲突</p>
+<h2 id="ColorSense-for-Xcode">ColorSense-for-Xcode</h2><p>安了这个插件，当敲[UIColor redcolor]的时候就显示一个红色，很方便，RGB的颜色也可以显示，超酷。<a href="https://github.com/omz/ColorSense-for-Xcode" target="_blank" rel="external">传送门</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
 	</div>
 
       
