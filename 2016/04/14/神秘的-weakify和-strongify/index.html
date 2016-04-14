@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="holysin's blog">
 <meta property="og:description" content="烦恼与挣扎用过 Reactivecocoa（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉
 12345@weakify(self);[self.collectionView hh_addGifRefreshHeaderWithHandler:^&amp;#123;    @strongify(self);    [self fetchLive">
-<meta property="og:updated_time" content="2016-04-14T13:28:35.000Z">
+<meta property="og:updated_time" content="2016-04-14T13:29:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="神秘的 @weakify 和 @strongify">
 <meta name="twitter:description" content="烦恼与挣扎用过 Reactivecocoa（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉
@@ -229,7 +229,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="烦恼与挣扎">烦恼与挣扎</h1><p>用过 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="external">Reactivecocoa</a>（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉</p>
+        <a id="more"></a>
+<h1 id="烦恼与挣扎">烦恼与挣扎</h1><p>用过 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="external">Reactivecocoa</a>（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉</p>
 <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@weakify</span>(<span class="keyword">self</span>);</span><br><span class="line">[<span class="keyword">self</span>.collectionView <span class="symbol">hh_addGifRefreshHeaderWithHandler:</span>^&#123;</span><br><span class="line">    <span class="variable">@strongify</span>(<span class="keyword">self</span>);</span><br><span class="line">    [<span class="keyword">self</span> <span class="symbol">fetchLivesRefresh:</span><span class="constant">YES</span>];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 <p>这是我们项目里面的一段代码，代码很简单，就是给 collectionView 加上下拉刷新。重点是 @weakify(self) 和 @strongify(self) 这两行代码。在不用 RAC 的时候我们的代码大多是这样写的</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> __<span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.collectionView</span> zzb_addGifRefreshHeaderWithHandler:^&#123;</span><br><span class="line">    __<span class="keyword">strong</span> __<span class="keyword">typeof</span>(<span class="keyword">self</span>) strongSelf = weakSelf;</span><br><span class="line">    [<span class="keyword">self</span> fetchLivesRefresh:<span class="literal">YES</span>];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
