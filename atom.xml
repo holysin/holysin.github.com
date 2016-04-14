@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://devliu.com/"/>
-  <updated>2016-04-14T13:27:40.000Z</updated>
+  <updated>2016-04-14T13:28:35.000Z</updated>
   <id>http://devliu.com/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[神秘的@weakify和@strongify]]></title>
+    <title><![CDATA[神秘的 @weakify 和 @strongify]]></title>
     <link href="http://devliu.com/2016/04/14/%E7%A5%9E%E7%A7%98%E7%9A%84-weakify%E5%92%8C-strongify/"/>
     <id>http://devliu.com/2016/04/14/神秘的-weakify和-strongify/</id>
     <published>2016-04-14T11:52:58.000Z</published>
-    <updated>2016-04-14T13:27:40.000Z</updated>
+    <updated>2016-04-14T13:28:35.000Z</updated>
     <content type="html"><![CDATA[<h1 id="烦恼与挣扎">烦恼与挣扎</h1><p>用过 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="external">Reactivecocoa</a>（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉</p>
 <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@weakify</span>(<span class="keyword">self</span>);</span><br><span class="line">[<span class="keyword">self</span>.collectionView <span class="symbol">hh_addGifRefreshHeaderWithHandler:</span>^&#123;</span><br><span class="line">    <span class="variable">@strongify</span>(<span class="keyword">self</span>);</span><br><span class="line">    [<span class="keyword">self</span> <span class="symbol">fetchLivesRefresh:</span><span class="constant">YES</span>];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 <p>这是我们项目里面的一段代码，代码很简单，就是给 collectionView 加上下拉刷新。重点是 @weakify(self) 和 @strongify(self) 这两行代码。在不用 RAC 的时候我们的代码大多是这样写的</p>
