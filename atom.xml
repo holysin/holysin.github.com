@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://devliu.com/"/>
-  <updated>2016-04-13T11:29:10.000Z</updated>
+  <updated>2016-04-14T08:32:12.000Z</updated>
   <id>http://devliu.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://devliu.com/2016/04/12/charles%E4%BB%8B%E7%BB%8D/"/>
     <id>http://devliu.com/2016/04/12/charles介绍/</id>
     <published>2016-04-12T04:08:08.000Z</published>
-    <updated>2016-04-13T11:29:10.000Z</updated>
+    <updated>2016-04-14T08:32:12.000Z</updated>
     <content type="html"><![CDATA[<h1 id="简介">简介</h1><p>Charles 是一款网络抓包分析工具，是一款收费软件，在不付费的情况下也可以使用，但是每次启动要等待 10 秒。在客户端研发过程中，如果能善用 Charles 可以很大的提高开发效率。</p>
 <p>Charles 主要有以下功能：</p>
 <ul>
@@ -69,7 +69,7 @@
 <p>点击 <em>Install Charles Root Certificate</em> 会在 Mac 端安装证书。</p>
 <p>在手机端用 Safari 打开<a href="http://charlesproxy.com/getssl" target="_blank" rel="external">http://charlesproxy.com/getssl</a>，iPhone 会自动下载证书，点击安装即可。</p>
 <p><img src="/images/charles/charles_9.png" alt="SSL iphne 配置"></p>
-<h2 id="设置_Charles_的_SSL_proxy_setting">设置 Charles 的 SSL proxy setting</h2><p>打开 Charles，点击 SSL -&gt; Proxy settings</p>
+<h2 id="设置_Charles_的_SSL_proxy_setting">设置 Charles 的 SSL proxy setting</h2><p>打开 Charles，点击 Proxy -&gt; SSL Proxy settings</p>
 <p><img src="/images/charles/charles_10.png" alt="打开 proxy setting"></p>
 <p>然后添加对应的域名，域名支持通配符</p>
 <p><img src="/images/charles/charles_11.png" alt="proxy setting"></p>
