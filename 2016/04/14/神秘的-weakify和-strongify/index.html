@@ -6,18 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>神秘的 @weakify 和 @strongify | holysin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用过 Reactivecocoa（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉
+  <meta name="description" content="用过 ReactiveCocoa（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉
 12345@weakify(self);[self.collectionView hh_addGifRefreshHeaderWithHandler:^&amp;#123;    @strongify(self);    [self fetchLivesRefr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="神秘的 @weakify 和 @strongify">
 <meta property="og:url" content="http://devliu.com/2016/04/14/神秘的-weakify和-strongify/index.html">
 <meta property="og:site_name" content="holysin's blog">
-<meta property="og:description" content="用过 Reactivecocoa（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉
+<meta property="og:description" content="用过 ReactiveCocoa（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉
 12345@weakify(self);[self.collectionView hh_addGifRefreshHeaderWithHandler:^&amp;#123;    @strongify(self);    [self fetchLivesRefr">
-<meta property="og:updated_time" content="2016-04-14T13:39:39.000Z">
+<meta property="og:updated_time" content="2016-04-14T13:43:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="神秘的 @weakify 和 @strongify">
-<meta name="twitter:description" content="用过 Reactivecocoa（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉
+<meta name="twitter:description" content="用过 ReactiveCocoa（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉
 12345@weakify(self);[self.collectionView hh_addGifRefreshHeaderWithHandler:^&amp;#123;    @strongify(self);    [self fetchLivesRefr">
   
     <link rel="alternative" href="http://devliu.com/atom.xml" title="holysin&#39;s blog" type="application/atom+xml">
@@ -191,7 +191,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>用过 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="external">Reactivecocoa</a>（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉</p>
+        <p>用过 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="external">ReactiveCocoa</a>（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉</p>
 <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@weakify</span>(<span class="keyword">self</span>);</span><br><span class="line">[<span class="keyword">self</span>.collectionView <span class="symbol">hh_addGifRefreshHeaderWithHandler:</span>^&#123;</span><br><span class="line">    <span class="variable">@strongify</span>(<span class="keyword">self</span>);</span><br><span class="line">    [<span class="keyword">self</span> <span class="symbol">fetchLivesRefresh:</span><span class="constant">YES</span>];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 <p>其中的 @weakify(self)，@strongify(self) 更是让人着迷。</p>
 <a id="more"></a>
@@ -256,6 +256,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/04/21/swift中的as-as-as/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          swift中的as,as?,as
+        
+      </div>
+    </a>
   
   
     <a href="/2016/04/12/charles介绍/" id="article-nav-older" class="article-nav-link-wrap">

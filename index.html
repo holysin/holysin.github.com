@@ -152,6 +152,65 @@
 
       <div class="body-wrap">
   
+    <article id="post-swift中的as-as-as" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/21/swift中的as-as-as/" class="article-date">
+  	<time datetime="2016-04-21T08:57:02.000Z" itemprop="datePublished">2016-04-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/21/swift中的as-as-as/">swift中的as,as?,as</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h1 id="as">as</h1><p>as 只能用在 upcast 和 pattern matching</p>
+<h1 id="as?">as?</h1><p>as? 尝试类型转换，如果失败返回 nil</p>
+<h1 id="as!">as!</h1><p>as! 只用于当你确认 downcast 不会失败的时候，如果 downcast 失败，会出现崩溃。</p>
+<blockquote>
+<p>downcast 必须用 as? 或 as！</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-神秘的-weakify和-strongify" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -178,7 +237,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>用过 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa">Reactivecocoa</a>（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉</p>
+        <p>用过 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa">ReactiveCocoa</a>（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉</p>
 <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@weakify</span>(<span class="keyword">self</span>);</span><br><span class="line">[<span class="keyword">self</span>.collectionView <span class="symbol">hh_addGifRefreshHeaderWithHandler:</span>^&#123;</span><br><span class="line">    <span class="variable">@strongify</span>(<span class="keyword">self</span>);</span><br><span class="line">    [<span class="keyword">self</span> <span class="symbol">fetchLivesRefresh:</span><span class="constant">YES</span>];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 <p>其中的 @weakify(self)，@strongify(self) 更是让人着迷。</p>
       
@@ -758,68 +817,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/07/26/V/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-uicollectionview-用法小结" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/20/uicollectionview-用法小结/" class="article-date">
-  	<time datetime="2015-05-20T14:37:53.000Z" itemprop="datePublished">2015-05-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/20/uicollectionview-用法小结/">uicollectionview 用法小结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近项目中要用UICollectionView实现瀑布流，其中遇到了几个问题，在此做一下总结。</p>
-<h2 id="项目需求：">项目需求：</h2><p>1.瀑布流需求。如果采用自带的flowlayout，同一行的cell虽然大小不一致，但会居中对齐，不符合需求。<br>2.cell中圆角和阴影共存。</p>
-<p>请看效果图<br><img src="/images/uicollectionview/uicollectionview.gif" alt="瀑布流效果图"></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/05/20/uicollectionview-用法小结/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

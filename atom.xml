@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://devliu.com/"/>
-  <updated>2016-04-14T13:39:39.000Z</updated>
+  <updated>2016-04-21T08:57:40.000Z</updated>
   <id>http://devliu.com/</id>
   
   <author>
@@ -15,12 +15,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[swift中的as,as?,as]]></title>
+    <link href="http://devliu.com/2016/04/21/swift%E4%B8%AD%E7%9A%84as-as-as/"/>
+    <id>http://devliu.com/2016/04/21/swift中的as-as-as/</id>
+    <published>2016-04-21T08:57:02.000Z</published>
+    <updated>2016-04-21T08:57:40.000Z</updated>
+    <content type="html"><![CDATA[<a id="more"></a>
+<h1 id="as">as</h1><p>as 只能用在 upcast 和 pattern matching</p>
+<h1 id="as?">as?</h1><p>as? 尝试类型转换，如果失败返回 nil</p>
+<h1 id="as!">as!</h1><p>as! 只用于当你确认 downcast 不会失败的时候，如果 downcast 失败，会出现崩溃。</p>
+<blockquote>
+<p>downcast 必须用 as? 或 as！</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<a id="more"></a>
+<h1 id="as">as</h1><p>as 只能用在 upcast 和 pattern matching</p>
+<h1 id="as?">as?</h1><p>as? 尝试类型转换，如果失败返回 nil</p>
+<h1 id="as!"]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[神秘的 @weakify 和 @strongify]]></title>
     <link href="http://devliu.com/2016/04/14/%E7%A5%9E%E7%A7%98%E7%9A%84-weakify%E5%92%8C-strongify/"/>
     <id>http://devliu.com/2016/04/14/神秘的-weakify和-strongify/</id>
     <published>2016-04-14T11:52:58.000Z</published>
-    <updated>2016-04-14T13:39:39.000Z</updated>
-    <content type="html"><![CDATA[<p>用过 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="external">Reactivecocoa</a>（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉</p>
+    <updated>2016-04-14T13:43:52.000Z</updated>
+    <content type="html"><![CDATA[<p>用过 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="external">ReactiveCocoa</a>（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉</p>
 <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@weakify</span>(<span class="keyword">self</span>);</span><br><span class="line">[<span class="keyword">self</span>.collectionView <span class="symbol">hh_addGifRefreshHeaderWithHandler:</span>^&#123;</span><br><span class="line">    <span class="variable">@strongify</span>(<span class="keyword">self</span>);</span><br><span class="line">    [<span class="keyword">self</span> <span class="symbol">fetchLivesRefresh:</span><span class="constant">YES</span>];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 <p>其中的 @weakify(self)，@strongify(self) 更是让人着迷。</p>
 <a id="more"></a>
@@ -79,7 +102,7 @@
 <h1 id="结束">结束</h1><p>各位看官，神秘的 @weakify，@strongify 就分析到这里了，是不是觉得豁然开朗。其实第三方库并没有使用什么黑魔法，我们只要静下心来一步一步分析，就能一探究竟。祝大家玩得开心。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>用过 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa">Reactivecocoa</a>（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉</p>
+    <![CDATA[<p>用过 <a href="https://github.com/ReactiveCocoa/ReactiveCocoa">ReactiveCocoa</a>（这里讨论的是 ObjC 版本，下面简称 ReactiveCocoa 为 RAC）的朋友肯定对下面的代码非常熟悉</p>
 <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@weakify</span>(<span class="keyword">self</span>);</span><br><span class="line">[<span class="keyword">self</span>.collectionView <span class="symbol">hh_addGifRefreshHeaderWithHandler:</span>^&#123;</span><br><span class="line">    <span class="variable">@strongify</span>(<span class="keyword">self</span>);</span><br><span class="line">    [<span class="keyword">self</span> <span class="symbol">fetchLivesRefresh:</span><span class="constant">YES</span>];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 <p>其中的 @weakify(self)，@strongify(self) 更是让人着迷。</p>]]>
     
@@ -1263,31 +1286,6 @@ git <span class="command">log</span> master..experiment
     </summary>
     
       <category term="Xcode" scheme="http://devliu.com/tags/Xcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[群辉入门教程]]></title>
-    <link href="http://devliu.com/2014/07/31/%E7%BE%A4%E8%BE%89%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
-    <id>http://devliu.com/2014/07/31/群辉入门教程/</id>
-    <published>2014-07-31T13:52:43.000Z</published>
-    <updated>2014-07-31T15:55:29.000Z</updated>
-    <content type="html"><![CDATA[<p>先上图片，来自官网，我觉得机子还是很漂亮的，白色机身，非常干净。<br><a id="more"></a><br><img src="!--￼0--&gt;/images/qunhui/001.jpg" alt="正面图"><br><img src="!--￼1--&gt;/images/qunhui/003.jpg" alt="侧面图"><br><img src="!--￼2--&gt;/images/qunhui/004.jpg" alt="背面图"></p>
-<h2 id="安装步骤">安装步骤</h2><p>安装步骤很简单，把外壳打开，把硬盘塞进去，盖上外壳就行了。注意包装里面有螺丝，是用来固定硬盘用的，不要忘了。<br>安装完毕后，用网线接上你的路由器，开启群辉的电源，这时候就可以在局域网中看到了。</p>
-<h2 id="软件设置">软件设置</h2><h3 id="1-在浏览器中输入http://find-synology-com/，就可以打开联机群辉的页面了。">1.在浏览器中输入<a><a href="http://find.synology.com/" target="_blank" rel="external">http://find.synology.com/</a></a>，就可以打开联机群辉的页面了。</h3><p><img src="!--￼3--&gt;/images/qunhui/connect.png" alt="联机界面"></p>
-<h3 id="2-然后会出现登录界面，输入你的用户名，密码就进入到群辉的控制台了（暂且叫控制台吧）。">2.然后会出现登录界面，输入你的用户名，密码就进入到群辉的控制台了（暂且叫控制台吧）。</h3><p><img src="!--￼4--&gt;/images/qunhui/login.png" alt="登录界面"><br><img src="!--￼5--&gt;/images/qunhui/control_panel.png" alt="控制台"></p>
-<h3 id="3-首先进入套件中心，下载必须的套件">3.首先进入套件中心，下载必须的套件</h3><p><img src="!--￼6--&gt;/images/qunhui/widget_center.png" alt="套件中心"><br>群辉提供了老多老多的套件，先介绍几个简单常用的。</p>
-<h4 id="Download_station">Download station</h4><p>Download station和迅雷的界面差不多，大家一用应该就明白了，有一个url批量下载功能，你只需要把要下载的url放入一个文件，然后打开这个文件，群辉就会全部帮你下载。<br><img src="!--￼7--&gt;/images/qunhui/download_center.png" alt="下载中心"><br><img src="!--￼8--&gt;/images/qunhui/download_center_urls.png" alt="下载中心"></p>
-<h4 id="File_station">File station</h4><p>File station是用来管理群会上的文件的，操作也很简单，复制，粘贴，剪切，就是这些基本操作。介绍一下如何建立共享文件夹，共享文件夹指的是能在File station根目录中看见的。<br>1.点击控制面板，共享文件夹<br><img src="!--￼9--&gt;/images/qunhui/share_folder.png" alt="共享文件夹"><br>2.新增，然后取名字比如back_up<br><img src="!--￼10--&gt;/images/qunhui/back_up.png" alt="共享文件夹"><br>3.指定权限为读写<br>这时候在你的File station根目录中就可以看见back_up了。<br><img src="!--￼11--&gt;/images/qunhui/back_up_charge.png" alt="共享文件夹"></p>
-<h4 id="QuickConnect">QuickConnect</h4><p>可以用QuickConnect功能通过外网链接群辉。我试了一下外部访问那个功能，没有配成功，可能由于DDNS没有太理解，或者群辉里面那些DNS提供商被墙的原因吧。QuickConnect一次性就配成功了，只需要注册一个账号就可以了。<br><img src="!--￼12--&gt;/images/qunhui/quick_connect.png" alt="Quick connect"></p>
-<h4 id="Time_machine">Time machine</h4><p>群辉自带time machine功能，可以说是果粉不可缺少的功能了。由于图文较多，就不介绍了， 配置可参考官方教程。<br><a href="http://www.synology.com/zh-tw/support/tutorials/481" target="_blank" rel="external">http://www.synology.com/zh-tw/support/tutorials/481</a><br>大概思路就是建立个共享文件夹，然后制定给mac作为time machine的备份。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>先上图片，来自官网，我觉得机子还是很漂亮的，白色机身，非常干净。<br>]]>
-    
-    </summary>
-    
-      <category term="群辉" scheme="http://devliu.com/tags/%E7%BE%A4%E8%BE%89/"/>
     
   </entry>
   
