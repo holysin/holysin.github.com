@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://devliu.com/"/>
-  <updated>2016-04-21T09:00:03.000Z</updated>
+  <updated>2016-04-21T09:08:44.000Z</updated>
   <id>http://devliu.com/</id>
   
   <author>
@@ -15,24 +15,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[swift 中的 as, as?, as]]></title>
+    <title><![CDATA[swift 中的 as, as?, as!]]></title>
     <link href="http://devliu.com/2016/04/21/swift%E4%B8%AD%E7%9A%84as-as-as/"/>
     <id>http://devliu.com/2016/04/21/swift中的as-as-as/</id>
     <published>2016-04-21T08:57:02.000Z</published>
-    <updated>2016-04-21T09:00:03.000Z</updated>
-    <content type="html"><![CDATA[<a id="more"></a>
-<h1 id="as">as</h1><p>as 只能用在 upcast 和 pattern matching</p>
+    <updated>2016-04-21T09:08:44.000Z</updated>
+    <content type="html"><![CDATA[<p>swift 中 as，as?，as! 的区别<br><a id="more"></a></p>
+<h1 id="as">as</h1><p>as 只能用在 upcast 或者 指明类型，和 pattern matching</p>
+<h2 id="指明类型">指明类型</h2><figure class="highlight mizar"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> width = 42 <span class="keyword">as</span> CGFloat</span><br><span class="line"><span class="keyword">let</span> block = &#123; x <span class="keyword">in</span> x+1 &#125; <span class="keyword">as</span> Double -&gt; Double</span><br><span class="line"><span class="keyword">let</span> something = 3 <span class="keyword">as</span> Any?  // optional wrapper can also <span class="keyword">be</span> added with '<span class="keyword">as</span>'</span><br></pre></td></tr></table></figure>
+<h2 id="pattern_matching">pattern matching</h2><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">switch</span> item &#123;</span><br><span class="line"><span class="title">case</span> <span class="keyword">let</span> obj <span class="keyword">as</span> <span class="type">MyObject</span>:</span><br><span class="line">    // this code will be executed <span class="keyword">if</span> item is <span class="keyword">of</span> <span class="typedef"><span class="keyword">type</span> <span class="type">MyObject</span></span></span><br><span class="line"><span class="title">case</span> <span class="keyword">let</span> other <span class="keyword">as</span> <span class="type">SomethingElse</span>:</span><br><span class="line">    // this code will be executed <span class="keyword">if</span> item is <span class="keyword">of</span> <span class="typedef"><span class="keyword">type</span> <span class="type">SomethingElse</span></span></span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="as?">as?</h1><p>as? 尝试类型转换，如果失败返回 nil</p>
-<h1 id="as!">as!</h1><p>as! 只用于当你确认 downcast 不会失败的时候，如果 downcast 失败，会出现崩溃。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> button = someView <span class="keyword">as</span>? UIButton  <span class="comment">// button's type is 'UIButton?'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> label = (superview <span class="keyword">as</span>? MyView)?.titleLabel &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="as!">as!</h1><p>as! 只用于当你确认 downcast 不会失败的时候，如果 downcast 失败，会出现崩溃。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NOT RECOMMENDED.</span></span><br><span class="line"><span class="keyword">let</span> buttons = subviews <span class="keyword">as</span>! [UIButton]  <span class="comment">// will crash if not all subviews are UIButton</span></span><br><span class="line"><span class="keyword">let</span> label = subviews.first <span class="keyword">as</span>! UILabel</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>downcast 必须用 as? 或 as！</p>
 </blockquote>
 ]]></content>
     <summary type="html">
-    <![CDATA[<a id="more"></a>
-<h1 id="as">as</h1><p>as 只能用在 upcast 和 pattern matching</p>
-<h1 id="as?">as?</h1><p>as? 尝试类型转换，如果失败返回 nil</p>
-<h1 id="as!"]]>
+    <![CDATA[<p>swift 中 as，as?，as! 的区别<br>]]>
+    
     </summary>
     
       <category term="swift" scheme="http://devliu.com/tags/swift/"/>
