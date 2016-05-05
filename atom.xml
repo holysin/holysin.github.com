@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://devliu.com/"/>
-  <updated>2016-04-21T09:08:44.000Z</updated>
+  <updated>2016-04-21T09:08:15.000Z</updated>
   <id>http://devliu.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://devliu.com/2016/04/21/swift%E4%B8%AD%E7%9A%84as-as-as/"/>
     <id>http://devliu.com/2016/04/21/swift中的as-as-as/</id>
     <published>2016-04-21T08:57:02.000Z</published>
-    <updated>2016-04-21T09:08:44.000Z</updated>
+    <updated>2016-04-21T09:08:15.000Z</updated>
     <content type="html"><![CDATA[<p>swift 中 as，as?，as! 的区别<br><a id="more"></a></p>
 <h1 id="as">as</h1><p>as 只能用在 upcast 或者 指明类型，和 pattern matching</p>
 <h2 id="指明类型">指明类型</h2><figure class="highlight mizar"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> width = 42 <span class="keyword">as</span> CGFloat</span><br><span class="line"><span class="keyword">let</span> block = &#123; x <span class="keyword">in</span> x+1 &#125; <span class="keyword">as</span> Double -&gt; Double</span><br><span class="line"><span class="keyword">let</span> something = 3 <span class="keyword">as</span> Any?  // optional wrapper can also <span class="keyword">be</span> added with '<span class="keyword">as</span>'</span><br></pre></td></tr></table></figure>
@@ -502,39 +502,52 @@
     <link href="http://devliu.com/2015/08/31/resume/"/>
     <id>http://devliu.com/2015/08/31/resume/</id>
     <published>2015-08-31T05:50:17.000Z</published>
-    <updated>2015-08-31T06:33:23.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="学历">学历</h1><h2 id="硕士_东北大学_2010-09_-_2012-07_计算机应用技术">硕士 东北大学 2010.09 - 2012.07 计算机应用技术</h2><h2 id="学士_长安大学_2005-09_-_2009-07_建筑设施智能技术">学士 长安大学 2005.09 - 2009.07 建筑设施智能技术</h2><h1 id="工作经历">工作经历</h1><h2 id="猎豹移动_2013-04_至今">猎豹移动 2013.04 至今</h2><h3 id="iOS_电池医生">iOS 电池医生</h3><ul>
-<li>充电屏保开发，负责充电屏保复杂动画的开发工作</li>
-<li>应用市场，定制TableView，实现上滑隐藏顶部导航栏，定制tableView实现表格布局，优化滚动速度。封装应用市场SDK，提供给第三方厂商使用</li>
-<li>应用市场自定义顶部导航栏</li>
-<li>活动中心</li>
+    <updated>2016-05-05T14:32:13.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="学历">学历</h1><h2 id="硕士_东北大学_2010-09_-_2012-07_计算机应用技术">硕士 东北大学 2010.09 - 2012.07 计算机应用技术</h2><h2 id="学士_长安大学_2005-09_-_2009-07_建筑设施智能技术">学士 长安大学 2005.09 - 2009.07 建筑设施智能技术</h2><h1 id="工作经历">工作经历</h1><h2 id="快乐迭代_2015-11_至今">快乐迭代 2015.11 至今</h2><h3 id="在直播">在直播</h3><p>项目简介：面向大众的直播应用</p>
+<ul>
+<li>重构主播端和观众端代码，之前的代码几乎无法维护</li>
+<li>用 ReactiveCocoa 重构网络请求 API，增强可读性和可维护性</li>
+<li>重写首页列表和排行榜列表，代码尽可能复用</li>
+<li>封装键盘管理类，去掉重复的键盘注册代码</li>
+<li>限时照片功能</li>
+<li>用 MVVM 和 ReactiveCocoa 重构部分代码</li>
+<li>用 fastlane 和 jenkins 进行多个马甲账号的自动化构建</li>
+<li>自定义控件</li>
 </ul>
-<h3 id="iOS_shine">iOS shine</h3><ul>
-<li>自定义UICollectionView布局，实现瀑布流效果</li>
-<li>定制TabbarController，实现推入页面隐藏底部tabbar.</li>
-<li>扩展SDWebImage，实现对animated webp格式的支持</li>
-<li>使用autolayout搭建评论系统，IM系统的界面</li>
-<li>自定义CoreTextLabel，支持自定义表情，连接，标签，电话号码，地址等的匹配和相关回调，支持Aautolayout</li>
-<li>自定义表情键盘（基于自定义UICollectionView的布局），与系统键盘无缝切换</li>
-<li>使用ReactiveCocoa实现MVVM模式，去掉大量状态依赖，减少潜在bug，实现业务逻辑与UI的完美解耦</li>
-<li>使用Core Data，存储用户数据</li>
-<li>大量优化CollectionView和TableView的滚动速度</li>
-<li>大量自定义控件，熟练使用Quartz2D，Core Animation</li>
-<li>熟练使用git进行版本管理</li>
-<li>实现注册登录流程及Facebook的接入</li>
-<li>70%以上的接口对接，使用JSONModel序列化数据</li>
+<h2 id="猎豹移动_2013-04_-_2015-11">猎豹移动 2013.04 - 2015.11</h2><h3 id="电池医生">电池医生</h3><ul>
+<li>充电屏保模块，研发充电屏保复杂动画</li>
+<li>应用市场模块，实现上滑隐藏顶部导航栏，定制 tableView 实现表格布局，优化滚动速度。</li>
+<li>埋点工作</li>
+<li>活动中心，native 版本和 H5 版本。在 H5 版本中实现本地和 WebView 的交互</li>
+<li>充电水波纹效果</li>
 </ul>
-<h2 id="智信创想">智信创想</h2><h3 id="iOS_宝来药通_2012-10_-_2013-04">iOS 宝来药通 2012.10 - 2013.04</h3><ul>
-<li>封装TableviewController基类，将上下拉，数据存储等功能进行封装</li>
-<li>聊天系统，采用Core Text图文混排，支持自定义表情，自定义表情键盘</li>
-<li>使用Core Data存储用户数据，熟练使用Magical Record和RestKit</li>
-<li>使用RestKit和AFNetworking对接服务端</li>
+<h3 id="Shine">Shine</h3><p>项目简介：短视频社交应用</p>
+<ul>
+<li>自定义 UICollectionView 布局，实现瀑布流效果</li>
+<li>扩展 SDWebImage，实现对 Animated WebP 格式的支持</li>
+<li>IM 功能，界面搭建和聊天记录存储</li>
+<li>自定义 CoreTextLabel，支持自定义表情</li>
+<li>自定义表情键盘，与系统键盘无缝切换</li>
+<li>使用 MVVM 和 ReactiveCocoa</li>
+<li>使用 Core Data，存储用户数据</li>
+<li>优化 CollectionView 和 TableView 的滚动速度</li>
+<li>自定义控件，熟练使用Quartz2D，Core Animation</li>
+<li>使用 git 进行版本管理</li>
+<li>登录注册功能，猎豹账号系统和 Facebook SDK</li>
+<li>对接服务端接口</li>
+</ul>
+<h2 id="智信创想_2012-10_-_2013-04">智信创想 2012.10 - 2013.04</h2><h3 id="宝来药通">宝来药通</h3><p>项目简介：面向医药工作者的应用</p>
+<ul>
+<li>封装 TableviewController 基类，将上拉下拉，数据存储等功能进行封装</li>
+<li>聊天系统，采用 Core Text 图文混排，支持自定义表情，自定义表情键盘</li>
+<li>使用 Core Data 存储用户数据，熟练使用 Magical Record 和 RestKit</li>
+<li>使用 RestKit 和 AFNetworking 对接服务端</li>
 </ul>
 <h1 id="个人优势">个人优势</h1><ul>
-<li>很强的学习能力，对新技术能很快的掌握并应用</li>
-<li>重视基础，常读Apple官方文档和观看WWDC视频，能快速定位Bug的根本原因</li>
-<li>经常阅读优质博客，比如objcio，nshipster等。经常浏览Github上优质的开源项目</li>
-<li>支持正版软件</li>
+<li>很强的学习能力，对新技术能很快的掌握</li>
+<li>重视基础，常读 Apple 官方文档和观看 WWDC 视频</li>
+<li>阅读优质博客，比如 Objc.io，NSHipster 等。</li>
+<li>阅读 Github 上优质开源项目源码</li>
 </ul>
 ]]></content>
     <summary type="html">
